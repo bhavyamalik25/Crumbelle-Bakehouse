@@ -13,23 +13,24 @@
 /* ============================================================
    CRUMBELLE BAKEHOUSE — FULL WEBSITE
    Design: Editorial cottagecore, asymmetric, handcrafted
+   Palette: Rose & Dusty Fig
    ============================================================ */
 
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 
 :root {
-  --ink:       #2A1F14;
-  --bark:      #5C3D2A;
-  --caramel:   #B8722A;
-  --honey:     #D4A044;
-  --cream:     #FAF6EE;
-  --parchment: #F2EBD9;
-  --linen:     #E8DEC8;
-  --blush:     #E8C4A8;
-  --dustrose:  #C8967A;
-  --sage:      #8A9E7A;
+  --ink:       #2B1A1F;
+  --bark:      #7A3B4A;
+  --caramel:   #C4697A;
+  --honey:     #E8B4B8;
+  --cream:     #FAF2EE;
+  --parchment: #F5E8E4;
+  --linen:     #EDD8D4;
+  --blush:     #E8B4B8;
+  --dustrose:  #C4697A;
+  --sage:      #8FA882;
   --mossy:     #5E7A52;
-  --mist:      #D8DDD0;
+  --mist:      #D4B896;
 
   --f-display: 'DM Serif Display', Georgia, serif;
   --f-serif:   'Cormorant Garamond', Georgia, serif;
@@ -73,10 +74,10 @@ nav {
   transition: all 0.5s ease;
 }
 nav.scrolled {
-  background: rgba(250,246,238,0.94);
+  background: rgba(250,242,238,0.94);
   backdrop-filter: blur(16px);
   padding: 14px 5%;
-  border-bottom: 1px solid rgba(184,114,42,0.12);
+  border-bottom: 1px solid rgba(196,105,122,0.12);
 }
 .nav-logo {
   font-family: var(--f-display);
@@ -140,12 +141,12 @@ nav.scrolled {
 }
 .hero-right-img {
   position: absolute; inset: 0;
-  background: linear-gradient(160deg, #E8DEC8 0%, #D4C4A4 40%, #C4A87C 100%);
+  background: linear-gradient(160deg, #EDD8D4 0%, #DEC4C0 40%, #C8A0A8 100%);
 }
 .hero-right-img::after {
   content:'';
   position:absolute; inset:0;
-  background: radial-gradient(ellipse at 60% 40%, rgba(212,160,68,0.15) 0%, transparent 70%);
+  background: radial-gradient(ellipse at 60% 40%, rgba(196,105,122,0.15) 0%, transparent 70%);
 }
 
 /* Illustrated bread SVG in hero */
@@ -307,17 +308,17 @@ nav.scrolled {
   position: absolute; bottom: -60px; left: -60px;
   width: 300px; height: 300px;
   border-radius: 50%;
-  background: rgba(184,114,42,0.08);
+  background: rgba(196,105,122,0.08);
 }
 .about-left-deco2 {
   position: absolute; top: 40px; right: -40px;
   width: 180px; height: 180px;
   border-radius: 50%;
-  background: rgba(212,160,68,0.06);
+  background: rgba(232,180,184,0.06);
 }
 .about-left .section-title { color: var(--cream); font-size: clamp(32px,3vw,52px); }
 .about-left .section-eyebrow { color: var(--honey); }
-.about-left .section-body { color: rgba(250,246,238,0.65); margin-top:24px; }
+.about-left .section-body { color: rgba(250,242,238,0.65); margin-top:24px; }
 
 .about-image-grid {
   display: grid;
@@ -332,10 +333,10 @@ nav.scrolled {
 .about-img-item:hover img { transform: scale(1.06); }
 .about-img-caption {
   position: absolute; bottom: 0; left: 0; right: 0;
-  background: linear-gradient(transparent, rgba(42,31,20,0.6));
+  background: linear-gradient(transparent, rgba(43,26,31,0.6));
   padding: 30px 20px 14px;
   font-family: var(--f-serif); font-style:italic;
-  font-size: 13px; color: rgba(250,246,238,0.9);
+  font-size: 13px; color: rgba(250,242,238,0.9);
   letter-spacing: 0.04em;
   opacity: 0; transition: opacity 0.4s ease;
 }
@@ -347,7 +348,7 @@ nav.scrolled {
   background: var(--parchment);
   display: flex; justify-content: space-around;
   padding: 40px 5%;
-  border-top: 1px solid rgba(184,114,42,0.12);
+  border-top: 1px solid rgba(196,105,122,0.12);
 }
 .stat-item { text-align:center; }
 .stat-num {
@@ -370,7 +371,7 @@ nav.scrolled {
 .today-label {
   font-size:10px; letter-spacing:0.3em; text-transform:uppercase;
   color: var(--ink); font-weight: 500;
-  background: rgba(42,31,20,0.1); padding:4px 12px; border-radius:2px;
+  background: rgba(43,26,31,0.1); padding:4px 12px; border-radius:2px;
 }
 .today-text {
   font-family: var(--f-display); font-size:20px; color:var(--ink);
@@ -450,11 +451,11 @@ nav.scrolled {
   cursor: pointer;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   position: relative;
-  border: 1px solid rgba(184,114,42,0.1);
+  border: 1px solid rgba(196,105,122,0.1);
 }
 .menu-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 60px rgba(42,31,20,0.14);
+  box-shadow: 0 20px 60px rgba(43,26,31,0.14);
 }
 .menu-card-img {
   height: 200px; overflow:hidden; position:relative;
@@ -466,7 +467,7 @@ nav.scrolled {
 .menu-card:hover .menu-card-img img { transform:scale(1.08); }
 .menu-card-img-overlay {
   position:absolute; inset:0;
-  background: linear-gradient(to bottom, transparent 50%, rgba(42,31,20,0.2) 100%);
+  background: linear-gradient(to bottom, transparent 50%, rgba(43,26,31,0.2) 100%);
 }
 
 /* Large featured card */
@@ -495,7 +496,7 @@ nav.scrolled {
 .menu-card-footer {
   display:flex; align-items:center; justify-content:space-between;
   margin-top:14px; padding-top:12px;
-  border-top:1px solid rgba(184,114,42,0.1);
+  border-top:1px solid rgba(196,105,122,0.1);
 }
 .heart-btn {
   background:none; border:none; cursor:pointer;
@@ -557,9 +558,9 @@ nav.scrolled {
   display:grid; grid-template-columns: 48px 1fr;
   gap:20px; align-items:start;
   padding:24px 0;
-  border-bottom:1px solid rgba(184,114,42,0.12);
+  border-bottom:1px solid rgba(196,105,122,0.12);
 }
-.phil-item:first-child { border-top:1px solid rgba(184,114,42,0.12); }
+.phil-item:first-child { border-top:1px solid rgba(196,105,122,0.12); }
 .phil-num {
   font-family:var(--f-serif); font-style:italic;
   font-size:11px; color:var(--caramel); padding-top:4px;
@@ -588,7 +589,7 @@ nav.scrolled {
   background:var(--blush);
   border-radius:4px; overflow:hidden;
   border:6px solid var(--cream);
-  box-shadow: 0 12px 40px rgba(42,31,20,0.12);
+  box-shadow: 0 12px 40px rgba(43,26,31,0.12);
 }
 .philosophy-quote {
   position:absolute; top:-24px; right:-20px;
@@ -625,10 +626,10 @@ nav.scrolled {
   border-radius:50%; background:rgba(255,255,255,0.08);
 }
 .hours-left .section-title { color:var(--cream); }
-.hours-left .section-eyebrow { color:rgba(250,246,238,0.7); }
+.hours-left .section-eyebrow { color:rgba(250,242,238,0.7); }
 .hours-tagline {
   font-family:var(--f-serif); font-style:italic;
-  font-size:17px; color:rgba(250,246,238,0.75);
+  font-size:17px; color:rgba(250,242,238,0.75);
   margin-top:20px; line-height:1.6;
 }
 .hours-right {
@@ -638,18 +639,18 @@ nav.scrolled {
 .hours-row {
   display:flex; justify-content:space-between; align-items:baseline;
   padding: 22px 0;
-  border-bottom:1px solid rgba(250,246,238,0.08);
+  border-bottom:1px solid rgba(250,242,238,0.08);
 }
 .hours-day {
   font-size:11px; letter-spacing:0.2em; text-transform:uppercase;
-  color:rgba(250,246,238,0.5); font-weight:400;
+  color:rgba(250,242,238,0.5); font-weight:400;
 }
 .hours-time {
   font-family:var(--f-display); font-size:26px; color:var(--honey);
 }
 .hours-note {
   font-family:var(--f-serif); font-style:italic;
-  font-size:13px; color:rgba(250,246,238,0.4);
+  font-size:13px; color:rgba(250,242,238,0.4);
   text-align:right; margin-top:4px;
 }
 .hours-row-inner { text-align:right; }
@@ -673,10 +674,10 @@ nav.scrolled {
 .gallery-cell:hover img { transform:scale(1.06); }
 .gallery-cell-label {
   position:absolute; bottom:0; left:0; right:0;
-  background:linear-gradient(transparent, rgba(42,31,20,0.55));
+  background:linear-gradient(transparent, rgba(43,26,31,0.55));
   padding:40px 20px 16px;
   font-family:var(--f-serif); font-style:italic;
-  font-size:14px; color:rgba(250,246,238,0.85);
+  font-size:14px; color:rgba(250,242,238,0.85);
   letter-spacing:0.04em;
   opacity:0; transition:opacity 0.4s;
 }
@@ -693,7 +694,7 @@ nav.scrolled {
 .info-item { display:flex; gap:20px; align-items:flex-start; }
 .info-icon {
   width:40px;height:40px; flex-shrink:0;
-  border:1px solid rgba(184,114,42,0.25);
+  border:1px solid rgba(196,105,122,0.25);
   border-radius:2px;
   display:flex;align-items:center;justify-content:center;
 }
@@ -710,7 +711,7 @@ nav.scrolled {
   border-radius:4px; overflow:hidden;
   aspect-ratio:4/3;
   position:relative;
-  border:1px solid rgba(184,114,42,0.15);
+  border:1px solid rgba(196,105,122,0.15);
 }
 .map-placeholder-inner {
   width:100%;height:100%;
@@ -733,7 +734,7 @@ nav.scrolled {
 }
 #contact .section-title { color:var(--cream); }
 #contact .section-eyebrow { color:var(--honey); }
-#contact .section-body { color:rgba(250,246,238,0.55); margin-top:20px; }
+#contact .section-body { color:rgba(250,242,238,0.55); margin-top:20px; }
 .contact-pull-quote {
   font-family:var(--f-display); font-size:clamp(24px,3vw,38px);
   color:var(--honey); line-height:1.3; margin-top:36px;
@@ -744,18 +745,18 @@ nav.scrolled {
 .form-group { margin-bottom:20px; }
 .form-label {
   display:block; font-size:10px;letter-spacing:0.25em;text-transform:uppercase;
-  color:rgba(250,246,238,0.4); margin-bottom:8px; font-weight:500;
+  color:rgba(250,242,238,0.4); margin-bottom:8px; font-weight:500;
 }
 .form-input, .form-textarea {
   width:100%; padding:14px 0;
   background:transparent;
-  border:none; border-bottom:1px solid rgba(250,246,238,0.15);
+  border:none; border-bottom:1px solid rgba(250,242,238,0.15);
   color:var(--cream); font-family:var(--f-serif); font-size:16px;
   outline:none; transition:border-color 0.3s;
   border-radius:0;
 }
 .form-input::placeholder, .form-textarea::placeholder {
-  color:rgba(250,246,238,0.2); font-style:italic;
+  color:rgba(250,242,238,0.2); font-style:italic;
 }
 .form-input:focus, .form-textarea:focus {
   border-bottom-color:var(--honey);
@@ -772,7 +773,7 @@ nav.scrolled {
 /* ─── FOOTER ─── */
 footer {
   background: var(--ink);
-  border-top:1px solid rgba(250,246,238,0.06);
+  border-top:1px solid rgba(250,242,238,0.06);
   padding:60px 7% 32px;
 }
 .footer-top {
@@ -785,47 +786,47 @@ footer {
 }
 .footer-brand-sub {
   font-family:var(--f-serif); font-style:italic;
-  font-size:13px; color:rgba(250,246,238,0.35); letter-spacing:0.08em;
+  font-size:13px; color:rgba(250,242,238,0.35); letter-spacing:0.08em;
 }
 .footer-tagline {
   font-family:var(--f-serif); font-style:italic;
-  font-size:15px; color:rgba(250,246,238,0.4);
+  font-size:15px; color:rgba(250,242,238,0.4);
   line-height:1.7; margin-top:20px; max-width:260px;
 }
 .footer-col-title {
   font-size:10px; letter-spacing:0.25em; text-transform:uppercase;
-  color:rgba(250,246,238,0.3); margin-bottom:16px; font-weight:500;
+  color:rgba(250,242,238,0.3); margin-bottom:16px; font-weight:500;
 }
 .footer-col ul { list-style:none; display:flex;flex-direction:column;gap:10px; }
 .footer-col a {
   font-family:var(--f-serif); font-size:15px;
-  color:rgba(250,246,238,0.45); text-decoration:none;
+  color:rgba(250,242,238,0.45); text-decoration:none;
   transition:color 0.3s;
 }
 .footer-col a:hover { color:var(--honey); }
 .footer-bottom {
-  border-top:1px solid rgba(250,246,238,0.06);
+  border-top:1px solid rgba(250,242,238,0.06);
   padding-top:24px;
   display:flex; justify-content:space-between; align-items:center;
   flex-wrap:wrap; gap:12px;
 }
 .footer-copy {
-  font-size:12px; color:rgba(250,246,238,0.2); letter-spacing:0.05em;
+  font-size:12px; color:rgba(250,242,238,0.2); letter-spacing:0.05em;
 }
 .footer-socials { display:flex; gap:16px; }
 .social-link {
   width:36px;height:36px; border-radius:2px;
-  border:1px solid rgba(250,246,238,0.1);
+  border:1px solid rgba(250,242,238,0.1);
   display:flex;align-items:center;justify-content:center;
   text-decoration:none; transition:all 0.3s;
-  color:rgba(250,246,238,0.35);
+  color:rgba(250,242,238,0.35);
 }
-.social-link:hover { border-color:var(--honey); color:var(--honey); background:rgba(212,160,68,0.08); }
+.social-link:hover { border-color:var(--honey); color:var(--honey); background:rgba(232,180,184,0.08); }
 
 /* ─── MODAL ─── */
 .modal-overlay {
   display:none; position:fixed; inset:0; z-index:9000;
-  background:rgba(42,31,20,0.7);
+  background:rgba(43,26,31,0.7);
   align-items:center; justify-content:center;
   padding:20px;
   backdrop-filter:blur(6px);
@@ -845,12 +846,12 @@ footer {
 .modal-body { padding:32px; }
 .modal-close {
   position:absolute; top:14px; right:14px; z-index:2;
-  background:rgba(42,31,20,0.5); border:none; cursor:pointer;
+  background:rgba(43,26,31,0.5); border:none; cursor:pointer;
   width:32px;height:32px; border-radius:50%;
   color:#fff; font-size:18px; display:flex;align-items:center;justify-content:center;
   transition:background 0.2s; line-height:1;
 }
-.modal-close:hover { background:rgba(42,31,20,0.8); }
+.modal-close:hover { background:rgba(43,26,31,0.8); }
 .modal-name { font-family:var(--f-display); font-size:30px; color:var(--ink); margin-bottom:10px; }
 .modal-desc {
   font-family:var(--f-serif); font-style:italic;
@@ -864,12 +865,12 @@ footer {
 .season-btn {
   position:fixed; bottom:28px; right:28px; z-index:700;
   background:var(--parchment); color:var(--ink);
-  border:1px solid rgba(184,114,42,0.25);
+  border:1px solid rgba(196,105,122,0.25);
   padding:10px 18px; cursor:pointer;
   font-family:var(--f-body); font-size:10px;letter-spacing:0.2em;text-transform:uppercase;
   border-radius:2px;
   display:flex;align-items:center;gap:8px;
-  box-shadow:0 4px 20px rgba(42,31,20,0.1);
+  box-shadow:0 4px 20px rgba(43,26,31,0.1);
   transition:all 0.3s;
 }
 .season-btn:hover { background:var(--ink); color:var(--cream); }
@@ -975,9 +976,9 @@ body.spring-mode {
           <line x1="70" y1="24" x2="80" y2="70" stroke="#B8722A" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
           <line x1="90" y1="24" x2="100" y2="70" stroke="#B8722A" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
           <!-- flour dust -->
-          <circle cx="30" cy="50" r="2" fill="#F2EBD9" opacity="0.7"/>
-          <circle cx="130" cy="45" r="1.5" fill="#F2EBD9" opacity="0.6"/>
-          <circle cx="20" cy="60" r="1" fill="#F2EBD9" opacity="0.5"/>
+          <circle cx="30" cy="50" r="2" fill="#F5E8E4" opacity="0.7"/>
+          <circle cx="130" cy="45" r="1.5" fill="#F5E8E4" opacity="0.6"/>
+          <circle cx="20" cy="60" r="1" fill="#F5E8E4" opacity="0.5"/>
         </g>
         <!-- Croissant -->
         <g transform="translate(40,230) rotate(-15)">
@@ -996,15 +997,15 @@ body.spring-mode {
           <!-- saucer -->
           <ellipse cx="25" cy="78" rx="32" ry="8" fill="#C4A87C" opacity="0.5"/>
           <!-- steam -->
-          <path d="M15,18 Q18,10 15,2" stroke="#E8DEC8" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6" class="steam-path-hero"/>
-          <path d="M25,16 Q28,8 25,0" stroke="#E8DEC8" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.5" class="steam-path-hero"/>
-          <path d="M35,18 Q38,10 35,2" stroke="#E8DEC8" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6" class="steam-path-hero"/>
+          <path d="M15,18 Q18,10 15,2" stroke="#EDD8D4" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6" class="steam-path-hero"/>
+          <path d="M25,16 Q28,8 25,0" stroke="#EDD8D4" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.5" class="steam-path-hero"/>
+          <path d="M35,18 Q38,10 35,2" stroke="#EDD8D4" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6" class="steam-path-hero"/>
         </g>
         <!-- Scatter flour -->
-        <circle cx="60" cy="310" r="2.5" fill="#F2EBD9" opacity="0.8"/>
-        <circle cx="90" cy="320" r="1.5" fill="#F2EBD9" opacity="0.6"/>
-        <circle cx="200" cy="305" r="2" fill="#F2EBD9" opacity="0.7"/>
-        <circle cx="260" cy="315" r="1.5" fill="#F2EBD9" opacity="0.5"/>
+        <circle cx="60" cy="310" r="2.5" fill="#F5E8E4" opacity="0.8"/>
+        <circle cx="90" cy="320" r="1.5" fill="#F5E8E4" opacity="0.6"/>
+        <circle cx="200" cy="305" r="2" fill="#F5E8E4" opacity="0.7"/>
+        <circle cx="260" cy="315" r="1.5" fill="#F5E8E4" opacity="0.5"/>
         <!-- Rolling pin doodle -->
         <g transform="translate(40,150) rotate(-20)" opacity="0.4">
           <rect x="0" y="8" width="100" height="14" rx="7" fill="#C4A87C"/>
@@ -1013,39 +1014,36 @@ body.spring-mode {
         </g>
         <!-- Wheat sprig doodle -->
         <g transform="translate(260,160)" opacity="0.35">
-          <line x1="10" y1="80" x2="10" y2="0" stroke="#8A9E7A" stroke-width="1.5" stroke-linecap="round"/>
-          <ellipse cx="10" cy="15" rx="5" ry="9" fill="#8A9E7A" transform="rotate(-20,10,15)"/>
-          <ellipse cx="10" cy="15" rx="5" ry="9" fill="#8A9E7A" transform="rotate(20,10,15)"/>
-          <ellipse cx="10" cy="30" rx="5" ry="9" fill="#8A9E7A" transform="rotate(-20,10,30)"/>
-          <ellipse cx="10" cy="30" rx="5" ry="9" fill="#8A9E7A" transform="rotate(20,10,30)"/>
-          <ellipse cx="10" cy="45" rx="5" ry="9" fill="#8A9E7A" transform="rotate(-20,10,45)"/>
-          <ellipse cx="10" cy="45" rx="5" ry="9" fill="#8A9E7A" transform="rotate(20,10,45)"/>
+          <line x1="10" y1="80" x2="10" y2="0" stroke="#8FA882" stroke-width="1.5" stroke-linecap="round"/>
+          <ellipse cx="10" cy="15" rx="5" ry="9" fill="#8FA882" transform="rotate(-20,10,15)"/>
+          <ellipse cx="10" cy="15" rx="5" ry="9" fill="#8FA882" transform="rotate(20,10,15)"/>
+          <ellipse cx="10" cy="30" rx="5" ry="9" fill="#8FA882" transform="rotate(-20,10,30)"/>
+          <ellipse cx="10" cy="30" rx="5" ry="9" fill="#8FA882" transform="rotate(20,10,30)"/>
+          <ellipse cx="10" cy="45" rx="5" ry="9" fill="#8FA882" transform="rotate(-20,10,45)"/>
+          <ellipse cx="10" cy="45" rx="5" ry="9" fill="#8FA882" transform="rotate(20,10,45)"/>
         </g>
         <!-- Sparkle doodles -->
         <g opacity="0.5">
-          <path d="M200,60 L202,50 L204,60 L214,62 L204,64 L202,74 L200,64 L190,62 Z" fill="#D4A044"/>
-          <path d="M50,100 L51,94 L52,100 L58,101 L52,102 L51,108 L50,102 L44,101 Z" fill="#B8722A"/>
-          <path d="M270,220 L271,215 L272,220 L277,221 L272,222 L271,227 L270,222 L265,221 Z" fill="#D4A044" opacity="0.6"/>
+          <path d="M200,60 L202,50 L204,60 L214,62 L204,64 L202,74 L200,64 L190,62 Z" fill="#E8B4B8"/>
+          <path d="M50,100 L51,94 L52,100 L58,101 L52,102 L51,108 L50,102 L44,101 Z" fill="#C4697A"/>
+          <path d="M270,220 L271,215 L272,220 L277,221 L272,222 L271,227 L270,222 L265,221 Z" fill="#E8B4B8" opacity="0.6"/>
         </g>
       </svg>
     </div>
     <!-- Floating doodles -->
     <svg class="hero-doodle" style="top:8%;right:10%;width:60px;animation-delay:0s;" viewBox="0 0 60 60" fill="none">
-      <!-- Small pastry doodle -->
-      <path d="M10,30 Q10,12 30,12 Q50,12 50,30 Q50,42 30,45 Q10,42 10,30 Z" fill="#E8C4A8" stroke="#C4905C" stroke-width="1.5"/>
-      <path d="M18,28 Q22,20 30,20 Q38,20 42,28" stroke="#C4905C" stroke-width="1" fill="none" opacity="0.6"/>
+      <path d="M10,30 Q10,12 30,12 Q50,12 50,30 Q50,42 30,45 Q10,42 10,30 Z" fill="#E8B4B8" stroke="#C4697A" stroke-width="1.5"/>
+      <path d="M18,28 Q22,20 30,20 Q38,20 42,28" stroke="#C4697A" stroke-width="1" fill="none" opacity="0.6"/>
     </svg>
     <svg class="hero-doodle" style="bottom:22%;right:6%;width:50px;animation-delay:2s;" viewBox="0 0 50 50" fill="none">
-      <!-- Star / sparkle -->
-      <path d="M25,5 L28,20 L43,25 L28,30 L25,45 L22,30 L7,25 L22,20 Z" fill="#D4A044" opacity="0.7"/>
+      <path d="M25,5 L28,20 L43,25 L28,30 L25,45 L22,30 L7,25 L22,20 Z" fill="#E8B4B8" opacity="0.7"/>
     </svg>
     <svg class="hero-doodle" style="top:40%;right:3%;width:40px;animation-delay:3.5s;" viewBox="0 0 40 60" fill="none">
-      <!-- Wheat sprig small -->
-      <line x1="20" y1="58" x2="20" y2="0" stroke="#8A9E7A" stroke-width="1.5" stroke-linecap="round"/>
-      <ellipse cx="20" cy="14" rx="6" ry="11" fill="#8A9E7A" transform="rotate(-25,20,14)"/>
-      <ellipse cx="20" cy="14" rx="6" ry="11" fill="#8A9E7A" transform="rotate(25,20,14)"/>
-      <ellipse cx="20" cy="32" rx="6" ry="11" fill="#8A9E7A" transform="rotate(-25,20,32)"/>
-      <ellipse cx="20" cy="32" rx="6" ry="11" fill="#8A9E7A" transform="rotate(25,20,32)"/>
+      <line x1="20" y1="58" x2="20" y2="0" stroke="#8FA882" stroke-width="1.5" stroke-linecap="round"/>
+      <ellipse cx="20" cy="14" rx="6" ry="11" fill="#8FA882" transform="rotate(-25,20,14)"/>
+      <ellipse cx="20" cy="14" rx="6" ry="11" fill="#8FA882" transform="rotate(25,20,14)"/>
+      <ellipse cx="20" cy="32" rx="6" ry="11" fill="#8FA882" transform="rotate(-25,20,32)"/>
+      <ellipse cx="20" cy="32" rx="6" ry="11" fill="#8FA882" transform="rotate(25,20,32)"/>
     </svg>
   </div>
   <div class="hero-deco-year">Est. 2012 &nbsp; Crumbelle Bakehouse</div>
@@ -1090,19 +1088,19 @@ body.spring-mode {
   <div>
     <div class="about-image-grid">
       <div class="about-img-item reveal">
-        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=80" alt="Fresh baked bread loaves">
+        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=600&q=80" alt="Cozy bakery morning scene">
         <div class="about-img-caption">fresh from the oven, every morning</div>
       </div>
       <div class="about-img-item reveal reveal-delay-1">
-        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&q=80" alt="Baker at work">
+        <img src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=600&q=80" alt="Baker kneading dough">
         <div class="about-img-caption">shaped by hand, always</div>
       </div>
       <div class="about-img-item reveal reveal-delay-2">
-        <img src="https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?w=600&q=80" alt="Pastries display">
+        <img src="https://images.unsplash.com/photo-1556711905-b2c7e849b979?w=600&q=80" alt="Warm pastries on linen">
         <div class="about-img-caption">little joys, carefully made</div>
       </div>
       <div class="about-img-item reveal reveal-delay-3">
-        <img src="https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?w=600&q=80" alt="Cozy bakery interior">
+        <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=600&q=80" alt="Cozy bakery corner with flowers">
         <div class="about-img-caption">a place to pause and stay</div>
       </div>
     </div>
@@ -1161,10 +1159,10 @@ body.spring-mode {
       <span class="chapter-sub">"Warm from the Hearth"</span>
     </div>
     <div class="menu-grid-mixed">
-      <div class="menu-card featured" onclick="openModal('Golden Hearth Sourdough','Slow-fermented, crusty outside, cloud-soft inside — our most beloved loaf, kissed by the hearth and loved by everyone who tries it.','₹180','https://images.unsplash.com/photo-1585478259715-876acc5be8eb?w=800&q=80')">
+      <div class="menu-card featured" onclick="openModal('Golden Hearth Sourdough','Slow-fermented, crusty outside, cloud-soft inside — our most beloved loaf, kissed by the hearth and loved by everyone who tries it.','₹180','https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=800&q=80')">
         <div class="card-badge badge-fresh">Today's Fresh</div>
         <div class="menu-card-img">
-          <img src="https://images.unsplash.com/photo-1585478259715-876acc5be8eb?w=800&q=80" alt="Golden Hearth Sourdough" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=800&q=80" alt="Golden Hearth Sourdough" loading="lazy">
           <div class="menu-card-img-overlay"></div>
         </div>
         <div class="menu-card-body">
@@ -1181,9 +1179,9 @@ body.spring-mode {
           </div>
         </div>
       </div>
-      <div class="menu-card tall" onclick="openModal('Honey Oat Morning Loaf','Lightly sweet, soft as a dream — oats kissed with golden honey, perfect with butter and a slow morning.','₹160','https://images.unsplash.com/photo-1534620808146-d33bb39128b2?w=600&q=80')">
+      <div class="menu-card tall" onclick="openModal('Honey Oat Morning Loaf','Lightly sweet, soft as a dream — oats kissed with golden honey, perfect with butter and a slow morning.','₹160','https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=600&q=80')">
         <div class="menu-card-img">
-          <img src="https://images.unsplash.com/photo-1534620808146-d33bb39128b2?w=600&q=80" alt="Honey Oat Morning Loaf" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=600&q=80" alt="Honey Oat Morning Loaf" loading="lazy">
           <div class="menu-card-img-overlay"></div>
         </div>
         <div class="menu-card-body">
@@ -1200,10 +1198,10 @@ body.spring-mode {
           </div>
         </div>
       </div>
-      <div class="menu-card" onclick="openModal('Rosemary Butter Focaccia','Fluffy, aromatic, brushed with golden herb butter — a soft slab of pure comfort, dimpled and fragrant from the oven.','₹200','https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=600&q=80')">
+      <div class="menu-card" onclick="openModal('Rosemary Butter Focaccia','Fluffy, aromatic, brushed with golden herb butter — a soft slab of pure comfort, dimpled and fragrant from the oven.','₹200','https://images.unsplash.com/photo-1619535860434-cf9b902a3d16?w=600&q=80')">
         <div class="card-badge badge-fav">Chef&apos;s Pick</div>
         <div class="menu-card-img">
-          <img src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=600&q=80" alt="Rosemary Butter Focaccia" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1619535860434-cf9b902a3d16?w=600&q=80" alt="Rosemary Butter Focaccia" loading="lazy">
           <div class="menu-card-img-overlay"></div>
         </div>
         <div class="menu-card-body">
@@ -1220,9 +1218,9 @@ body.spring-mode {
           </div>
         </div>
       </div>
-      <div class="menu-card" onclick="openModal('Cinnamon Cloud Rolls','Swirled with cinnamon sugar and vanilla glaze — soft as a cloud, sweet as a Sunday morning you don\'t want to end.','₹150','https://images.unsplash.com/photo-1620146344904-097a0002d39a?w=600&q=80')">
+      <div class="menu-card" onclick="openModal('Cinnamon Cloud Rolls','Swirled with cinnamon sugar and vanilla glaze — soft as a cloud, sweet as a Sunday morning you don\'t want to end.','₹150','https://images.unsplash.com/photo-1591985666643-9a2d742b15bf?w=600&q=80')">
         <div class="menu-card-img">
-          <img src="https://images.unsplash.com/photo-1620146344904-097a0002d39a?w=600&q=80" alt="Cinnamon Cloud Rolls" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1591985666643-9a2d742b15bf?w=600&q=80" alt="Cinnamon Cloud Rolls" loading="lazy">
           <div class="menu-card-img-overlay"></div>
         </div>
         <div class="menu-card-body">
@@ -1250,10 +1248,10 @@ body.spring-mode {
       <span class="chapter-sub">"Little Joys"</span>
     </div>
     <div class="menu-grid-4">
-      <div class="menu-card" onclick="openModal('Honey Butter Croissant','Flaky layers kissed with warm honey glaze — golden, buttery, made fresh every morning before you even wake up.','₹140','https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&q=80')">
+      <div class="menu-card" onclick="openModal('Honey Butter Croissant','Flaky layers kissed with warm honey glaze — golden, buttery, made fresh every morning before you even wake up.','₹140','https://images.unsplash.com/photo-1530610476181-d83430b64dcd?w=600&q=80')">
         <div class="card-badge badge-fresh">Today's Fresh</div>
         <div class="menu-card-img">
-          <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&q=80" alt="Honey Butter Croissant" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1530610476181-d83430b64dcd?w=600&q=80" alt="Honey Butter Croissant" loading="lazy">
           <div class="menu-card-img-overlay"></div>
         </div>
         <div class="menu-card-body">
@@ -1270,9 +1268,9 @@ body.spring-mode {
           </div>
         </div>
       </div>
-      <div class="menu-card" onclick="openModal('Strawberry Blush Tart','Buttery crust with soft cream and fresh berries — bright, delicate, as dreamy as a spring morning in full bloom.','₹170','https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=80')">
+      <div class="menu-card" onclick="openModal('Strawberry Blush Tart','Buttery crust with soft cream and fresh berries — bright, delicate, as dreamy as a spring morning in full bloom.','₹170','https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600&q=80')">
         <div class="menu-card-img">
-          <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=80" alt="Strawberry Blush Tart" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600&q=80" alt="Strawberry Blush Tart" loading="lazy">
           <div class="menu-card-img-overlay"></div>
         </div>
         <div class="menu-card-body">
@@ -1289,9 +1287,9 @@ body.spring-mode {
           </div>
         </div>
       </div>
-      <div class="menu-card" onclick="openModal('Vanilla Dream Éclair','Silky vanilla cream in delicate choux pastry — light as air, gentle as a whisper, gone before you know it.','₹160','https://images.unsplash.com/photo-1516559228584-6739a7ea7b72?w=600&q=80')">
+      <div class="menu-card" onclick="openModal('Vanilla Dream Éclair','Silky vanilla cream in delicate choux pastry — light as air, gentle as a whisper, gone before you know it.','₹160','https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80')">
         <div class="menu-card-img">
-          <img src="https://images.unsplash.com/photo-1516559228584-6739a7ea7b72?w=600&q=80" alt="Vanilla Dream Éclair" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80" alt="Vanilla Dream Éclair" loading="lazy">
           <div class="menu-card-img-overlay"></div>
         </div>
         <div class="menu-card-body">
@@ -1338,9 +1336,9 @@ body.spring-mode {
       <span class="chapter-sub">"Soft Celebrations"</span>
     </div>
     <div class="menu-grid-4">
-      <div class="menu-card" onclick="openModal('Blush Velvet Slice','Soft pink velvet cake with cream cheese frosting — tender, romantic, made for gentle moments and quiet celebrations.','₹220','https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80')">
+      <div class="menu-card" onclick="openModal('Blush Velvet Slice','Soft pink velvet cake with cream cheese frosting — tender, romantic, made for gentle moments and quiet celebrations.','₹220','https://images.unsplash.com/photo-1559620192-032c4bc4674e?w=600&q=80')">
         <div class="menu-card-img">
-          <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80" alt="Blush Velvet Slice" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1559620192-032c4bc4674e?w=600&q=80" alt="Blush Velvet Slice" loading="lazy">
           <div class="menu-card-img-overlay"></div>
         </div>
         <div class="menu-card-body">
@@ -1377,9 +1375,9 @@ body.spring-mode {
           </div>
         </div>
       </div>
-      <div class="menu-card" onclick="openModal('Lemon Sunshine Slice','Zesty, light, refreshing — like bottled sunshine with a perfectly buttery crust and a gentle citrus warmth.','₹200','https://images.unsplash.com/photo-1548365328-8c6db3220e4c?w=600&q=80')">
+      <div class="menu-card" onclick="openModal('Lemon Sunshine Slice','Zesty, light, refreshing — like bottled sunshine with a perfectly buttery crust and a gentle citrus warmth.','₹200','https://images.unsplash.com/photo-1562777717-dc6984f65a63?w=600&q=80')">
         <div class="menu-card-img">
-          <img src="https://images.unsplash.com/photo-1548365328-8c6db3220e4c?w=600&q=80" alt="Lemon Sunshine Slice" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1562777717-dc6984f65a63?w=600&q=80" alt="Lemon Sunshine Slice" loading="lazy">
           <div class="menu-card-img-overlay"></div>
         </div>
         <div class="menu-card-body">
@@ -1396,9 +1394,9 @@ body.spring-mode {
           </div>
         </div>
       </div>
-      <div class="menu-card" onclick="openModal('Coffee Crumb Cake','Buttery crumble with warm coffee notes — the perfect companion for a quiet afternoon that asks nothing of you.','₹210','https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600&q=80')">
+      <div class="menu-card" onclick="openModal('Coffee Crumb Cake','Buttery crumble with warm coffee notes — the perfect companion for a quiet afternoon that asks nothing of you.','₹210','https://images.unsplash.com/photo-1504113888839-1c8eb50233d3?w=600&q=80')">
         <div class="menu-card-img">
-          <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600&q=80" alt="Coffee Crumb Cake" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1504113888839-1c8eb50233d3?w=600&q=80" alt="Coffee Crumb Cake" loading="lazy">
           <div class="menu-card-img-overlay"></div>
         </div>
         <div class="menu-card-body">
@@ -1426,15 +1424,15 @@ body.spring-mode {
       <span class="chapter-sub">"Sip &amp; Stay Awhile"</span>
     </div>
     <div class="menu-grid-4">
-      <div class="menu-card drink-card" onclick="openModal('Velvet Hot Chocolate','Thick, creamy, topped with soft foam — warm as a blanket, comforting as a quiet evening with nowhere to be.','₹180','https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?w=600&q=80')">
+      <div class="menu-card drink-card" onclick="openModal('Velvet Hot Chocolate','Thick, creamy, topped with soft foam — warm as a blanket, comforting as a quiet evening with nowhere to be.','₹180','https://images.unsplash.com/photo-1611270629569-8b357cb88da9?w=600&q=80')">
         <div class="menu-card-img" style="background:#3D2010;">
           <div class="drink-visual">
             <svg class="steam-svg" viewBox="0 0 60 50" fill="none">
-              <path class="steam-path" d="M15,45 Q10,35 15,25 Q20,15 15,5" stroke="rgba(232,222,200,0.6)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-              <path class="steam-path" d="M30,45 Q25,35 30,22 Q35,12 30,2" stroke="rgba(232,222,200,0.5)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-              <path class="steam-path" d="M45,45 Q40,35 45,25 Q50,15 45,5" stroke="rgba(232,222,200,0.6)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <path class="steam-path" d="M15,45 Q10,35 15,25 Q20,15 15,5" stroke="rgba(237,216,212,0.6)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <path class="steam-path" d="M30,45 Q25,35 30,22 Q35,12 30,2" stroke="rgba(237,216,212,0.5)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <path class="steam-path" d="M45,45 Q40,35 45,25 Q50,15 45,5" stroke="rgba(237,216,212,0.6)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
             </svg>
-            <img src="https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?w=600&q=80" alt="Velvet Hot Chocolate" style="position:absolute;inset:0;opacity:0.9;" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1611270629569-8b357cb88da9?w=600&q=80" alt="Velvet Hot Chocolate" style="position:absolute;inset:0;opacity:0.9;" loading="lazy">
           </div>
           <div class="menu-card-img-overlay"></div>
         </div>
@@ -1452,15 +1450,15 @@ body.spring-mode {
           </div>
         </div>
       </div>
-      <div class="menu-card drink-card" onclick="openModal('Honey Cinnamon Latte','Warm spice and gentle sweetness — every sip is a soft, golden hug that asks you to slow down and breathe.','₹170','https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=600&q=80')">
+      <div class="menu-card drink-card" onclick="openModal('Honey Cinnamon Latte','Warm spice and gentle sweetness — every sip is a soft, golden hug that asks you to slow down and breathe.','₹170','https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600&q=80')">
         <div class="menu-card-img" style="background:#5A3010;">
           <div class="drink-visual">
             <svg class="steam-svg" viewBox="0 0 60 50" fill="none">
-              <path class="steam-path" d="M15,45 Q10,35 15,25 Q20,15 15,5" stroke="rgba(232,222,200,0.5)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-              <path class="steam-path" d="M30,45 Q25,35 30,22 Q35,12 30,2" stroke="rgba(232,222,200,0.5)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-              <path class="steam-path" d="M45,45 Q40,35 45,25 Q50,15 45,5" stroke="rgba(232,222,200,0.5)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <path class="steam-path" d="M15,45 Q10,35 15,25 Q20,15 15,5" stroke="rgba(237,216,212,0.5)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <path class="steam-path" d="M30,45 Q25,35 30,22 Q35,12 30,2" stroke="rgba(237,216,212,0.5)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <path class="steam-path" d="M45,45 Q40,35 45,25 Q50,15 45,5" stroke="rgba(237,216,212,0.5)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
             </svg>
-            <img src="https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=600&q=80" alt="Honey Cinnamon Latte" style="position:absolute;inset:0;opacity:0.9;" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600&q=80" alt="Honey Cinnamon Latte" style="position:absolute;inset:0;opacity:0.9;" loading="lazy">
           </div>
           <div class="menu-card-img-overlay"></div>
         </div>
@@ -1478,9 +1476,9 @@ body.spring-mode {
           </div>
         </div>
       </div>
-      <div class="menu-card" onclick="openModal('Iced Vanilla Cloud Coffee','Light, airy, and slightly sweet — a dreamy iced coffee that floats as softly as morning clouds above the town.','₹190','https://images.unsplash.com/photo-1551030173-122aabc4489c?w=600&q=80')">
+      <div class="menu-card" onclick="openModal('Iced Vanilla Cloud Coffee','Light, airy, and slightly sweet — a dreamy iced coffee that floats as softly as morning clouds above the town.','₹190','https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&q=80')">
         <div class="menu-card-img">
-          <img src="https://images.unsplash.com/photo-1551030173-122aabc4489c?w=600&q=80" alt="Iced Vanilla Cloud Coffee" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&q=80" alt="Iced Vanilla Cloud Coffee" loading="lazy">
           <div class="menu-card-img-overlay"></div>
         </div>
         <div class="menu-card-body">
@@ -1497,15 +1495,15 @@ body.spring-mode {
           </div>
         </div>
       </div>
-      <div class="menu-card drink-card" onclick="openModal('Chamomile Calm Tea','Soft floral, soothing and warm — the quiet cup you deserve at the end of a long day, steeped with care.','₹120','https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=600&q=80')">
+      <div class="menu-card drink-card" onclick="openModal('Chamomile Calm Tea','Soft floral, soothing and warm — the quiet cup you deserve at the end of a long day, steeped with care.','₹120','https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600&q=80')">
         <div class="menu-card-img" style="background:#7A6040;">
           <div class="drink-visual">
             <svg class="steam-svg" viewBox="0 0 60 50" fill="none">
-              <path class="steam-path" d="M15,45 Q10,35 15,25 Q20,15 15,5" stroke="rgba(232,222,200,0.5)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-              <path class="steam-path" d="M30,45 Q25,35 30,22 Q35,12 30,2" stroke="rgba(232,222,200,0.5)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-              <path class="steam-path" d="M45,45 Q40,35 45,25 Q50,15 45,5" stroke="rgba(232,222,200,0.5)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <path class="steam-path" d="M15,45 Q10,35 15,25 Q20,15 15,5" stroke="rgba(237,216,212,0.5)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <path class="steam-path" d="M30,45 Q25,35 30,22 Q35,12 30,2" stroke="rgba(237,216,212,0.5)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <path class="steam-path" d="M45,45 Q40,35 45,25 Q50,15 45,5" stroke="rgba(237,216,212,0.5)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
             </svg>
-            <img src="https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=600&q=80" alt="Chamomile Calm Tea" style="position:absolute;inset:0;opacity:0.9;" loading="lazy">
+            <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600&q=80" alt="Chamomile Calm Tea" style="position:absolute;inset:0;opacity:0.9;" loading="lazy">
           </div>
           <div class="menu-card-img-overlay"></div>
         </div>
@@ -1534,18 +1532,18 @@ body.spring-mode {
       <span class="chapter-sub">"Made with Extra Love"</span>
     </div>
     <div class="menu-grid-2">
-      <div class="menu-card featured" onclick="openModal('B\'s Fav Butter Chicken Pizza','Creamy butter chicken spread over a soft baked crust, topped with melted cheese, a gentle hint of spice, and a quietly homemade touch — where Indian comfort meets bakehouse warmth.','₹320','https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80')">
+      <div class="menu-card featured" onclick="openModal('B\'s Favourite','A butter chicken margherita pizza — creamy, spiced butter chicken sauce spread over a soft hand-baked crust, topped with melted mozzarella, fresh basil, and just enough heat to make you go back for another slice. Where Indian comfort meets Italian soul.','₹320','https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=800&q=80')">
         <div class="card-badge badge-special">Chef's Favourite</div>
         <div class="menu-card-img" style="height:260px;">
-          <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800&q=80" alt="Butter Chicken Pizza" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=800&q=80" alt="B's Favourite Butter Chicken Pizza" loading="lazy">
           <div class="menu-card-img-overlay"></div>
         </div>
         <div class="menu-card-body">
           <div class="menu-card-top">
-            <div class="menu-card-name">B's Fav Butter Chicken Pizza</div>
+            <div class="menu-card-name">B's Favourite</div>
             <div class="menu-card-price">₹320</div>
           </div>
-          <div class="menu-card-desc">Creamy butter chicken on soft baked crust — where comfort food meets indulgence</div>
+          <div class="menu-card-desc">A butter chicken margherita — creamy spiced sauce, melted mozzarella, on a soft baked crust. Where Indian comfort meets Italian soul.</div>
           <div class="menu-card-footer">
             <span style="font-family:var(--f-serif);font-style:italic;font-size:12px;color:var(--caramel);">Our most talked-about item</span>
             <button class="heart-btn" onclick="toggleHeart(event,this)" aria-label="Favourite">
@@ -1554,10 +1552,10 @@ body.spring-mode {
           </div>
         </div>
       </div>
-      <div class="menu-card featured" onclick="openModal('Crumbelle Signature Breakfast Board','Mini croissant, house jam, golden butter, seasonal fruit, and your choice of warm drink — the ultimate slow morning, arranged with care and served with love.','₹280','https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?w=800&q=80')">
+      <div class="menu-card featured" onclick="openModal('Crumbelle Signature Breakfast Board','Mini croissant, house jam, golden butter, seasonal fruit, and your choice of warm drink — the ultimate slow morning, arranged with care and served with love.','₹280','https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=800&q=80')">
         <div class="card-badge badge-fav">Best Seller</div>
         <div class="menu-card-img" style="height:260px;">
-          <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?w=800&q=80" alt="Breakfast Board" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=800&q=80" alt="Breakfast Board" loading="lazy">
           <div class="menu-card-img-overlay"></div>
         </div>
         <div class="menu-card-body">
@@ -1621,10 +1619,10 @@ body.spring-mode {
       "Bread is the kindest thing you can bake for someone."
     </div>
     <div class="philosophy-img-main">
-      <img src="https://images.unsplash.com/photo-1464195244916-405fa0a82545?w=600&q=80" alt="Crumbelle interior" style="height:100%;">
+      <img src="https://images.unsplash.com/photo-1470756544705-1848092be0d4?w=600&q=80" alt="Crumbelle interior" style="height:100%;">
     </div>
     <div class="philosophy-img-float">
-      <img src="https://images.unsplash.com/photo-1612240498936-65f5101365d2?w=400&q=80" alt="Fresh pastries" style="height:100%;">
+      <img src="https://images.unsplash.com/photo-1556711905-b2c7e849b979?w=400&q=80" alt="Fresh pastries" style="height:100%;">
     </div>
   </div>
 </section>
@@ -1639,10 +1637,10 @@ body.spring-mode {
     <p class="hours-tagline reveal reveal-delay-2">We open with the sunrise and close with the last crumb.</p>
     <!-- Hours doodle -->
     <svg style="margin-top:32px;width:80px;opacity:0.5;" viewBox="0 0 80 80" fill="none" class="reveal reveal-delay-3">
-      <circle cx="40" cy="40" r="35" stroke="rgba(250,246,238,0.4)" stroke-width="1.5"/>
-      <line x1="40" y1="40" x2="40" y2="14" stroke="rgba(250,246,238,0.7)" stroke-width="2" stroke-linecap="round"/>
-      <line x1="40" y1="40" x2="58" y2="50" stroke="rgba(250,246,238,0.5)" stroke-width="1.5" stroke-linecap="round"/>
-      <circle cx="40" cy="40" r="3" fill="rgba(250,246,238,0.6)"/>
+      <circle cx="40" cy="40" r="35" stroke="rgba(250,242,238,0.4)" stroke-width="1.5"/>
+      <line x1="40" y1="40" x2="40" y2="14" stroke="rgba(250,242,238,0.7)" stroke-width="2" stroke-linecap="round"/>
+      <line x1="40" y1="40" x2="58" y2="50" stroke="rgba(250,242,238,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="40" cy="40" r="3" fill="rgba(250,242,238,0.6)"/>
     </svg>
   </div>
   <div class="hours-right">
@@ -1687,23 +1685,23 @@ body.spring-mode {
   </div>
   <div class="gallery-mosaic">
     <div class="gallery-cell reveal">
-      <img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?w=800&q=80" alt="Bakehouse warmth">
+      <img src="https://images.unsplash.com/photo-1464306076886-f251ddd87c68?w=800&q=80" alt="Bakehouse warmth">
       <div class="gallery-cell-label">morning light in the bakery</div>
     </div>
     <div class="gallery-cell reveal reveal-delay-1">
-      <img src="https://images.unsplash.com/photo-1603532648955-039310d9ed75?w=600&q=80" alt="Fresh croissants">
+      <img src="https://images.unsplash.com/photo-1530610476181-d83430b64dcd?w=600&q=80" alt="Fresh croissants">
       <div class="gallery-cell-label">golden croissants, just out</div>
     </div>
     <div class="gallery-cell reveal reveal-delay-2">
-      <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&q=80" alt="Pastry close-up">
+      <img src="https://images.unsplash.com/photo-1556711905-b2c7e849b979?w=600&q=80" alt="Pastry close-up">
       <div class="gallery-cell-label">layers of care</div>
     </div>
     <div class="gallery-cell reveal reveal-delay-3">
-      <img src="https://images.unsplash.com/photo-1600353565168-db6dbef7e8f9?w=600&q=80" alt="Cozy coffee">
+      <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600&q=80" alt="Cozy coffee">
       <div class="gallery-cell-label">sip and stay awhile</div>
     </div>
     <div class="gallery-cell reveal reveal-delay-4">
-      <img src="https://images.unsplash.com/photo-1471943311424-646960669fbc?w=600&q=80" alt="Cakes display">
+      <img src="https://images.unsplash.com/photo-1559620192-032c4bc4674e?w=600&q=80" alt="Cakes display">
       <div class="gallery-cell-label">soft celebrations</div>
     </div>
   </div>
@@ -1748,11 +1746,11 @@ body.spring-mode {
     </div>
   </div>
   <div class="visit-map reveal reveal-delay-2">
-    <div class="map-placeholder-inner" style="background:linear-gradient(135deg,#E8DEC8,#D4C4A4);">
+    <div class="map-placeholder-inner" style="background:linear-gradient(135deg,#EDD8D4,#DEC4C0);">
       <svg class="map-pin-anim" width="40" height="52" viewBox="0 0 40 52" fill="none">
-        <path d="M20 0C9 0 0 9 0 20C0 34 20 52 20 52C20 52 40 34 40 20C40 9 31 0 20 0Z" fill="#B8722A"/>
-        <circle cx="20" cy="20" r="8" fill="#FAF6EE"/>
-        <circle cx="20" cy="20" r="4" fill="#B8722A"/>
+        <path d="M20 0C9 0 0 9 0 20C0 34 20 52 20 52C20 52 40 34 40 20C40 9 31 0 20 0Z" fill="#C4697A"/>
+        <circle cx="20" cy="20" r="8" fill="#FAF2EE"/>
+        <circle cx="20" cy="20" r="4" fill="#C4697A"/>
       </svg>
       <div class="map-address">12 Hearthstone Lane<br>Millbrook Village</div>
       <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn-dark" style="margin-top:16px;font-size:10px;">Open in Maps</a>
@@ -1894,8 +1892,8 @@ function toggleHeart(e, btn) {
   btn.classList.toggle('liked');
   const svg = btn.querySelector('svg path');
   if (btn.classList.contains('liked')) {
-    svg.setAttribute('fill', '#C4705A');
-    svg.setAttribute('stroke', '#C4705A');
+    svg.setAttribute('fill', '#C4697A');
+    svg.setAttribute('stroke', '#C4697A');
   } else {
     svg.setAttribute('fill', 'none');
     svg.setAttribute('stroke', 'currentColor');
