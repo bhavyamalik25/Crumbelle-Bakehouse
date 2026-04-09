@@ -3,927 +3,905 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Crumbelle Bakehouse — Freshly Baked Happiness</title>
-<meta name="description" content="A small-town bakery baking happiness every morning. Fresh breads, pastries, cakes, and cozy sips.">
+<title>Crumbelle Bakehouse</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display:ital@0;1&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Caveat:wght@400;500;700&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
 <style>
-/* ============================================================
-   CRUMBELLE BAKEHOUSE — FULL WEBSITE
-   Design: Editorial cottagecore, asymmetric, handcrafted
-   Palette: Rose & Dusty Fig
-   ============================================================ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-
-:root {
-  --ink:       #2B1A1F;
-  --bark:      #7A3B4A;
-  --caramel:   #C4697A;
-  --honey:     #E8B4B8;
-  --cream:     #FAF2EE;
-  --parchment: #F5E8E4;
-  --linen:     #EDD8D4;
-  --blush:     #E8B4B8;
-  --dustrose:  #C4697A;
-  --sage:      #8FA882;
-  --mossy:     #5E7A52;
-  --mist:      #D4B896;
-
-  --f-display: 'DM Serif Display', Georgia, serif;
-  --f-serif:   'Cormorant Garamond', Georgia, serif;
-  --f-body:    'Jost', system-ui, sans-serif;
-  --f-accent:  'Libre Baskerville', Georgia, serif;
+:root{
+  --ink:#1C1008;
+  --deep:#2E1A0E;
+  --bark:#5C3317;
+  --umber:#8B5A2B;
+  --wheat:#C9956A;
+  --cream:#FBF4E9;
+  --parchment:#F5E9D5;
+  --linen:#EDD9B8;
+  --warm:#E8C99A;
+  --blush:#D4907A;
+  --rose:#B86B5A;
+  --sage:#7A9E76;
+  --moss:#4A7245;
+  --mist:#C8B89A;
 }
 
-html { scroll-behavior: smooth; }
+html{scroll-behavior:smooth}
 
-body {
-  font-family: var(--f-body);
-  background: var(--cream);
-  color: var(--ink);
-  overflow-x: hidden;
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-/* GRAIN TEXTURE OVERLAY */
-body::before {
-  content: '';
-  position: fixed; inset: 0; z-index: 9999;
-  pointer-events: none;
-  opacity: 0.025;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-  background-size: 128px 128px;
+body{
+  font-family:'Crimson Pro',Georgia,serif;
+  background:var(--cream);
+  color:var(--ink);
+  overflow-x:hidden;
+  cursor:none;
 }
 
-img { display: block; width: 100%; height: 100%; object-fit: cover; }
-
-/* ─── SCROLLBAR ─── */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--parchment); }
-::-webkit-scrollbar-thumb { background: var(--blush); border-radius: 3px; }
-
-/* ─── NAV ─── */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 800;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 20px 5%;
-  transition: all 0.5s ease;
+/* CUSTOM CURSOR */
+.cursor{
+  position:fixed;width:12px;height:12px;border-radius:50%;
+  background:var(--rose);pointer-events:none;z-index:99999;
+  mix-blend-mode:multiply;transition:transform 0.15s ease;
+  transform:translate(-50%,-50%);
 }
-nav.scrolled {
-  background: rgba(250,242,238,0.94);
-  backdrop-filter: blur(16px);
-  padding: 14px 5%;
-  border-bottom: 1px solid rgba(196,105,122,0.12);
-}
-.nav-logo {
-  font-family: var(--f-display);
-  font-size: 22px;
-  color: var(--ink);
-  text-decoration: none;
-  letter-spacing: 0.02em;
-}
-.nav-logo span {
-  display: block;
-  font-family: var(--f-serif);
-  font-style: italic;
-  font-size: 11px;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--caramel);
-  font-weight: 300;
-  margin-top: -4px;
-}
-.nav-links {
-  display: flex; gap: 36px; list-style: none; align-items: center;
-}
-.nav-links a {
-  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--bark); text-decoration: none; font-weight: 400;
-  position: relative; transition: color 0.3s;
-}
-.nav-links a::after {
-  content:''; position:absolute; bottom:-3px; left:0;
-  width:0; height:1px; background:var(--caramel);
-  transition: width 0.35s ease;
-}
-.nav-links a:hover { color: var(--caramel); }
-.nav-links a:hover::after { width:100%; }
-.nav-order {
-  font-size:11px; letter-spacing:0.18em; text-transform:uppercase;
-  background: var(--ink); color: var(--cream) !important;
-  padding: 10px 22px; border-radius: 2px;
-  transition: all 0.3s ease !important;
-}
-.nav-order::after { display:none !important; }
-.nav-order:hover { background: var(--caramel) !important; color: var(--cream) !important; }
-
-/* ─── HERO ─── */
-#hero {
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  position: relative;
-  overflow: hidden;
-}
-.hero-left {
-  background: var(--parchment);
-  display: flex; flex-direction: column; justify-content: center;
-  padding: 140px 6% 80px 8%;
-  position: relative; z-index: 2;
-}
-.hero-right {
-  position: relative; overflow: hidden;
-  background: var(--linen);
-}
-.hero-right-img {
-  position: absolute; inset: 0;
-  background: linear-gradient(160deg, #EDD8D4 0%, #DEC4C0 40%, #C8A0A8 100%);
-}
-.hero-right-img::after {
-  content:'';
-  position:absolute; inset:0;
-  background: radial-gradient(ellipse at 60% 40%, rgba(196,105,122,0.15) 0%, transparent 70%);
+.cursor-ring{
+  position:fixed;width:36px;height:36px;border-radius:50%;
+  border:1px solid var(--wheat);pointer-events:none;z-index:99998;
+  transform:translate(-50%,-50%);transition:all 0.25s ease;
+  opacity:0.6;
 }
 
-/* Illustrated bread SVG in hero */
-.hero-illustration {
-  position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%);
-  width: 320px; opacity: 0.9;
-  animation: heroFloat 7s ease-in-out infinite;
-}
-@keyframes heroFloat {
-  0%,100%{ transform:translateX(-50%) translateY(0); }
-  50%{ transform:translateX(-50%) translateY(-14px); }
-}
-.hero-tag {
-  display:inline-flex; align-items:center; gap: 8px;
-  font-family:var(--f-serif); font-style:italic;
-  font-size: 14px; color: var(--caramel); margin-bottom: 28px;
-  letter-spacing: 0.05em;
-}
-.hero-tag-dot { width:6px;height:6px;border-radius:50%;background:var(--caramel);flex-shrink:0; }
-.hero-h1 {
-  font-family: var(--f-display);
-  font-size: clamp(48px, 5.5vw, 82px);
-  line-height: 1.0;
-  color: var(--ink);
-  margin-bottom: 28px;
-  letter-spacing: -0.01em;
-}
-.hero-h1 em {
-  font-style: italic;
-  color: var(--caramel);
-  display: block;
-}
-.hero-p {
-  font-family: var(--f-serif);
-  font-size: 18px; line-height: 1.75;
-  color: var(--bark); font-weight: 300;
-  max-width: 400px; margin-bottom: 44px;
-}
-.hero-btns { display:flex; gap:16px; flex-wrap:wrap; }
-
-.btn-dark {
-  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
-  background: var(--ink); color: var(--cream);
-  padding: 14px 30px; border: none; cursor: pointer;
-  font-family: var(--f-body); border-radius: 2px;
-  transition: all 0.3s; text-decoration: none; display: inline-block;
-}
-.btn-dark:hover { background: var(--bark); transform: translateY(-2px); }
-.btn-line {
-  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
-  background: transparent; color: var(--ink);
-  padding: 13px 30px; border: 1px solid var(--ink); cursor: pointer;
-  font-family: var(--f-body); border-radius: 2px;
-  transition: all 0.3s; text-decoration: none; display: inline-block;
-}
-.btn-line:hover { background: var(--ink); color: var(--cream); transform: translateY(-2px); }
-
-.hero-scroll-hint {
-  position: absolute; bottom: 32px; left: 8%;
-  display: flex; align-items: center; gap: 12px;
-  font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase;
-  color: var(--bark); opacity: 0.6;
-}
-.scroll-line {
-  width: 40px; height: 1px; background: var(--bark); opacity: 0.4;
-  position: relative; overflow: hidden;
-}
-.scroll-line::after {
-  content:''; position:absolute; top:0; left:-100%;
-  width:100%; height:100%; background: var(--caramel);
-  animation: scrollPulse 2s ease-in-out infinite;
-}
-@keyframes scrollPulse { 0%{left:-100%} 100%{left:100%} }
-
-/* Hero diagonal deco */
-.hero-deco-year {
-  position:absolute; right:-20px; top:50%; transform:translateY(-50%) rotate(90deg);
-  font-family:var(--f-serif); font-size:11px; letter-spacing:0.3em;
-  color:var(--bark); opacity:0.3; white-space:nowrap; z-index:3;
+/* GRAIN OVERLAY */
+body::after{
+  content:'';position:fixed;inset:0;z-index:9990;pointer-events:none;
+  opacity:0.04;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:256px 256px;
 }
 
-/* FLOATING PASTRY DOODLES in hero */
-.hero-doodle {
-  position: absolute; pointer-events: none;
-  animation: doodleFloat 8s ease-in-out infinite;
+/* FLOUR PARTICLE CANVAS */
+#flour-canvas{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0.5}
+
+/* ═══════════════════════════
+   NAV
+═══════════════════════════ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:800;
+  padding:24px 5%;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:all 0.6s ease;
 }
-@keyframes doodleFloat {
-  0%,100%{ transform:translateY(0) rotate(0deg); opacity:0.7; }
-  33%{ transform:translateY(-16px) rotate(4deg); opacity:0.9; }
-  66%{ transform:translateY(-6px) rotate(-2deg); opacity:0.8; }
+nav.stuck{
+  background:rgba(251,244,233,0.92);
+  backdrop-filter:blur(20px);
+  padding:14px 5%;
+  border-bottom:1px solid rgba(139,90,43,0.12);
+}
+.nav-logo{
+  font-family:'Playfair Display',serif;
+  font-size:20px;letter-spacing:0.04em;
+  color:var(--ink);text-decoration:none;
+  display:flex;flex-direction:column;
+}
+.nav-logo-sub{
+  font-family:'Caveat',cursive;font-size:13px;
+  color:var(--umber);letter-spacing:0.08em;margin-top:-2px;
+}
+.nav-links{list-style:none;display:flex;gap:40px;align-items:center}
+.nav-links a{
+  font-family:'Crimson Pro',serif;font-size:16px;
+  color:var(--bark);text-decoration:none;letter-spacing:0.03em;
+  position:relative;transition:color 0.3s;
+  font-style:italic;
+}
+.nav-links a:hover{color:var(--rose)}
+.nav-order{
+  font-family:'Caveat',cursive !important;font-size:17px !important;
+  font-style:normal !important;
+  background:var(--rose);color:var(--cream) !important;
+  padding:8px 22px;border-radius:40px;
+  transition:all 0.3s ease !important;
+}
+.nav-order:hover{background:var(--bark) !important;transform:scale(1.04)}
+
+/* ═══════════════════════════
+   HERO
+═══════════════════════════ */
+#hero{
+  min-height:100vh;
+  display:grid;grid-template-columns:1fr 1fr;
+  position:relative;overflow:hidden;
 }
 
-/* ─── SECTION UTILITY ─── */
-.section-eyebrow {
-  font-family:var(--f-serif); font-style:italic;
-  font-size:14px; letter-spacing:0.08em; color:var(--caramel);
-  margin-bottom: 12px; display:block;
+/* Left panel — dark warm */
+.hero-left{
+  background:var(--deep);
+  position:relative;z-index:2;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:140px 8% 100px 9%;
+  overflow:hidden;
 }
-.section-title {
-  font-family: var(--f-display);
-  font-size: clamp(36px, 4vw, 60px);
-  line-height: 1.1; color: var(--ink);
-  letter-spacing: -0.01em;
-}
-.section-body {
-  font-family: var(--f-serif);
-  font-size: 17px; line-height: 1.8;
-  color: var(--bark); font-weight: 300;
+.hero-left-texture{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse at 20% 80%,rgba(139,90,43,0.3) 0%,transparent 60%),
+             radial-gradient(ellipse at 80% 20%,rgba(92,51,23,0.2) 0%,transparent 50%);
 }
 
-/* FADE ANIMATIONS */
-.reveal {
-  opacity: 0; transform: translateY(28px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-.reveal.up { opacity:1; transform:translateY(0); }
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
-.reveal-delay-4 { transition-delay: 0.4s; }
-
-/* ─── MARQUEE STRIP ─── */
-.marquee-strip {
-  background: var(--ink);
-  color: var(--honey);
-  padding: 13px 0;
-  overflow: hidden;
-  display: flex;
-}
-.marquee-inner {
-  display: flex; gap: 0; white-space: nowrap;
-  animation: marqueeMove 24s linear infinite;
-}
-.marquee-inner span {
-  font-family: var(--f-serif); font-style:italic;
-  font-size: 14px; padding: 0 32px;
-  display: flex; align-items: center; gap: 20px;
-}
-.marquee-inner span::after {
-  content:'';
-  width: 4px; height: 4px; border-radius:50%;
-  background: var(--honey); opacity:0.5;
-  flex-shrink:0;
-}
-@keyframes marqueeMove { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
-
-/* ─── ABOUT ─── */
-#about {
-  display: grid; grid-template-columns: 5fr 7fr;
-  min-height: 90vh;
-}
-.about-left {
-  background: var(--ink);
-  padding: 100px 60px;
-  display: flex; flex-direction: column; justify-content: center;
-  position: relative; overflow: hidden;
-}
-.about-left-deco {
-  position: absolute; bottom: -60px; left: -60px;
-  width: 300px; height: 300px;
-  border-radius: 50%;
-  background: rgba(196,105,122,0.08);
-}
-.about-left-deco2 {
-  position: absolute; top: 40px; right: -40px;
-  width: 180px; height: 180px;
-  border-radius: 50%;
-  background: rgba(232,180,184,0.06);
-}
-.about-left .section-title { color: var(--cream); font-size: clamp(32px,3vw,52px); }
-.about-left .section-eyebrow { color: var(--honey); }
-.about-left .section-body { color: rgba(250,242,238,0.65); margin-top:24px; }
-
-.about-image-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-}
-.about-img-item {
-  overflow: hidden; position: relative;
-  background: var(--linen);
-}
-.about-img-item img { transition: transform 1.2s ease; }
-.about-img-item:hover img { transform: scale(1.06); }
-.about-img-caption {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  background: linear-gradient(transparent, rgba(43,26,31,0.6));
-  padding: 30px 20px 14px;
-  font-family: var(--f-serif); font-style:italic;
-  font-size: 13px; color: rgba(250,242,238,0.9);
-  letter-spacing: 0.04em;
-  opacity: 0; transition: opacity 0.4s ease;
-}
-.about-img-item:hover .about-img-caption { opacity:1; }
-
-/* About stats row */
-.about-stats {
-  grid-column: 1/-1;
-  background: var(--parchment);
-  display: flex; justify-content: space-around;
-  padding: 40px 5%;
-  border-top: 1px solid rgba(196,105,122,0.12);
-}
-.stat-item { text-align:center; }
-.stat-num {
-  font-family: var(--f-display);
-  font-size: 42px; color: var(--caramel); line-height:1;
-}
-.stat-label {
-  font-family: var(--f-serif); font-style:italic;
-  font-size: 14px; color: var(--bark);
-  margin-top:4px;
+/* Vertical text stamp */
+.hero-stamp{
+  position:absolute;right:32px;top:50%;transform:translateY(-50%) rotate(90deg);
+  font-family:'Caveat',cursive;font-size:13px;letter-spacing:0.4em;
+  color:rgba(200,184,154,0.2);white-space:nowrap;
 }
 
-/* ─── TODAY BANNER ─── */
-.today-banner {
-  background: var(--honey);
-  padding: 18px 5%;
-  display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap; gap: 12px;
+.hero-tag{
+  font-family:'Caveat',cursive;font-size:18px;
+  color:var(--wheat);margin-bottom:24px;
+  display:flex;align-items:center;gap:10px;
+  opacity:0;transform:translateY(20px);
+  animation:fadeUp 1s ease 0.3s forwards;
 }
-.today-label {
-  font-size:10px; letter-spacing:0.3em; text-transform:uppercase;
-  color: var(--ink); font-weight: 500;
-  background: rgba(43,26,31,0.1); padding:4px 12px; border-radius:2px;
+.hero-tag-line{width:30px;height:1px;background:var(--wheat);opacity:0.5}
+
+.hero-h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(52px,5.5vw,88px);
+  line-height:0.95;letter-spacing:-0.02em;
+  color:var(--cream);margin-bottom:32px;
+  opacity:0;transform:translateY(30px);
+  animation:fadeUp 1s ease 0.5s forwards;
 }
-.today-text {
-  font-family: var(--f-display); font-size:20px; color:var(--ink);
+.hero-h1 em{
+  font-style:italic;color:var(--wheat);display:block;
 }
-.today-text em { font-style:italic; }
-.today-fresh {
-  font-size:11px; letter-spacing:0.15em; text-transform:uppercase;
-  color: var(--ink); opacity:0.6;
-  font-family:var(--f-serif); font-style:italic;
+.hero-h1 .scrawl{
+  font-family:'Caveat',cursive;font-size:0.7em;
+  color:var(--blush);display:block;
+  transform:rotate(-2deg);transform-origin:left center;
+  margin-top:8px;letter-spacing:0.02em;
 }
 
-/* ─── MENU ─── */
-#menu { padding: 100px 0; background: var(--cream); }
-.menu-header {
-  padding: 0 7%;
-  display: grid; grid-template-columns: 1fr auto;
-  align-items: end; margin-bottom: 64px; gap: 40px;
-}
-.menu-filters {
-  display:flex; gap:8px; flex-wrap:wrap; align-items:center;
-}
-.filter-pill {
-  font-size:11px; letter-spacing:0.15em; text-transform:uppercase;
-  padding:8px 18px; border:1px solid var(--linen);
-  background:transparent; color:var(--bark); cursor:pointer;
-  font-family:var(--f-body); border-radius:2px;
-  transition:all 0.25s ease;
-}
-.filter-pill:hover, .filter-pill.active {
-  background:var(--ink); color:var(--cream); border-color:var(--ink);
-}
-
-/* Menu Category Header */
-.menu-chapter {
-  padding: 0 7%; margin-bottom: 56px;
-}
-.chapter-header {
-  display:flex; align-items:baseline; gap:24px;
-  border-bottom: 1px solid var(--linen);
-  padding-bottom: 16px; margin-bottom: 40px;
-}
-.chapter-num {
-  font-family:var(--f-serif); font-style:italic;
-  font-size:13px; color:var(--caramel); letter-spacing:0.1em;
-}
-.chapter-name {
-  font-family:var(--f-display);
-  font-size: clamp(22px,2.5vw,32px); color:var(--ink);
-}
-.chapter-sub {
-  font-family:var(--f-serif); font-style:italic;
-  font-size:14px; color:var(--bark); margin-left:auto; opacity:0.7;
-}
-
-/* MENU GRID — different layouts per chapter */
-.menu-grid-4 {
-  display:grid; grid-template-columns:repeat(4,1fr); gap:24px;
-}
-.menu-grid-mixed {
-  display:grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  grid-template-rows: auto auto;
-  gap: 24px;
-}
-.menu-grid-3 {
-  display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
-}
-.menu-grid-2 {
-  display:grid; grid-template-columns:repeat(2,1fr); gap:24px;
-}
-
-/* MENU CARD */
-.menu-card {
-  background: var(--parchment);
-  border-radius: 4px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  position: relative;
-  border: 1px solid rgba(196,105,122,0.1);
-}
-.menu-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 60px rgba(43,26,31,0.14);
-}
-.menu-card-img {
-  height: 200px; overflow:hidden; position:relative;
-  background: var(--linen);
-}
-.menu-card-img img {
-  transition: transform 0.7s ease;
-}
-.menu-card:hover .menu-card-img img { transform:scale(1.08); }
-.menu-card-img-overlay {
-  position:absolute; inset:0;
-  background: linear-gradient(to bottom, transparent 50%, rgba(43,26,31,0.2) 100%);
-}
-
-/* Large featured card */
-.menu-card.featured .menu-card-img { height: 280px; }
-
-/* Tall card variant */
-.menu-card.tall { grid-row: span 2; }
-.menu-card.tall .menu-card-img { height: 340px; }
-
-.menu-card-body { padding:18px 20px 20px; }
-.menu-card-top { display:flex; align-items:flex-start; justify-content:space-between; gap:8px; }
-.menu-card-name {
-  font-family: var(--f-display);
-  font-size: 19px; color:var(--ink); line-height:1.2;
-}
-.menu-card-price {
-  font-family: var(--f-serif);
-  font-size:16px; color:var(--caramel); font-weight:500;
-  white-space:nowrap;
-}
-.menu-card-desc {
-  font-family: var(--f-serif); font-style:italic;
-  font-size:13px; color:var(--bark); line-height:1.7;
-  margin-top:8px; opacity:0.85;
-}
-.menu-card-footer {
-  display:flex; align-items:center; justify-content:space-between;
-  margin-top:14px; padding-top:12px;
-  border-top:1px solid rgba(196,105,122,0.1);
-}
-.heart-btn {
-  background:none; border:none; cursor:pointer;
-  width:28px;height:28px; display:flex;align-items:center;justify-content:center;
-  transition:transform 0.25s;
-  padding:0;
-}
-.heart-btn:hover { transform:scale(1.25); }
-.heart-btn svg { width:16px;height:16px; }
-
-/* BADGE */
-.card-badge {
-  position:absolute; top:14px; left:14px;
-  font-size:9px; letter-spacing:0.2em; text-transform:uppercase;
-  padding:4px 10px; border-radius:2px; font-weight:500;
-  font-family:var(--f-body);
-}
-.badge-fresh { background:var(--sage); color:#fff; }
-.badge-fav   { background:var(--honey); color:var(--ink); }
-.badge-special { background:var(--ink); color:var(--cream); }
-
-/* Drinks with steam */
-.menu-card.drink-card .menu-card-img {
-  display:flex; align-items:center; justify-content:center;
-  position:relative;
-}
-.drink-visual {
-  position:relative; width:100%; height:100%;
-  display:flex; align-items:center; justify-content:center;
-}
-.steam-svg {
-  position:absolute; top:10px; left:50%; transform:translateX(-50%);
-  width:60px; pointer-events:none;
-}
-.steam-path {
-  stroke-dasharray: 60;
-  stroke-dashoffset: 60;
-  animation: steamDraw 3s ease-in-out infinite;
-  opacity:0;
-}
-.steam-path:nth-child(2) { animation-delay: 0.8s; }
-.steam-path:nth-child(3) { animation-delay: 1.6s; }
-@keyframes steamDraw {
-  0%   { stroke-dashoffset:60; opacity:0; }
-  20%  { opacity:0.6; }
-  80%  { opacity:0.3; }
-  100% { stroke-dashoffset:-60; opacity:0; }
-}
-
-/* ─── SPECIALS / PHILOSOPHY ─── */
-#philosophy {
-  background: var(--parchment);
-  padding: 100px 7%;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
-}
-.philosophy-left {}
-.philosophy-list { margin-top:48px; display:flex; flex-direction:column; gap:0; }
-.phil-item {
-  display:grid; grid-template-columns: 48px 1fr;
-  gap:20px; align-items:start;
-  padding:24px 0;
-  border-bottom:1px solid rgba(196,105,122,0.12);
-}
-.phil-item:first-child { border-top:1px solid rgba(196,105,122,0.12); }
-.phil-num {
-  font-family:var(--f-serif); font-style:italic;
-  font-size:11px; color:var(--caramel); padding-top:4px;
-  letter-spacing:0.1em;
-}
-.phil-text-wrap {}
-.phil-name {
-  font-family:var(--f-display); font-size:22px; color:var(--ink); margin-bottom:6px;
-}
-.phil-desc {
-  font-family:var(--f-serif); font-size:15px;
-  color:var(--bark); line-height:1.7; font-style:italic;
-}
-.philosophy-right {
-  position:relative;
-}
-.philosophy-img-main {
-  width:100%; aspect-ratio:3/4;
-  background:var(--linen);
-  border-radius:4px; overflow:hidden;
-  box-shadow: 24px 24px 0 var(--linen);
-}
-.philosophy-img-float {
-  position:absolute; bottom:-32px; left:-40px;
-  width:45%; aspect-ratio:1;
-  background:var(--blush);
-  border-radius:4px; overflow:hidden;
-  border:6px solid var(--cream);
-  box-shadow: 0 12px 40px rgba(43,26,31,0.12);
-}
-.philosophy-quote {
-  position:absolute; top:-24px; right:-20px;
-  background:var(--ink); color:var(--cream);
-  padding:20px 24px; max-width:200px;
-  font-family:var(--f-serif); font-style:italic;
-  font-size:14px; line-height:1.6;
-  border-radius:4px;
-}
-.philosophy-quote::after {
-  content:'\201C';
-  position:absolute; top:-12px; left:16px;
-  font-family:var(--f-display); font-size:48px;
-  color:var(--honey); line-height:1;
-}
-
-/* ─── HOURS ─── */
-#hours {
-  background: var(--ink);
-  padding: 0;
-  display: grid; grid-template-columns: 1fr 1fr;
-  min-height: 50vh;
-}
-.hours-left {
-  background: var(--caramel);
-  padding: 80px 60px;
-  display:flex; flex-direction:column; justify-content:center;
-  position:relative; overflow:hidden;
-}
-.hours-left::before {
-  content:''; position:absolute;
-  top:-40px; right:-40px;
-  width:200px; height:200px;
-  border-radius:50%; background:rgba(255,255,255,0.08);
-}
-.hours-left .section-title { color:var(--cream); }
-.hours-left .section-eyebrow { color:rgba(250,242,238,0.7); }
-.hours-tagline {
-  font-family:var(--f-serif); font-style:italic;
-  font-size:17px; color:rgba(250,242,238,0.75);
-  margin-top:20px; line-height:1.6;
-}
-.hours-right {
-  padding: 80px 60px;
-  display:flex; flex-direction:column; justify-content:center; gap:0;
-}
-.hours-row {
-  display:flex; justify-content:space-between; align-items:baseline;
-  padding: 22px 0;
-  border-bottom:1px solid rgba(250,242,238,0.08);
-}
-.hours-day {
-  font-size:11px; letter-spacing:0.2em; text-transform:uppercase;
-  color:rgba(250,242,238,0.5); font-weight:400;
-}
-.hours-time {
-  font-family:var(--f-display); font-size:26px; color:var(--honey);
-}
-.hours-note {
-  font-family:var(--f-serif); font-style:italic;
-  font-size:13px; color:rgba(250,242,238,0.4);
-  text-align:right; margin-top:4px;
-}
-.hours-row-inner { text-align:right; }
-
-/* ─── GALLERY ─── */
-#gallery { padding: 100px 0; background:var(--cream); }
-.gallery-head { padding:0 7%; margin-bottom:56px; }
-.gallery-mosaic {
-  display:grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  grid-template-rows: 380px 260px;
-  gap: 4px;
-  padding: 0 7%;
-}
-.gallery-cell {
-  overflow:hidden; position:relative; background:var(--linen);
-  cursor:pointer;
-}
-.gallery-cell:first-child { grid-row:span 2; }
-.gallery-cell img { width:100%;height:100%;transition:transform 1.2s ease; }
-.gallery-cell:hover img { transform:scale(1.06); }
-.gallery-cell-label {
-  position:absolute; bottom:0; left:0; right:0;
-  background:linear-gradient(transparent, rgba(43,26,31,0.55));
-  padding:40px 20px 16px;
-  font-family:var(--f-serif); font-style:italic;
-  font-size:14px; color:rgba(250,242,238,0.85);
-  letter-spacing:0.04em;
-  opacity:0; transition:opacity 0.4s;
-}
-.gallery-cell:hover .gallery-cell-label { opacity:1; }
-
-/* ─── VISIT ─── */
-#visit {
-  background: var(--parchment);
-  padding: 100px 7%;
-  display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start;
-}
-.visit-intro {}
-.visit-info { margin-top:48px; display:flex;flex-direction:column;gap:28px; }
-.info-item { display:flex; gap:20px; align-items:flex-start; }
-.info-icon {
-  width:40px;height:40px; flex-shrink:0;
-  border:1px solid rgba(196,105,122,0.25);
-  border-radius:2px;
-  display:flex;align-items:center;justify-content:center;
-}
-.info-label {
-  font-size:10px;letter-spacing:0.2em;text-transform:uppercase;
-  color:var(--caramel); margin-bottom:4px;
-}
-.info-value {
-  font-family:var(--f-serif); font-size:16px; color:var(--bark);
-  line-height:1.5;
-}
-.visit-map {
-  background:var(--linen);
-  border-radius:4px; overflow:hidden;
-  aspect-ratio:4/3;
-  position:relative;
-  border:1px solid rgba(196,105,122,0.15);
-}
-.map-placeholder-inner {
-  width:100%;height:100%;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:12px;
-}
-.map-pin-anim { animation:mapPinBounce 2s ease-in-out infinite; }
-@keyframes mapPinBounce {
-  0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}
-}
-.map-address {
-  font-family:var(--f-serif); font-style:italic;
-  font-size:16px; color:var(--bark); text-align:center; line-height:1.5;
-}
-
-/* ─── CONTACT ─── */
-#contact {
-  background:var(--ink); padding:100px 7%;
-  display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start;
-}
-#contact .section-title { color:var(--cream); }
-#contact .section-eyebrow { color:var(--honey); }
-#contact .section-body { color:rgba(250,242,238,0.55); margin-top:20px; }
-.contact-pull-quote {
-  font-family:var(--f-display); font-size:clamp(24px,3vw,38px);
-  color:var(--honey); line-height:1.3; margin-top:36px;
-  padding-left:20px;
-  border-left:2px solid var(--caramel);
-}
-
-.form-group { margin-bottom:20px; }
-.form-label {
-  display:block; font-size:10px;letter-spacing:0.25em;text-transform:uppercase;
-  color:rgba(250,242,238,0.4); margin-bottom:8px; font-weight:500;
-}
-.form-input, .form-textarea {
-  width:100%; padding:14px 0;
-  background:transparent;
-  border:none; border-bottom:1px solid rgba(250,242,238,0.15);
-  color:var(--cream); font-family:var(--f-serif); font-size:16px;
-  outline:none; transition:border-color 0.3s;
-  border-radius:0;
-}
-.form-input::placeholder, .form-textarea::placeholder {
-  color:rgba(250,242,238,0.2); font-style:italic;
-}
-.form-input:focus, .form-textarea:focus {
-  border-bottom-color:var(--honey);
-}
-.form-textarea { resize:vertical; min-height:110px; }
-.form-submit {
-  margin-top:32px; background:var(--honey); color:var(--ink);
-  border:none; padding:15px 40px; cursor:pointer;
-  font-family:var(--f-body); font-size:11px;letter-spacing:0.2em;text-transform:uppercase;
-  font-weight:500; border-radius:2px; transition:all 0.3s;
-}
-.form-submit:hover { background:var(--caramel); color:var(--cream); transform:translateY(-2px); }
-
-/* ─── FOOTER ─── */
-footer {
-  background: var(--ink);
-  border-top:1px solid rgba(250,242,238,0.06);
-  padding:60px 7% 32px;
-}
-.footer-top {
-  display:grid; grid-template-columns:2fr 1fr 1fr 1fr;
-  gap:48px; margin-bottom:48px;
-}
-.footer-brand-name {
-  font-family:var(--f-display); font-size:32px; color:var(--cream);
-  margin-bottom:8px;
-}
-.footer-brand-sub {
-  font-family:var(--f-serif); font-style:italic;
-  font-size:13px; color:rgba(250,242,238,0.35); letter-spacing:0.08em;
-}
-.footer-tagline {
-  font-family:var(--f-serif); font-style:italic;
-  font-size:15px; color:rgba(250,242,238,0.4);
-  line-height:1.7; margin-top:20px; max-width:260px;
-}
-.footer-col-title {
-  font-size:10px; letter-spacing:0.25em; text-transform:uppercase;
-  color:rgba(250,242,238,0.3); margin-bottom:16px; font-weight:500;
-}
-.footer-col ul { list-style:none; display:flex;flex-direction:column;gap:10px; }
-.footer-col a {
-  font-family:var(--f-serif); font-size:15px;
-  color:rgba(250,242,238,0.45); text-decoration:none;
-  transition:color 0.3s;
-}
-.footer-col a:hover { color:var(--honey); }
-.footer-bottom {
-  border-top:1px solid rgba(250,242,238,0.06);
-  padding-top:24px;
-  display:flex; justify-content:space-between; align-items:center;
-  flex-wrap:wrap; gap:12px;
-}
-.footer-copy {
-  font-size:12px; color:rgba(250,242,238,0.2); letter-spacing:0.05em;
-}
-.footer-socials { display:flex; gap:16px; }
-.social-link {
-  width:36px;height:36px; border-radius:2px;
-  border:1px solid rgba(250,242,238,0.1);
-  display:flex;align-items:center;justify-content:center;
-  text-decoration:none; transition:all 0.3s;
-  color:rgba(250,242,238,0.35);
-}
-.social-link:hover { border-color:var(--honey); color:var(--honey); background:rgba(232,180,184,0.08); }
-
-/* ─── MODAL ─── */
-.modal-overlay {
-  display:none; position:fixed; inset:0; z-index:9000;
-  background:rgba(43,26,31,0.7);
-  align-items:center; justify-content:center;
-  padding:20px;
-  backdrop-filter:blur(6px);
-}
-.modal-overlay.open { display:flex; animation:modalFadeIn 0.3s ease; }
-@keyframes modalFadeIn { from{opacity:0} to{opacity:1} }
-.modal-box {
-  background:var(--cream); max-width:560px; width:100%;
-  border-radius:4px; overflow:hidden;
-  animation:modalSlideIn 0.4s ease;
-  position:relative;
-}
-@keyframes modalSlideIn { from{transform:translateY(30px);opacity:0} to{transform:translateY(0);opacity:1} }
-.modal-img {
-  width:100%; height:280px; position:relative; background:var(--linen);
-}
-.modal-body { padding:32px; }
-.modal-close {
-  position:absolute; top:14px; right:14px; z-index:2;
-  background:rgba(43,26,31,0.5); border:none; cursor:pointer;
-  width:32px;height:32px; border-radius:50%;
-  color:#fff; font-size:18px; display:flex;align-items:center;justify-content:center;
-  transition:background 0.2s; line-height:1;
-}
-.modal-close:hover { background:rgba(43,26,31,0.8); }
-.modal-name { font-family:var(--f-display); font-size:30px; color:var(--ink); margin-bottom:10px; }
-.modal-desc {
-  font-family:var(--f-serif); font-style:italic;
-  font-size:16px; color:var(--bark); line-height:1.75; margin-bottom:20px;
-}
-.modal-footer { display:flex; justify-content:space-between; align-items:center; }
-.modal-price { font-family:var(--f-display); font-size:32px; color:var(--caramel); }
-.modal-add { /* uses .btn-dark */ }
-
-/* ─── SEASON TOGGLE ─── */
-.season-btn {
-  position:fixed; bottom:28px; right:28px; z-index:700;
-  background:var(--parchment); color:var(--ink);
-  border:1px solid rgba(196,105,122,0.25);
-  padding:10px 18px; cursor:pointer;
-  font-family:var(--f-body); font-size:10px;letter-spacing:0.2em;text-transform:uppercase;
-  border-radius:2px;
-  display:flex;align-items:center;gap:8px;
-  box-shadow:0 4px 20px rgba(43,26,31,0.1);
+.hero-p{
+  font-family:'Crimson Pro',serif;font-size:19px;font-style:italic;
+  color:rgba(245,233,213,0.65);line-height:1.7;
+  max-width:380px;margin-bottom:48px;
+  opacity:0;transform:translateY(20px);
+  animation:fadeUp 1s ease 0.7s forwards;
+}
+.hero-btns{
+  display:flex;gap:16px;flex-wrap:wrap;
+  opacity:0;animation:fadeUp 1s ease 0.9s forwards;
+}
+.btn-parchment{
+  font-family:'Caveat',cursive;font-size:18px;letter-spacing:0.04em;
+  background:var(--linen);color:var(--ink);
+  padding:12px 32px;border:none;cursor:none;border-radius:40px;
+  text-decoration:none;display:inline-block;
   transition:all 0.3s;
 }
-.season-btn:hover { background:var(--ink); color:var(--cream); }
+.btn-parchment:hover{background:var(--warm);transform:translateY(-3px) rotate(-1deg)}
+.btn-ghost{
+  font-family:'Caveat',cursive;font-size:18px;
+  background:transparent;color:var(--linen);
+  padding:12px 32px;border:1px solid rgba(237,217,184,0.3);
+  cursor:none;border-radius:40px;
+  text-decoration:none;display:inline-block;
+  transition:all 0.3s;
+}
+.btn-ghost:hover{background:rgba(237,217,184,0.1);transform:translateY(-3px)}
 
-/* ─── SPRING MODE ─── */
-body.spring-mode {
-  --parchment:#EEF4E8; --linen:#DCE8D0; --blush:#B8D4A0; --cream:#F4F8EE;
+/* Right panel — illustrated */
+.hero-right{
+  position:relative;overflow:hidden;
+  background:var(--parchment);
+}
+.hero-right-bg{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse at 40% 60%,#E8C99A 0%,#D4B080 40%,#C09060 100%);
 }
 
-/* ─── DOODLE SVG STYLES ─── */
-.doodle-svg { display:block; }
+/* The big bakery window illustration */
+.hero-window{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:85%;max-width:440px;
+}
 
-/* ─── RESPONSIVE ─── */
+/* Parallax layers in hero */
+.parallax-layer{position:absolute;inset:0;will-change:transform}
+
+/* Smoke/steam wisps */
+.steam-container{
+  position:absolute;bottom:30%;left:50%;transform:translateX(-50%);
+  width:100px;
+}
+
+/* Scattered badges */
+.hero-badge{
+  position:absolute;
+  font-family:'Caveat',cursive;
+  background:var(--deep);color:var(--linen);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  text-align:center;line-height:1.2;
+  animation:badgeSpin 20s linear infinite;
+}
+@keyframes badgeSpin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.hero-badge .badge-inner{animation:badgeSpinReverse 20s linear infinite}
+@keyframes badgeSpinReverse{from{transform:rotate(0)}to{transform:rotate(-360deg)}}
+
+/* Scroll hint */
+.hero-scroll{
+  position:absolute;bottom:40px;left:9%;
+  font-family:'Caveat',cursive;font-size:16px;
+  color:rgba(245,233,213,0.4);
+  display:flex;align-items:center;gap:12px;
+  z-index:3;letter-spacing:0.1em;
+}
+.scroll-arrow{
+  width:1px;height:40px;background:rgba(237,217,184,0.2);
+  position:relative;overflow:hidden;
+}
+.scroll-arrow::after{
+  content:'';position:absolute;top:-100%;left:0;
+  width:100%;height:100%;background:var(--wheat);
+  animation:scrollDrop 2s ease-in-out infinite;
+}
+@keyframes scrollDrop{0%{top:-100%}100%{top:200%}}
+
+/* ═══════════════════════════
+   TORN PAPER DIVIDER
+═══════════════════════════ */
+.torn{
+  position:relative;z-index:10;
+  height:60px;overflow:hidden;
+}
+.torn svg{display:block;width:100%;height:100%}
+
+/* ═══════════════════════════
+   MARQUEE
+═══════════════════════════ */
+.marquee-wrap{
+  background:var(--rose);
+  overflow:hidden;padding:12px 0;
+  position:relative;z-index:5;
+}
+.marquee-track{
+  display:flex;white-space:nowrap;
+  animation:marquee 30s linear infinite;
+}
+.marquee-track span{
+  font-family:'Caveat',cursive;font-size:18px;
+  color:var(--cream);padding:0 28px;
+  display:flex;align-items:center;gap:20px;
+}
+.marquee-track span::after{
+  content:'✦';font-size:10px;opacity:0.6;
+}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ═══════════════════════════
+   ABOUT — SCRAPBOOK STYLE
+═══════════════════════════ */
+#about{
+  background:var(--cream);
+  padding:120px 0 80px;
+  position:relative;overflow:hidden;
+}
+.about-inner{
+  max-width:1200px;margin:0 auto;
+  padding:0 6%;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;align-items:center;
+}
+
+/* Big quote-style heading */
+.about-heading-block{position:relative}
+.about-chapter-mark{
+  position:absolute;top:-40px;left:-20px;
+  font-family:'Playfair Display',serif;
+  font-size:180px;font-weight:900;color:var(--linen);
+  line-height:1;z-index:0;user-select:none;
+}
+.about-eyebrow{
+  font-family:'Caveat',cursive;font-size:18px;color:var(--umber);
+  letter-spacing:0.05em;margin-bottom:16px;
+  display:flex;align-items:center;gap:10px;
+  position:relative;z-index:1;
+}
+.about-eyebrow::before{content:'';width:24px;height:1px;background:var(--umber)}
+.about-h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(38px,4vw,60px);
+  line-height:1.05;color:var(--ink);
+  position:relative;z-index:1;
+  margin-bottom:28px;
+}
+.about-h2 em{font-style:italic;color:var(--rose)}
+.about-body{
+  font-size:18px;line-height:1.8;color:var(--bark);
+  font-style:italic;margin-bottom:20px;
+  position:relative;z-index:1;
+}
+.about-note{
+  font-family:'Caveat',cursive;font-size:17px;
+  color:var(--umber);margin-top:24px;
+  padding:16px 20px;border-left:2px solid var(--wheat);
+  background:var(--parchment);
+  position:relative;z-index:1;
+}
+
+/* Scrapbook photo collage */
+.about-collage{position:relative;height:560px}
+.collage-photo{
+  position:absolute;overflow:hidden;
+  border:6px solid #fff;
+  box-shadow:0 8px 30px rgba(28,16,8,0.15);
+}
+.collage-photo img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* Stats ticker */
+.stats-row{
+  background:var(--deep);
+  padding:48px 6%;
+  display:flex;justify-content:space-around;
+  flex-wrap:wrap;gap:32px;
+}
+.stat{text-align:center}
+.stat-num{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:clamp(40px,5vw,72px);color:var(--wheat);
+  line-height:1;
+}
+.stat-label{
+  font-family:'Caveat',cursive;font-size:16px;color:rgba(200,184,154,0.6);
+  margin-top:4px;letter-spacing:0.08em;
+}
+
+/* ═══════════════════════════
+   DAILY CHALK BOARD
+═══════════════════════════ */
+.chalkboard{
+  margin:80px 6%;
+  background:#2A3220;
+  border-radius:4px;
+  padding:48px 6%;
+  position:relative;
+  border:8px solid #3A4230;
+  box-shadow:inset 0 0 60px rgba(0,0,0,0.4),0 20px 60px rgba(28,16,8,0.3);
+}
+.chalkboard::before{
+  content:'';position:absolute;inset:8px;
+  border:1px dashed rgba(255,255,255,0.06);pointer-events:none;
+}
+.chalk-title{
+  font-family:'Caveat',cursive;font-size:clamp(28px,3vw,42px);
+  color:rgba(245,233,213,0.85);text-align:center;
+  margin-bottom:8px;letter-spacing:0.05em;
+}
+.chalk-sub{
+  font-family:'Caveat',cursive;font-size:18px;
+  color:rgba(200,184,154,0.4);text-align:center;
+  margin-bottom:40px;letter-spacing:0.1em;
+}
+.chalk-divider{
+  border:none;border-top:1px dashed rgba(255,255,255,0.1);
+  margin:0 0 40px;
+}
+.chalk-menu-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:0;
+}
+.chalk-col{}
+.chalk-col-head{
+  font-family:'Caveat',cursive;font-size:20px;
+  color:var(--blush);letter-spacing:0.1em;text-transform:uppercase;
+  margin-bottom:20px;padding-bottom:8px;
+  border-bottom:1px solid rgba(212,144,122,0.3);
+}
+.chalk-item{
+  padding:10px 0;border-bottom:1px dashed rgba(255,255,255,0.05);
+  cursor:none;transition:all 0.2s;
+}
+.chalk-item:hover{padding-left:8px}
+.chalk-item-name{
+  font-family:'Caveat',cursive;font-size:18px;
+  color:rgba(245,233,213,0.8);
+}
+.chalk-item-desc{
+  font-family:'Crimson Pro',serif;font-style:italic;
+  font-size:14px;color:rgba(200,184,154,0.45);margin-top:2px;
+}
+.chalk-price{
+  font-family:'Caveat',cursive;font-size:15px;
+  color:var(--wheat);margin-top:4px;
+}
+.chalk-fresh-badge{
+  display:inline-block;
+  font-family:'Caveat',cursive;font-size:13px;
+  background:rgba(122,158,118,0.2);color:var(--sage);
+  padding:2px 8px;border-radius:3px;margin-left:6px;
+  border:1px solid rgba(122,158,118,0.3);
+}
+
+/* ═══════════════════════════
+   PHILOSOPHY SECTION
+═══════════════════════════ */
+#philosophy{
+  padding:120px 6%;
+  background:var(--parchment);
+  position:relative;overflow:hidden;
+}
+.phil-bg-text{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  font-family:'Playfair Display',serif;font-size:200px;font-weight:900;
+  color:rgba(139,90,43,0.04);white-space:nowrap;pointer-events:none;
+  letter-spacing:-0.05em;
+}
+.phil-inner{max-width:1100px;margin:0 auto}
+.phil-header{text-align:center;margin-bottom:80px}
+.phil-header .eyebrow{
+  font-family:'Caveat',cursive;font-size:18px;color:var(--umber);
+  letter-spacing:0.1em;display:block;margin-bottom:16px;
+}
+.phil-header h2{
+  font-family:'Playfair Display',serif;font-size:clamp(36px,4vw,58px);
+  color:var(--ink);line-height:1.1;
+}
+.phil-header h2 em{color:var(--rose);font-style:italic}
+
+.phil-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:3px;
+}
+.phil-card{
+  background:var(--cream);
+  padding:48px 44px;position:relative;overflow:hidden;
+  transition:transform 0.5s ease;
+}
+.phil-card:hover{transform:scale(1.02);z-index:2}
+.phil-card-num{
+  position:absolute;top:24px;right:28px;
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:72px;color:var(--linen);line-height:1;font-weight:900;
+}
+.phil-card-icon{
+  width:48px;height:48px;margin-bottom:24px;
+}
+.phil-card-name{
+  font-family:'Playfair Display',serif;font-size:24px;
+  color:var(--ink);margin-bottom:12px;
+}
+.phil-card-desc{
+  font-size:17px;font-style:italic;color:var(--bark);
+  line-height:1.7;
+}
+.phil-card.dark{
+  background:var(--deep);
+}
+.phil-card.dark .phil-card-num{color:rgba(200,184,154,0.06)}
+.phil-card.dark .phil-card-name{color:var(--warm)}
+.phil-card.dark .phil-card-desc{color:rgba(200,184,154,0.55)}
+
+/* ═══════════════════════════
+   WINDOW GALLERY
+═══════════════════════════ */
+#gallery{
+  padding:100px 0;
+  background:var(--ink);
+  position:relative;
+}
+.gallery-header{
+  padding:0 6%;margin-bottom:60px;
+  display:flex;align-items:flex-end;justify-content:space-between;
+}
+.gallery-header h2{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:clamp(36px,4vw,56px);color:var(--cream);
+  line-height:1;
+}
+.gallery-header p{
+  font-family:'Caveat',cursive;font-size:16px;
+  color:rgba(200,184,154,0.4);letter-spacing:0.1em;
+}
+
+/* Film strip style */
+.film-strip{
+  display:flex;gap:4px;overflow:hidden;
+  padding:0 6%;
+  position:relative;
+}
+.film-cell{
+  flex:0 0 300px;height:380px;
+  position:relative;overflow:hidden;
+  cursor:none;
+}
+.film-cell:nth-child(even){margin-top:40px}
+.film-cell img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform 1s ease,filter 0.5s ease;
+  filter:saturate(0.85) sepia(0.15);
+}
+.film-cell:hover img{transform:scale(1.06);filter:saturate(1) sepia(0)}
+.film-caption{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(transparent,rgba(28,16,8,0.7));
+  padding:40px 20px 16px;
+  font-family:'Caveat',cursive;font-size:16px;color:var(--warm);
+  opacity:0;transition:opacity 0.4s;
+  letter-spacing:0.04em;
+}
+.film-cell:hover .film-caption{opacity:1}
+
+/* Perforations */
+.film-holes{
+  display:flex;flex-direction:column;justify-content:space-around;
+  width:28px;flex-shrink:0;padding:10px 0;gap:12px;
+}
+.hole{
+  width:16px;height:16px;border-radius:3px;
+  background:var(--ink);
+  border:2px solid rgba(255,255,255,0.05);
+  margin:0 auto;
+}
+
+/* ═══════════════════════════
+   HOURS — WARM POSTCARD
+═══════════════════════════ */
+#hours{
+  padding:100px 6%;
+  background:var(--linen);
+  display:grid;grid-template-columns:5fr 7fr;
+  gap:80px;align-items:center;
+}
+.hours-left h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(36px,4vw,60px);
+  color:var(--ink);line-height:1.0;margin-bottom:20px;
+}
+.hours-left h2 em{font-style:italic;color:var(--rose)}
+.hours-left p{
+  font-size:18px;font-style:italic;color:var(--bark);
+  line-height:1.7;margin-bottom:32px;
+}
+.hours-note-tag{
+  font-family:'Caveat',cursive;font-size:18px;
+  background:var(--rose);color:var(--cream);
+  display:inline-block;padding:8px 20px;border-radius:40px;
+}
+.hours-grid{}
+.hours-entry{
+  display:flex;justify-content:space-between;align-items:baseline;
+  padding:20px 0;border-bottom:1px solid rgba(139,90,43,0.12);
+  position:relative;
+}
+.hours-entry::before{
+  content:'';position:absolute;left:0;bottom:0;
+  width:0;height:1px;background:var(--wheat);
+  transition:width 0.6s ease;
+}
+.hours-entry:hover::before{width:100%}
+.h-day{
+  font-family:'Playfair Display',serif;font-size:20px;color:var(--ink);
+}
+.h-right{text-align:right}
+.h-time{
+  font-family:'Caveat',cursive;font-size:26px;color:var(--rose);
+}
+.h-note{
+  font-size:14px;font-style:italic;color:var(--umber);opacity:0.7;
+}
+
+/* ═══════════════════════════
+   VISIT
+═══════════════════════════ */
+#visit{
+  background:var(--deep);
+  padding:100px 6%;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;align-items:center;
+}
+.visit-left{}
+.visit-eyebrow{
+  font-family:'Caveat',cursive;font-size:18px;
+  color:var(--wheat);letter-spacing:0.1em;
+  margin-bottom:16px;
+}
+.visit-h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(34px,4vw,54px);
+  color:var(--cream);line-height:1.05;
+  margin-bottom:32px;
+}
+.visit-h2 em{font-style:italic;color:var(--blush)}
+.visit-details{display:flex;flex-direction:column;gap:28px}
+.visit-detail{display:flex;gap:20px;align-items:flex-start}
+.visit-icon{
+  width:44px;height:44px;flex-shrink:0;
+  border:1px solid rgba(200,184,154,0.15);
+  display:flex;align-items:center;justify-content:center;
+}
+.v-label{
+  font-family:'Caveat',cursive;font-size:14px;
+  color:var(--wheat);letter-spacing:0.1em;margin-bottom:4px;
+}
+.v-value{
+  font-size:16px;font-style:italic;
+  color:rgba(245,233,213,0.6);line-height:1.5;
+}
+
+/* Map card */
+.visit-map{
+  background:linear-gradient(135deg,#3A2810,#2A1C08);
+  border-radius:2px;
+  aspect-ratio:4/3;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+  border:1px solid rgba(200,184,154,0.1);
+}
+.map-grid-lines{position:absolute;inset:0;opacity:0.05}
+.map-pin{
+  display:flex;flex-direction:column;align-items:center;
+  animation:pinBob 3s ease-in-out infinite;
+}
+@keyframes pinBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.map-addr{
+  font-family:'Caveat',cursive;font-size:17px;
+  color:var(--warm);text-align:center;margin-top:16px;
+  line-height:1.5;
+}
+.map-open-btn{
+  margin-top:20px;
+  font-family:'Caveat',cursive;font-size:16px;
+  background:var(--rose);color:var(--cream);
+  border:none;padding:10px 24px;cursor:none;
+  border-radius:40px;text-decoration:none;display:inline-block;
+  transition:all 0.3s;
+}
+.map-open-btn:hover{background:var(--umber)}
+
+/* ═══════════════════════════
+   CONTACT
+═══════════════════════════ */
+#contact{
+  background:var(--parchment);
+  padding:100px 6%;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;align-items:start;
+}
+.contact-left{}
+.contact-eyebrow{
+  font-family:'Caveat',cursive;font-size:18px;
+  color:var(--umber);margin-bottom:16px;display:block;
+}
+.contact-h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(34px,4vw,54px);
+  color:var(--ink);line-height:1.05;margin-bottom:24px;
+}
+.contact-h2 em{font-style:italic;color:var(--rose)}
+.contact-body{
+  font-size:18px;font-style:italic;color:var(--bark);
+  line-height:1.7;margin-bottom:32px;
+}
+.contact-pull{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:clamp(22px,2.5vw,30px);
+  color:var(--umber);line-height:1.3;
+  padding-left:24px;border-left:3px solid var(--rose);
+}
+
+/* Form */
+.form-field{margin-bottom:24px}
+.form-lbl{
+  font-family:'Caveat',cursive;font-size:15px;
+  color:var(--umber);letter-spacing:0.08em;
+  display:block;margin-bottom:6px;
+}
+.form-inp,.form-ta{
+  width:100%;padding:14px 0;
+  background:transparent;border:none;
+  border-bottom:1px solid rgba(139,90,43,0.25);
+  font-family:'Crimson Pro',serif;font-size:17px;font-style:italic;
+  color:var(--ink);outline:none;
+  transition:border-color 0.3s;
+}
+.form-inp::placeholder,.form-ta::placeholder{
+  color:rgba(92,51,23,0.3);
+}
+.form-inp:focus,.form-ta:focus{border-bottom-color:var(--rose)}
+.form-ta{resize:vertical;min-height:100px}
+.form-submit{
+  font-family:'Caveat',cursive;font-size:20px;
+  background:var(--rose);color:var(--cream);
+  border:none;padding:14px 40px;cursor:none;
+  border-radius:40px;margin-top:16px;
+  transition:all 0.3s;letter-spacing:0.04em;
+}
+.form-submit:hover{background:var(--bark);transform:translateY(-2px) rotate(-1deg)}
+
+/* ═══════════════════════════
+   FOOTER
+═══════════════════════════ */
+footer{
+  background:var(--ink);
+  padding:70px 6% 32px;
+}
+.footer-top{
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:48px;margin-bottom:48px;
+  padding-bottom:48px;
+  border-bottom:1px solid rgba(200,184,154,0.08);
+}
+.footer-brand{
+  font-family:'Playfair Display',serif;
+  font-size:28px;color:var(--cream);margin-bottom:6px;
+}
+.footer-brand-sub{
+  font-family:'Caveat',cursive;font-size:14px;
+  color:rgba(200,184,154,0.3);letter-spacing:0.1em;
+}
+.footer-desc{
+  font-size:16px;font-style:italic;color:rgba(245,233,213,0.35);
+  line-height:1.7;margin-top:16px;
+}
+.footer-col-title{
+  font-family:'Caveat',cursive;font-size:14px;
+  color:rgba(200,184,154,0.4);letter-spacing:0.15em;
+  margin-bottom:16px;text-transform:uppercase;
+}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col a{
+  font-family:'Crimson Pro',serif;font-style:italic;
+  font-size:16px;color:rgba(245,233,213,0.35);
+  text-decoration:none;transition:color 0.3s;
+}
+.footer-col a:hover{color:var(--wheat)}
+.footer-bottom{
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:12px;
+}
+.footer-copy{
+  font-family:'Caveat',cursive;font-size:14px;
+  color:rgba(200,184,154,0.2);
+}
+.footer-social{display:flex;gap:12px}
+.s-link{
+  width:36px;height:36px;border-radius:50%;
+  border:1px solid rgba(200,184,154,0.1);
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(200,184,154,0.25);transition:all 0.3s;text-decoration:none;
+}
+.s-link:hover{border-color:var(--wheat);color:var(--wheat)}
+
+/* ═══════════════════════════
+   MENU MODAL
+═══════════════════════════ */
+.modal{
+  display:none;position:fixed;inset:0;z-index:9000;
+  background:rgba(28,16,8,0.75);
+  align-items:center;justify-content:center;
+  padding:20px;backdrop-filter:blur(8px);
+}
+.modal.open{display:flex;animation:fadeIn 0.3s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal-box{
+  background:var(--cream);max-width:520px;width:100%;
+  position:relative;
+  animation:slideUp 0.4s ease;
+}
+@keyframes slideUp{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+.modal-img{width:100%;height:260px;overflow:hidden}
+.modal-img img{width:100%;height:100%;object-fit:cover}
+.modal-body{padding:32px}
+.modal-close{
+  position:absolute;top:14px;right:14px;z-index:2;
+  background:rgba(28,16,8,0.6);border:none;cursor:none;
+  width:34px;height:34px;border-radius:50%;
+  color:#fff;font-size:18px;
+  display:flex;align-items:center;justify-content:center;
+  line-height:1;transition:background 0.2s;
+}
+.modal-close:hover{background:var(--rose)}
+.modal-name{
+  font-family:'Playfair Display',serif;font-size:28px;
+  color:var(--ink);margin-bottom:10px;
+}
+.modal-desc{
+  font-style:italic;font-size:16px;color:var(--bark);
+  line-height:1.7;margin-bottom:24px;
+}
+.modal-foot{
+  display:flex;justify-content:space-between;align-items:center;
+}
+.modal-price{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:34px;color:var(--rose);
+}
+.modal-add{
+  font-family:'Caveat',cursive;font-size:18px;
+  background:var(--ink);color:var(--cream);
+  border:none;padding:12px 28px;cursor:none;
+  border-radius:40px;transition:all 0.3s;
+}
+.modal-add:hover{background:var(--rose)}
+
+/* ═══════════════════════════
+   ANIMATIONS
+═══════════════════════════ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.9s ease,transform 0.9s ease}
+.reveal.up{opacity:1;transform:none}
+.reveal-delay-1{transition-delay:0.1s}
+.reveal-delay-2{transition-delay:0.2s}
+.reveal-delay-3{transition-delay:0.3s}
+.reveal-delay-4{transition-delay:0.4s}
+.reveal-left{opacity:0;transform:translateX(-40px);transition:opacity 0.9s ease,transform 0.9s ease}
+.reveal-left.up{opacity:1;transform:none}
+.reveal-right{opacity:0;transform:translateX(40px);transition:opacity 0.9s ease,transform 0.9s ease}
+.reveal-right.up{opacity:1;transform:none}
+
+/* ═══════════════════════════
+   SEASON BUTTON
+═══════════════════════════ */
+.season-fab{
+  position:fixed;bottom:28px;right:28px;z-index:700;
+  font-family:'Caveat',cursive;font-size:15px;
+  background:var(--cream);color:var(--bark);
+  border:1px solid rgba(139,90,43,0.2);
+  padding:10px 20px;cursor:none;
+  border-radius:40px;
+  display:flex;align-items:center;gap:8px;
+  box-shadow:0 4px 20px rgba(28,16,8,0.12);
+  transition:all 0.3s;
+}
+.season-fab:hover{background:var(--rose);color:var(--cream);border-color:transparent}
+
+/* SPRING MODE */
+body.spring{
+  --cream:#F4F8ED;--parchment:#EAF3DC;--linen:#D4E8BC;
+  --rose:#7A9E5A;--blush:#9ABC78;--wheat:#B4C89A;
+}
+
+/* ═══════════════════════════
+   RESPONSIVE
+═══════════════════════════ */
 @media(max-width:1024px){
-  #hero { grid-template-columns:1fr; }
-  .hero-right { display:none; }
-  .hero-left { padding:140px 7% 80px; }
-  #about { grid-template-columns:1fr; }
-  .about-image-grid { grid-template-columns:1fr 1fr; grid-template-rows:220px; }
-  .menu-grid-4 { grid-template-columns:repeat(2,1fr); }
-  .menu-grid-mixed { grid-template-columns:1fr 1fr; }
-  .menu-grid-mixed .menu-card.tall { grid-row:span 1; }
-  .menu-grid-mixed .menu-card.tall .menu-card-img { height:200px; }
-  #philosophy { grid-template-columns:1fr; }
-  .philosophy-right { display:none; }
-  #hours { grid-template-columns:1fr; }
-  .hours-right { padding:40px 7%; }
-  .gallery-mosaic { grid-template-columns:1fr 1fr; grid-template-rows:auto; }
-  .gallery-mosaic .gallery-cell:first-child { grid-row:span 1; }
-  #visit { grid-template-columns:1fr; gap:40px; }
-  #contact { grid-template-columns:1fr; gap:40px; }
-  .footer-top { grid-template-columns:1fr 1fr; gap:32px; }
+  #hero{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .hero-left{padding:140px 7% 80px}
+  .about-inner{grid-template-columns:1fr}
+  .about-collage{height:400px}
+  .chalk-menu-grid{grid-template-columns:1fr}
+  .phil-grid{grid-template-columns:1fr}
+  #hours{grid-template-columns:1fr;gap:40px}
+  #visit{grid-template-columns:1fr}
+  #contact{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr 1fr;gap:32px}
 }
 @media(max-width:680px){
-  nav .nav-links { display:none; }
-  .menu-grid-4, .menu-grid-3, .menu-grid-2 { grid-template-columns:1fr; }
-  .menu-grid-mixed { grid-template-columns:1fr; }
-  .gallery-mosaic { grid-template-columns:1fr; }
-  .about-image-grid { grid-template-columns:1fr; }
-  .footer-top { grid-template-columns:1fr; }
-  .about-stats { flex-direction:column; gap:24px; }
+  nav .nav-links{display:none}
+  .film-strip{gap:2px}
+  .film-cell{flex:0 0 240px}
+  .footer-top{grid-template-columns:1fr}
+  .stats-row{flex-direction:column;align-items:center}
+  .chalk-menu-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════
-     NAV
-══════════════════════════════════ -->
-<nav id="navbar">
-  <a href="#hero" class="nav-logo" id="logoLink">
+<!-- Canvas for flour particles -->
+<canvas id="flour-canvas"></canvas>
+
+<!-- Custom cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<!-- ═══════════ NAV ═══════════ -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">
     Crumbelle Bakehouse
-    <span>Est. 2012 &mdash; Baked with love</span>
+    <span class="nav-logo-sub">Est. 2012 · Millbrook Village</span>
   </a>
   <ul class="nav-links">
     <li><a href="#about">Our Story</a></li>
@@ -934,872 +912,618 @@ body.spring-mode {
   </ul>
 </nav>
 
-<!-- ══════════════════════════════════
-     HERO
-══════════════════════════════════ -->
+<!-- ═══════════ HERO ═══════════ -->
 <section id="hero">
   <div class="hero-left">
-    <div class="hero-tag reveal">
-      <div class="hero-tag-dot"></div>
-      Small-town bakery, big-hearted baking
+    <div class="hero-left-texture"></div>
+    <div class="hero-stamp">Crumbelle Bakehouse · Since 2012 · Millbrook ·</div>
+
+    <div class="hero-tag">
+      <div class="hero-tag-line"></div>
+      Small town, big heart
     </div>
-    <h1 class="hero-h1 reveal reveal-delay-1">
-      Freshly Baked
-      <em>Happiness,</em>
-      Every Morning
+
+    <h1 class="hero-h1">
+      Where every
+      <em>morning</em>
+      <span class="scrawl">begins golden</span>
     </h1>
-    <p class="hero-p reveal reveal-delay-2">
-      Where every loaf is shaped by hand, every pastry carries quiet warmth, and every morning begins with something golden fresh from the oven.
+
+    <p class="hero-p">
+      Shaped by hand before sunrise. Honest flour, honest fire, honest love — in every loaf, every pastry, every quiet cup.
     </p>
-    <div class="hero-btns reveal reveal-delay-3">
-      <a href="#menu" class="btn-dark">Explore the Menu</a>
-      <a href="#visit" class="btn-line">Find Us</a>
+
+    <div class="hero-btns">
+      <a href="#menu" class="btn-parchment">Our Menu</a>
+      <a href="#visit" class="btn-ghost">Find Us</a>
     </div>
-    <div class="hero-scroll-hint reveal reveal-delay-4">
-      <div class="scroll-line"></div>
-      Scroll to explore
+
+    <div class="hero-scroll">
+      <div class="scroll-arrow"></div>
+      scroll down
     </div>
   </div>
-  <div class="hero-right">
-    <div class="hero-right-img">
-      <!-- Illustrated hero scene -->
-      <svg class="hero-illustration" viewBox="0 0 320 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Table surface -->
-        <rect x="20" y="300" width="280" height="12" rx="2" fill="#C4A87C" opacity="0.5"/>
-        <!-- Bread loaf -->
-        <g transform="translate(80,200)">
-          <!-- loaf body -->
-          <ellipse cx="80" cy="60" rx="75" ry="48" fill="#D4A87C"/>
-          <ellipse cx="80" cy="52" rx="68" ry="40" fill="#C4905C"/>
-          <!-- score marks -->
-          <line x1="50" y1="28" x2="60" y2="72" stroke="#B8722A" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
-          <line x1="70" y1="24" x2="80" y2="70" stroke="#B8722A" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
-          <line x1="90" y1="24" x2="100" y2="70" stroke="#B8722A" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
-          <!-- flour dust -->
-          <circle cx="30" cy="50" r="2" fill="#F5E8E4" opacity="0.7"/>
-          <circle cx="130" cy="45" r="1.5" fill="#F5E8E4" opacity="0.6"/>
-          <circle cx="20" cy="60" r="1" fill="#F5E8E4" opacity="0.5"/>
-        </g>
+
+  <div class="hero-right" data-parallax="0.15">
+    <div class="hero-right-bg"></div>
+
+    <!-- Spinning badge -->
+    <div class="hero-badge" style="width:96px;height:96px;top:12%;right:8%;font-size:10px;letter-spacing:0.15em;text-align:center">
+      <div class="badge-inner" style="padding:8px;">Baked fresh daily · Since 2012 ·</div>
+    </div>
+
+    <!-- Main hero illustration: bakery window scene -->
+    <svg class="hero-window" viewBox="0 0 440 540" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Window frame outer -->
+      <rect x="30" y="60" width="380" height="440" rx="4" fill="#3A1C0A" stroke="#5C3317" stroke-width="2"/>
+      <!-- Window glass -->
+      <rect x="44" y="74" width="352" height="412" rx="2" fill="#C09060" fill-opacity="0.2"/>
+      <!-- Warm interior glow -->
+      <rect x="44" y="74" width="352" height="412" rx="2" fill="url(#winGlow)"/>
+      <defs>
+        <radialGradient id="winGlow" cx="50%" cy="60%" r="60%">
+          <stop offset="0%" stop-color="#F5C87C" stop-opacity="0.25"/>
+          <stop offset="100%" stop-color="#8B4510" stop-opacity="0.05"/>
+        </radialGradient>
+      </defs>
+      <!-- Windowsill -->
+      <rect x="20" y="490" width="400" height="18" rx="3" fill="#5C3317"/>
+      <!-- Flower pots on sill -->
+      <g transform="translate(40,472)">
+        <rect x="0" y="10" width="28" height="22" rx="2" fill="#8B5A2B"/>
+        <rect x="2" y="8" width="24" height="4" rx="1" fill="#A06A35"/>
+        <circle cx="14" cy="6" r="8" fill="#7A9E76"/>
+        <circle cx="8" cy="4" r="4" fill="#D4907A"/>
+        <circle cx="20" cy="5" r="3.5" fill="#C4697A"/>
+        <circle cx="14" cy="2" r="3" fill="#E8B4B8"/>
+      </g>
+      <g transform="translate(370,476)">
+        <rect x="0" y="10" width="22" height="18" rx="2" fill="#8B5A2B"/>
+        <rect x="1" y="8" width="20" height="3" rx="1" fill="#A06A35"/>
+        <circle cx="11" cy="6" r="7" fill="#5E7A52"/>
+        <circle cx="6" cy="3" r="3" fill="#8FA882"/>
+        <circle cx="16" cy="4" r="3" fill="#8FA882"/>
+      </g>
+      <!-- Hanging sign inside window -->
+      <rect x="150" y="88" width="140" height="44" rx="3" fill="#3A2810" stroke="#8B5A2B" stroke-width="1"/>
+      <text x="220" y="106" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="11" fill="#E8C99A" letter-spacing="1">Crumbelle</text>
+      <text x="220" y="122" text-anchor="middle" font-family="Georgia,serif" font-size="9" fill="rgba(200,184,154,0.6)" letter-spacing="2">BAKEHOUSE</text>
+      <!-- Sign rope -->
+      <path d="M150,88 Q140,78 150,68" stroke="#8B5A2B" stroke-width="1.5" fill="none"/>
+      <path d="M290,88 Q300,78 290,68" stroke="#8B5A2B" stroke-width="1.5" fill="none"/>
+      <!-- Shelves -->
+      <rect x="60" y="230" width="320" height="6" rx="1" fill="#5C3317" opacity="0.6"/>
+      <rect x="60" y="350" width="320" height="6" rx="1" fill="#5C3317" opacity="0.6"/>
+      <!-- Bread loaves on shelf 1 -->
+      <g transform="translate(80,185)">
+        <!-- Sourdough -->
+        <ellipse cx="50" cy="44" rx="48" ry="36" fill="#C4905C"/>
+        <ellipse cx="50" cy="38" rx="43" ry="30" fill="#D4A06C"/>
+        <path d="M28,26 Q35,18 42,26" stroke="#B8722A" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.5"/>
+        <path d="M45,22 Q52,14 59,22" stroke="#B8722A" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.5"/>
+        <path d="M62,26 Q69,18 76,26" stroke="#B8722A" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.5"/>
+      </g>
+      <g transform="translate(185,192)">
+        <!-- Baguette -->
+        <ellipse cx="50" cy="18" rx="50" ry="14" fill="#C8A066"/>
+        <ellipse cx="50" cy="15" rx="46" ry="10" fill="#D8B076"/>
+        <line x1="20" y1="10" x2="24" y2="24" stroke="#B8822A" stroke-width="1" opacity="0.5"/>
+        <line x1="35" y1="8" x2="39" y2="22" stroke="#B8822A" stroke-width="1" opacity="0.5"/>
+        <line x1="50" y1="7" x2="54" y2="21" stroke="#B8822A" stroke-width="1" opacity="0.5"/>
+        <line x1="65" y1="8" x2="69" y2="22" stroke="#B8822A" stroke-width="1" opacity="0.5"/>
+        <line x1="80" y1="10" x2="84" y2="24" stroke="#B8822A" stroke-width="1" opacity="0.5"/>
+      </g>
+      <!-- Pastries on shelf 2 -->
+      <g transform="translate(90,300)">
         <!-- Croissant -->
-        <g transform="translate(40,230) rotate(-15)">
-          <path d="M0,20 Q10,-10 40,0 Q60,8 50,25 Q40,40 20,35 Q0,28 0,20 Z" fill="#D4A044"/>
-          <path d="M5,22 Q15,-5 38,5 Q55,12 46,26" stroke="#B8722A" stroke-width="1" fill="none" opacity="0.5"/>
-        </g>
-        <!-- Coffee cup -->
-        <g transform="translate(220,240)">
-          <rect x="0" y="20" width="50" height="55" rx="4" fill="#8A6A4A"/>
-          <rect x="4" y="24" width="42" height="47" rx="3" fill="#6A4A2A"/>
-          <!-- coffee surface -->
-          <ellipse cx="25" cy="24" rx="21" ry="6" fill="#5A3A1A"/>
-          <ellipse cx="25" cy="24" rx="18" ry="4" fill="#4A2A0A"/>
-          <!-- handle -->
-          <path d="M50,35 Q65,35 65,50 Q65,65 50,65" stroke="#8A6A4A" stroke-width="5" fill="none" stroke-linecap="round"/>
-          <!-- saucer -->
-          <ellipse cx="25" cy="78" rx="32" ry="8" fill="#C4A87C" opacity="0.5"/>
-          <!-- steam -->
-          <path d="M15,18 Q18,10 15,2" stroke="#EDD8D4" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6" class="steam-path-hero"/>
-          <path d="M25,16 Q28,8 25,0" stroke="#EDD8D4" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.5" class="steam-path-hero"/>
-          <path d="M35,18 Q38,10 35,2" stroke="#EDD8D4" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6" class="steam-path-hero"/>
-        </g>
-        <!-- Scatter flour -->
-        <circle cx="60" cy="310" r="2.5" fill="#F5E8E4" opacity="0.8"/>
-        <circle cx="90" cy="320" r="1.5" fill="#F5E8E4" opacity="0.6"/>
-        <circle cx="200" cy="305" r="2" fill="#F5E8E4" opacity="0.7"/>
-        <circle cx="260" cy="315" r="1.5" fill="#F5E8E4" opacity="0.5"/>
-        <!-- Rolling pin doodle -->
-        <g transform="translate(40,150) rotate(-20)" opacity="0.4">
-          <rect x="0" y="8" width="100" height="14" rx="7" fill="#C4A87C"/>
-          <rect x="-10" y="4" width="16" height="22" rx="4" fill="#D4B88C"/>
-          <rect x="94" y="4" width="16" height="22" rx="4" fill="#D4B88C"/>
-        </g>
-        <!-- Wheat sprig doodle -->
-        <g transform="translate(260,160)" opacity="0.35">
-          <line x1="10" y1="80" x2="10" y2="0" stroke="#8FA882" stroke-width="1.5" stroke-linecap="round"/>
-          <ellipse cx="10" cy="15" rx="5" ry="9" fill="#8FA882" transform="rotate(-20,10,15)"/>
-          <ellipse cx="10" cy="15" rx="5" ry="9" fill="#8FA882" transform="rotate(20,10,15)"/>
-          <ellipse cx="10" cy="30" rx="5" ry="9" fill="#8FA882" transform="rotate(-20,10,30)"/>
-          <ellipse cx="10" cy="30" rx="5" ry="9" fill="#8FA882" transform="rotate(20,10,30)"/>
-          <ellipse cx="10" cy="45" rx="5" ry="9" fill="#8FA882" transform="rotate(-20,10,45)"/>
-          <ellipse cx="10" cy="45" rx="5" ry="9" fill="#8FA882" transform="rotate(20,10,45)"/>
-        </g>
-        <!-- Sparkle doodles -->
-        <g opacity="0.5">
-          <path d="M200,60 L202,50 L204,60 L214,62 L204,64 L202,74 L200,64 L190,62 Z" fill="#E8B4B8"/>
-          <path d="M50,100 L51,94 L52,100 L58,101 L52,102 L51,108 L50,102 L44,101 Z" fill="#C4697A"/>
-          <path d="M270,220 L271,215 L272,220 L277,221 L272,222 L271,227 L270,222 L265,221 Z" fill="#E8B4B8" opacity="0.6"/>
-        </g>
-      </svg>
-    </div>
-    <!-- Floating doodles -->
-    <svg class="hero-doodle" style="top:8%;right:10%;width:60px;animation-delay:0s;" viewBox="0 0 60 60" fill="none">
-      <path d="M10,30 Q10,12 30,12 Q50,12 50,30 Q50,42 30,45 Q10,42 10,30 Z" fill="#E8B4B8" stroke="#C4697A" stroke-width="1.5"/>
-      <path d="M18,28 Q22,20 30,20 Q38,20 42,28" stroke="#C4697A" stroke-width="1" fill="none" opacity="0.6"/>
+        <path d="M10,25 Q0,10 20,5 Q40,0 55,12 Q65,20 55,32 Q45,42 30,38 Q10,32 10,25Z" fill="#D4A044"/>
+        <path d="M14,24 Q5,12 22,7 Q40,3 52,14" stroke="#B8822A" stroke-width="1" fill="none" opacity="0.4"/>
+      </g>
+      <g transform="translate(175,295)">
+        <!-- Cake slice -->
+        <path d="M10,50 L0,10 L50,0 L60,40 Z" fill="#E8B4B8"/>
+        <path d="M10,50 L0,10 L50,0 L60,40 Z" fill="none" stroke="#D4907A" stroke-width="1"/>
+        <path d="M0,10 Q25,15 50,0" stroke="#fff" stroke-width="2" fill="none" opacity="0.5"/>
+        <ellipse cx="30" cy="5" rx="22" ry="7" fill="rgba(255,255,255,0.3)"/>
+        <!-- berry -->
+        <circle cx="30" cy="3" r="5" fill="#C4697A"/>
+      </g>
+      <g transform="translate(265,302)">
+        <!-- Tart -->
+        <ellipse cx="35" cy="35" rx="35" ry="30" fill="#C4905C"/>
+        <ellipse cx="35" cy="32" rx="30" ry="24" fill="#F5C87C"/>
+        <ellipse cx="35" cy="30" rx="22" ry="17" fill="#D4907A"/>
+        <circle cx="35" cy="29" r="6" fill="#C4697A"/>
+      </g>
+      <!-- Steam from items -->
+      <g opacity="0.35">
+        <path d="M115,180 Q118,168 115,156" stroke="#F5E9D5" stroke-width="2" fill="none" stroke-linecap="round" class="steam-wiggle"/>
+        <path d="M240,190 Q243,178 240,166" stroke="#F5E9D5" stroke-width="2" fill="none" stroke-linecap="round" class="steam-wiggle" style="animation-delay:0.8s"/>
+        <path d="M320,285 Q323,273 320,261" stroke="#F5E9D5" stroke-width="2" fill="none" stroke-linecap="round" class="steam-wiggle" style="animation-delay:1.6s"/>
+      </g>
+      <!-- Chalkboard on wall inside -->
+      <rect x="280" y="140" width="100" height="80" rx="2" fill="#2A3220"/>
+      <text x="330" y="162" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="9" fill="rgba(245,233,213,0.6)">Today's</text>
+      <text x="330" y="176" text-anchor="middle" font-family="Georgia,serif" font-size="8" fill="rgba(200,184,154,0.5)" letter-spacing="0.5">SOURDOUGH</text>
+      <text x="330" y="188" text-anchor="middle" font-family="Georgia,serif" font-size="8" fill="rgba(200,184,154,0.5)">CROISSANTS</text>
+      <text x="330" y="200" text-anchor="middle" font-family="Georgia,serif" font-size="8" fill="rgba(200,184,154,0.5)">HONEY ROLLS</text>
+      <!-- Warm light pool on floor -->
+      <ellipse cx="220" cy="480" rx="120" ry="20" fill="#F5C87C" fill-opacity="0.08"/>
+      <!-- Window frame cross bars -->
+      <line x1="44" y1="280" x2="396" y2="280" stroke="#3A1C0A" stroke-width="6"/>
+      <line x1="220" y1="74" x2="220" y2="486" stroke="#3A1C0A" stroke-width="6"/>
     </svg>
-    <svg class="hero-doodle" style="bottom:22%;right:6%;width:50px;animation-delay:2s;" viewBox="0 0 50 50" fill="none">
-      <path d="M25,5 L28,20 L43,25 L28,30 L25,45 L22,30 L7,25 L22,20 Z" fill="#E8B4B8" opacity="0.7"/>
-    </svg>
-    <svg class="hero-doodle" style="top:40%;right:3%;width:40px;animation-delay:3.5s;" viewBox="0 0 40 60" fill="none">
-      <line x1="20" y1="58" x2="20" y2="0" stroke="#8FA882" stroke-width="1.5" stroke-linecap="round"/>
-      <ellipse cx="20" cy="14" rx="6" ry="11" fill="#8FA882" transform="rotate(-25,20,14)"/>
-      <ellipse cx="20" cy="14" rx="6" ry="11" fill="#8FA882" transform="rotate(25,20,14)"/>
-      <ellipse cx="20" cy="32" rx="6" ry="11" fill="#8FA882" transform="rotate(-25,20,32)"/>
-      <ellipse cx="20" cy="32" rx="6" ry="11" fill="#8FA882" transform="rotate(25,20,32)"/>
-    </svg>
+
+    <!-- Floating steam paths animate -->
+    <style>
+      .steam-wiggle{
+        animation:steamAnim 4s ease-in-out infinite;
+        stroke-dasharray:30;stroke-dashoffset:30;
+      }
+      @keyframes steamAnim{
+        0%{stroke-dashoffset:30;opacity:0}
+        20%{opacity:0.5}
+        80%{opacity:0.2}
+        100%{stroke-dashoffset:-60;opacity:0}
+      }
+    </style>
   </div>
-  <div class="hero-deco-year">Est. 2012 &nbsp; Crumbelle Bakehouse</div>
 </section>
 
-<!-- ══════════════════════════════════
-     MARQUEE
-══════════════════════════════════ -->
-<div class="marquee-strip" aria-hidden="true">
-  <div class="marquee-inner" id="marqueeInner">
+<!-- ═══════════ TORN PAPER ═══════════ -->
+<div class="torn" style="background:var(--deep);">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 L0,20 Q10,35 22,18 Q34,4 48,28 Q62,48 78,22 Q94,0 108,30 Q122,55 140,24 Q158,0 172,32 Q186,58 200,26 Q214,0 228,34 Q242,60 258,28 Q274,0 290,38 Q306,60 322,30 Q338,4 354,36 Q370,60 386,26 Q402,0 416,38 Q430,60 448,28 Q466,0 482,36 Q498,60 514,26 Q530,0 548,38 Q566,60 582,28 Q598,0 614,36 Q630,60 648,26 Q666,0 682,38 Q698,60 716,28 Q734,0 750,36 Q766,60 784,28 Q802,0 818,36 Q834,60 852,26 Q870,0 886,38 Q902,60 920,28 Q938,0 954,36 Q970,60 988,26 Q1006,0 1022,38 Q1038,60 1056,28 Q1074,0 1090,36 Q1106,60 1124,26 Q1142,0 1158,38 Q1174,60 1192,28 Q1210,0 1226,36 Q1242,60 1260,26 Q1278,0 1294,38 Q1310,60 1328,28 Q1346,0 1362,36 Q1378,60 1396,26 Q1412,0 1428,38 L1440,60 L0,60 Z" fill="var(--cream)"/>
+  </svg>
+</div>
+
+<!-- ═══════════ MARQUEE ═══════════ -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
     <span>Baked before sunrise</span>
-    <span>Locally sourced</span>
-    <span>Made by hand, always</span>
-    <span>Fresh daily — never frozen</span>
+    <span>Shaped by hand</span>
+    <span>Locally sourced, always</span>
+    <span>Fresh daily · never frozen</span>
     <span>Slow fermented sourdough</span>
     <span>Honest ingredients</span>
+    <span>12 years of morning love</span>
     <span>Baked before sunrise</span>
-    <span>Locally sourced</span>
-    <span>Made by hand, always</span>
-    <span>Fresh daily — never frozen</span>
+    <span>Shaped by hand</span>
+    <span>Locally sourced, always</span>
+    <span>Fresh daily · never frozen</span>
     <span>Slow fermented sourdough</span>
     <span>Honest ingredients</span>
+    <span>12 years of morning love</span>
   </div>
 </div>
 
-<!-- ══════════════════════════════════
-     ABOUT
-══════════════════════════════════ -->
+<!-- ═══════════ ABOUT ═══════════ -->
 <section id="about">
-  <div class="about-left">
-    <div class="about-left-deco"></div>
-    <div class="about-left-deco2"></div>
-    <span class="section-eyebrow reveal">Our Story</span>
-    <h2 class="section-title reveal reveal-delay-1">A little bakery<br>with a big heart</h2>
-    <p class="section-body reveal reveal-delay-2">
-      Crumbelle began as a single kitchen, one worn recipe book, and a stubborn love for how fresh bread makes a house feel like home. Over a decade later, we still bake the same way — slowly, honestly, and with the kind of care that can't be faked.
-    </p>
-    <p class="section-body reveal reveal-delay-3" style="margin-top:16px;">
-      Every morning before the town wakes, our bakers are already at work. Flour on the counter, warmth in the air, and something quietly beautiful happening inside the oven.
-    </p>
-  </div>
-  <div>
-    <div class="about-image-grid">
-      <div class="about-img-item reveal">
-        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=600&q=80" alt="Cozy bakery morning scene">
-        <div class="about-img-caption">fresh from the oven, every morning</div>
-      </div>
-      <div class="about-img-item reveal reveal-delay-1">
-        <img src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=600&q=80" alt="Baker kneading dough">
-        <div class="about-img-caption">shaped by hand, always</div>
-      </div>
-      <div class="about-img-item reveal reveal-delay-2">
-        <img src="https://images.unsplash.com/photo-1556711905-b2c7e849b979?w=600&q=80" alt="Warm pastries on linen">
-        <div class="about-img-caption">little joys, carefully made</div>
-      </div>
-      <div class="about-img-item reveal reveal-delay-3">
-        <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=600&q=80" alt="Cozy bakery corner with flowers">
-        <div class="about-img-caption">a place to pause and stay</div>
+  <div class="about-inner">
+    <div class="about-heading-block">
+      <div class="about-chapter-mark">A</div>
+      <div class="about-eyebrow reveal">Our Story</div>
+      <h2 class="about-h2 reveal reveal-delay-1">
+        A little bakery<br>
+        with a <em>big heart</em>
+      </h2>
+      <p class="about-body reveal reveal-delay-2">
+        Crumbelle began as a single kitchen, one worn recipe book, and a stubborn love for how fresh bread makes a house feel like home.
+      </p>
+      <p class="about-body reveal reveal-delay-3">
+        Over a decade later, we still bake the same way — slowly, honestly, and with the kind of care that can't be faked. Every morning before the town wakes, our bakers are already at work.
+      </p>
+      <div class="about-note reveal reveal-delay-4">
+        "Flour on the counter, warmth in the air, and something quietly beautiful happening inside the oven."
       </div>
     </div>
-    <div class="about-stats">
-      <div class="stat-item reveal">
-        <div class="stat-num">12+</div>
-        <div class="stat-label">years of baking</div>
+
+    <!-- Photo collage scrapbook -->
+    <div class="about-collage reveal-right">
+      <div class="collage-photo" style="width:60%;height:55%;top:0;left:10%;transform:rotate(1.5deg)">
+        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=600&q=80" alt="Bakery morning">
       </div>
-      <div class="stat-item reveal reveal-delay-1">
-        <div class="stat-num">40+</div>
-        <div class="stat-label">items baked daily</div>
+      <div class="collage-photo" style="width:50%;height:45%;top:30%;right:0;transform:rotate(-2.5deg)">
+        <img src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?w=600&q=80" alt="Baker kneading">
       </div>
-      <div class="stat-item reveal reveal-delay-2">
-        <div class="stat-num">100%</div>
-        <div class="stat-label">local ingredients</div>
+      <div class="collage-photo" style="width:42%;height:38%;bottom:0;left:0;transform:rotate(2deg)">
+        <img src="https://images.unsplash.com/photo-1556711905-b2c7e849b979?w=600&q=80" alt="Pastries">
       </div>
-      <div class="stat-item reveal reveal-delay-3">
-        <div class="stat-num">0</div>
-        <div class="stat-label">shortcuts, ever</div>
-      </div>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-row">
+    <div class="stat reveal">
+      <div class="stat-num">12+</div>
+      <div class="stat-label">years of baking</div>
+    </div>
+    <div class="stat reveal reveal-delay-1">
+      <div class="stat-num">40+</div>
+      <div class="stat-label">items baked daily</div>
+    </div>
+    <div class="stat reveal reveal-delay-2">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">local ingredients</div>
+    </div>
+    <div class="stat reveal reveal-delay-3">
+      <div class="stat-num">0</div>
+      <div class="stat-label">shortcuts, ever</div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════
-     TODAY'S BANNER
-══════════════════════════════════ -->
-<div class="today-banner" id="todayBanner">
-  <div class="today-label">Today's Fresh Batch</div>
-  <div class="today-text"><em>Honey Butter Croissants</em> &amp; Rosemary Focaccia — still warm</div>
-  <div class="today-fresh">Out of the oven at 7:00 AM</div>
+<!-- ═══════════ CHALKBOARD MENU ═══════════ -->
+<div id="menu" style="background:var(--cream);padding:60px 0 0">
+  <div style="text-align:center;padding:0 6% 48px">
+    <span style="font-family:'Caveat',cursive;font-size:18px;color:var(--umber);letter-spacing:0.1em;display:block;margin-bottom:12px" class="reveal">The Crumbelle Selection</span>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(36px,4vw,58px);color:var(--ink);line-height:1.1" class="reveal reveal-delay-1">Our Storybook <em style="font-style:italic;color:var(--rose)">Menu</em></h2>
+  </div>
+
+  <div class="chalkboard reveal">
+    <div class="chalk-title">Today at Crumbelle</div>
+    <div class="chalk-sub">— fresh from the oven —</div>
+    <hr class="chalk-divider">
+
+    <div class="chalk-menu-grid">
+      <!-- Breads -->
+      <div class="chalk-col">
+        <div class="chalk-col-head">Breads & Loaves</div>
+
+        <div class="chalk-item" onclick="openModal('Golden Hearth Sourdough','Slow-fermented, crusty outside, cloud-soft inside — our most beloved loaf, kissed by the hearth and loved by everyone who tries it.','₹180','https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=800&q=80')">
+          <div class="chalk-item-name">Golden Hearth Sourdough <span class="chalk-fresh-badge">fresh</span></div>
+          <div class="chalk-item-desc">slow fermented, scored by hand</div>
+          <div class="chalk-price">₹180</div>
+        </div>
+        <div class="chalk-item" onclick="openModal('Honey Oat Morning Loaf','Lightly sweet, soft as a dream — oats kissed with golden honey, perfect with butter and a slow morning.','₹160','https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=600&q=80')">
+          <div class="chalk-item-name">Honey Oat Morning Loaf</div>
+          <div class="chalk-item-desc">lightly sweet, perfect with butter</div>
+          <div class="chalk-price">₹160</div>
+        </div>
+        <div class="chalk-item" onclick="openModal('Rosemary Butter Focaccia','Fluffy, aromatic, brushed with golden herb butter — a soft slab of pure comfort, dimpled and fragrant from the oven.','₹200','https://images.unsplash.com/photo-1619535860434-cf9b902a3d16?w=600&q=80')">
+          <div class="chalk-item-name">Rosemary Butter Focaccia <span class="chalk-fresh-badge">fresh</span></div>
+          <div class="chalk-item-desc">dimpled, fragrant, herbed</div>
+          <div class="chalk-price">₹200</div>
+        </div>
+        <div class="chalk-item" onclick="openModal('Cinnamon Cloud Rolls','Swirled with cinnamon sugar and vanilla glaze — soft as a cloud, sweet as a Sunday morning.','₹150','https://images.unsplash.com/photo-1591985666643-9a2d742b15bf?w=600&q=80')">
+          <div class="chalk-item-name">Cinnamon Cloud Rolls</div>
+          <div class="chalk-item-desc">swirled, glazed, tender</div>
+          <div class="chalk-price">₹150</div>
+        </div>
+
+        <!-- House specials -->
+        <div class="chalk-col-head" style="margin-top:32px">House Specials</div>
+        <div class="chalk-item" onclick="openModal('B\'s Favourite','A butter chicken margherita pizza — creamy, spiced butter chicken sauce on a soft hand-baked crust, topped with melted mozzarella, fresh basil. Where Indian comfort meets Italian soul.','₹320','https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=800&q=80')">
+          <div class="chalk-item-name">B's Favourite <span class="chalk-fresh-badge" style="background:rgba(184,107,90,0.2);color:var(--blush);border-color:rgba(184,107,90,0.3)">chef's pick</span></div>
+          <div class="chalk-item-desc">butter chicken margherita on baked crust</div>
+          <div class="chalk-price">₹320</div>
+        </div>
+        <div class="chalk-item" onclick="openModal('Signature Breakfast Board','Mini croissant, house jam, golden butter, seasonal fruit, and your choice of warm drink — the ultimate slow morning, arranged with care and served with love.','₹280','https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=800&q=80')">
+          <div class="chalk-item-name">Signature Breakfast Board</div>
+          <div class="chalk-item-desc">croissant · jam · butter · fruit · drink</div>
+          <div class="chalk-price">₹280</div>
+        </div>
+      </div>
+
+      <!-- Pastries & Cakes -->
+      <div class="chalk-col">
+        <div class="chalk-col-head">Pastries & Sweet Whispers</div>
+
+        <div class="chalk-item" onclick="openModal('Honey Butter Croissant','Flaky layers kissed with warm honey glaze — golden, buttery, made fresh every morning before you even wake up.','₹140','https://images.unsplash.com/photo-1530610476181-d83430b64dcd?w=600&q=80')">
+          <div class="chalk-item-name">Honey Butter Croissant <span class="chalk-fresh-badge">fresh</span></div>
+          <div class="chalk-item-desc">flaky layers, warm honey glaze</div>
+          <div class="chalk-price">₹140</div>
+        </div>
+        <div class="chalk-item" onclick="openModal('Strawberry Blush Tart','Buttery crust with soft cream and fresh berries — bright, delicate, as dreamy as a spring morning in full bloom.','₹170','https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600&q=80')">
+          <div class="chalk-item-name">Strawberry Blush Tart</div>
+          <div class="chalk-item-desc">cream pastry, fresh berries</div>
+          <div class="chalk-price">₹170</div>
+        </div>
+        <div class="chalk-item" onclick="openModal('Vanilla Dream Éclair','Silky vanilla cream in delicate choux pastry — light as air, gentle as a whisper, gone before you know it.','₹160','https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80')">
+          <div class="chalk-item-name">Vanilla Dream Éclair</div>
+          <div class="chalk-item-desc">choux pastry, silky vanilla cream</div>
+          <div class="chalk-price">₹160</div>
+        </div>
+        <div class="chalk-item" onclick="openModal('Caramel Kiss Danish','Golden pastry folded around a soft caramel center — warm, comforting, impossible to share.','₹150','https://images.unsplash.com/photo-1509365465985-25d11c17e812?w=600&q=80')">
+          <div class="chalk-item-name">Caramel Kiss Danish</div>
+          <div class="chalk-item-desc">soft caramel center, golden fold</div>
+          <div class="chalk-price">₹150</div>
+        </div>
+
+        <div class="chalk-col-head" style="margin-top:32px">Cakes & Slices</div>
+        <div class="chalk-item" onclick="openModal('Blush Velvet Slice','Soft pink velvet cake with cream cheese frosting — tender, romantic, made for gentle moments and quiet celebrations.','₹220','https://images.unsplash.com/photo-1559620192-032c4bc4674e?w=600&q=80')">
+          <div class="chalk-item-name">Blush Velvet Slice</div>
+          <div class="chalk-item-desc">pink velvet, cream cheese frosting</div>
+          <div class="chalk-price">₹220</div>
+        </div>
+        <div class="chalk-item" onclick="openModal('Chocolate Comfort Cake','Rich, moist, deeply satisfying — the kind of cake that feels like a warm hug in every single bite.','₹240','https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=600&q=80')">
+          <div class="chalk-item-name">Chocolate Comfort Cake <span class="chalk-fresh-badge">fresh</span></div>
+          <div class="chalk-item-desc">rich, moist, deeply satisfying</div>
+          <div class="chalk-price">₹240</div>
+        </div>
+        <div class="chalk-item" onclick="openModal('Lemon Sunshine Slice','Zesty, light, refreshing — like bottled sunshine with a perfectly buttery crust and a gentle citrus warmth.','₹200','https://images.unsplash.com/photo-1562777717-dc6984f65a63?w=600&q=80')">
+          <div class="chalk-item-name">Lemon Sunshine Slice</div>
+          <div class="chalk-item-desc">zesty, bright, buttery crust</div>
+          <div class="chalk-price">₹200</div>
+        </div>
+        <div class="chalk-item" onclick="openModal('Coffee Crumb Cake','Buttery crumble with warm coffee notes — the perfect companion for a quiet afternoon that asks nothing of you.','₹210','https://images.unsplash.com/photo-1504113888839-1c8eb50233d3?w=600&q=80')">
+          <div class="chalk-item-name">Coffee Crumb Cake</div>
+          <div class="chalk-item-desc">buttery crumble, warm coffee notes</div>
+          <div class="chalk-price">₹210</div>
+        </div>
+      </div>
+
+      <!-- Drinks -->
+      <div class="chalk-col">
+        <div class="chalk-col-head">Cozy Sips</div>
+        <div style="font-family:'Caveat',cursive;font-size:14px;color:rgba(200,184,154,0.3);font-style:italic;margin-bottom:16px;letter-spacing:0.06em">— sip &amp; stay awhile —</div>
+
+        <div class="chalk-item" onclick="openModal('Velvet Hot Chocolate','Thick, creamy, topped with soft foam — warm as a blanket, comforting as a quiet evening with nowhere to be.','₹180','https://images.unsplash.com/photo-1611270629569-8b357cb88da9?w=600&q=80')">
+          <div class="chalk-item-name">Velvet Hot Chocolate</div>
+          <div class="chalk-item-desc">thick, creamy, foam-topped</div>
+          <div class="chalk-price">₹180</div>
+        </div>
+        <div class="chalk-item" onclick="openModal('Honey Cinnamon Latte','Warm spice and gentle sweetness — every sip is a soft, golden hug that asks you to slow down and breathe.','₹170','https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600&q=80')">
+          <div class="chalk-item-name">Honey Cinnamon Latte</div>
+          <div class="chalk-item-desc">warm spice, golden sweetness</div>
+          <div class="chalk-price">₹170</div>
+        </div>
+        <div class="chalk-item" onclick="openModal('Iced Vanilla Cloud Coffee','Light, airy, and slightly sweet — a dreamy iced coffee that floats as softly as morning clouds.','₹190','https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&q=80')">
+          <div class="chalk-item-name">Iced Vanilla Cloud Coffee</div>
+          <div class="chalk-item-desc">light, airy, slightly sweet</div>
+          <div class="chalk-price">₹190</div>
+        </div>
+        <div class="chalk-item" onclick="openModal('Chamomile Calm Tea','Soft floral, soothing and warm — the quiet cup you deserve at the end of a long day, steeped with care.','₹120','https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600&q=80')">
+          <div class="chalk-item-name">Chamomile Calm Tea</div>
+          <div class="chalk-item-desc">soft floral, soothing warmth</div>
+          <div class="chalk-price">₹120</div>
+        </div>
+        <div class="chalk-item" onclick="openModal('Masala Chai','Our morning ritual — bold, spiced, milky chai brewed with cardamom, ginger, and a quiet kind of love.','₹100','https://images.unsplash.com/photo-1561336313-0bd5e0b27ec8?w=600&q=80')">
+          <div class="chalk-item-name">Masala Chai <span class="chalk-fresh-badge">house blend</span></div>
+          <div class="chalk-item-desc">cardamom, ginger, bold and warm</div>
+          <div class="chalk-price">₹100</div>
+        </div>
+
+        <!-- Small chalkboard doodle -->
+        <div style="margin-top:40px;text-align:center;opacity:0.25">
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+            <circle cx="40" cy="40" r="35" stroke="rgba(245,233,213,0.4)" stroke-width="1"/>
+            <path d="M40,15 Q50,20 55,30 Q60,40 55,50 Q50,60 40,65 Q30,60 25,50 Q20,40 25,30 Q30,20 40,15Z" fill="rgba(245,233,213,0.05)" stroke="rgba(245,233,213,0.2)" stroke-width="1"/>
+            <path d="M40,5 L40,12" stroke="rgba(245,233,213,0.3)" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M40,68 L40,75" stroke="rgba(245,233,213,0.3)" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M5,40 L12,40" stroke="rgba(245,233,213,0.3)" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M68,40 L75,40" stroke="rgba(245,233,213,0.3)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="40" y1="40" x2="40" y2="22" stroke="rgba(245,233,213,0.5)" stroke-width="2" stroke-linecap="round"/>
+            <line x1="40" y1="40" x2="54" y2="48" stroke="rgba(245,233,213,0.35)" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="40" cy="40" r="3" fill="rgba(245,233,213,0.4)"/>
+          </svg>
+          <div style="font-family:'Caveat',cursive;font-size:13px;color:rgba(200,184,154,0.25);letter-spacing:0.1em;margin-top:6px">open since 7am</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<!-- ══════════════════════════════════
-     MENU
-══════════════════════════════════ -->
-<section id="menu">
-  <div class="menu-header reveal">
-    <div>
-      <span class="section-eyebrow">The Crumbelle Selection</span>
-      <h2 class="section-title">Our Storybook Menu</h2>
-    </div>
-    <div class="menu-filters">
-      <button class="filter-pill active" onclick="filterMenu('all',this)">All</button>
-      <button class="filter-pill" onclick="filterMenu('sweet',this)">Sweet</button>
-      <button class="filter-pill" onclick="filterMenu('savory',this)">Savory</button>
-      <button class="filter-pill" onclick="filterMenu('drinks',this)">Drinks</button>
-    </div>
-  </div>
-
-  <!-- ── Chapter 1: Breads ── -->
-  <div class="menu-chapter reveal" data-cat="savory">
-    <div class="chapter-header">
-      <span class="chapter-num">I</span>
-      <h3 class="chapter-name">Breads &amp; Comfort Loaves</h3>
-      <span class="chapter-sub">"Warm from the Hearth"</span>
-    </div>
-    <div class="menu-grid-mixed">
-      <div class="menu-card featured" onclick="openModal('Golden Hearth Sourdough','Slow-fermented, crusty outside, cloud-soft inside — our most beloved loaf, kissed by the hearth and loved by everyone who tries it.','₹180','https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=800&q=80')">
-        <div class="card-badge badge-fresh">Today's Fresh</div>
-        <div class="menu-card-img">
-          <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=800&q=80" alt="Golden Hearth Sourdough" loading="lazy">
-          <div class="menu-card-img-overlay"></div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-card-top">
-            <div class="menu-card-name">Golden Hearth Sourdough</div>
-            <div class="menu-card-price">₹180</div>
-          </div>
-          <div class="menu-card-desc">Slow-fermented, crusty outside, cloud-soft inside</div>
-          <div class="menu-card-footer">
-            <span style="font-family:var(--f-serif);font-style:italic;font-size:12px;color:var(--caramel);">Signature item</span>
-            <button class="heart-btn" onclick="toggleHeart(event,this)" aria-label="Favourite">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--dustrose)"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="menu-card tall" onclick="openModal('Honey Oat Morning Loaf','Lightly sweet, soft as a dream — oats kissed with golden honey, perfect with butter and a slow morning.','₹160','https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=600&q=80')">
-        <div class="menu-card-img">
-          <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=600&q=80" alt="Honey Oat Morning Loaf" loading="lazy">
-          <div class="menu-card-img-overlay"></div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-card-top">
-            <div class="menu-card-name">Honey Oat Morning Loaf</div>
-            <div class="menu-card-price">₹160</div>
-          </div>
-          <div class="menu-card-desc">Lightly sweet, perfect with butter and quiet mornings</div>
-          <div class="menu-card-footer">
-            <span></span>
-            <button class="heart-btn" onclick="toggleHeart(event,this)" aria-label="Favourite">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--dustrose)"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="menu-card" onclick="openModal('Rosemary Butter Focaccia','Fluffy, aromatic, brushed with golden herb butter — a soft slab of pure comfort, dimpled and fragrant from the oven.','₹200','https://images.unsplash.com/photo-1619535860434-cf9b902a3d16?w=600&q=80')">
-        <div class="card-badge badge-fav">Chef&apos;s Pick</div>
-        <div class="menu-card-img">
-          <img src="https://images.unsplash.com/photo-1619535860434-cf9b902a3d16?w=600&q=80" alt="Rosemary Butter Focaccia" loading="lazy">
-          <div class="menu-card-img-overlay"></div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-card-top">
-            <div class="menu-card-name">Rosemary Butter Focaccia</div>
-            <div class="menu-card-price">₹200</div>
-          </div>
-          <div class="menu-card-desc">Fluffy, aromatic, brushed with golden herb butter</div>
-          <div class="menu-card-footer">
-            <span></span>
-            <button class="heart-btn" onclick="toggleHeart(event,this)" aria-label="Favourite">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--dustrose)"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="menu-card" onclick="openModal('Cinnamon Cloud Rolls','Swirled with cinnamon sugar and vanilla glaze — soft as a cloud, sweet as a Sunday morning you don\'t want to end.','₹150','https://images.unsplash.com/photo-1591985666643-9a2d742b15bf?w=600&q=80')">
-        <div class="menu-card-img">
-          <img src="https://images.unsplash.com/photo-1591985666643-9a2d742b15bf?w=600&q=80" alt="Cinnamon Cloud Rolls" loading="lazy">
-          <div class="menu-card-img-overlay"></div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-card-top">
-            <div class="menu-card-name">Cinnamon Cloud Rolls</div>
-            <div class="menu-card-price">₹150</div>
-          </div>
-          <div class="menu-card-desc">Swirled with cinnamon sugar and vanilla glaze</div>
-          <div class="menu-card-footer">
-            <span></span>
-            <button class="heart-btn" onclick="toggleHeart(event,this)" aria-label="Favourite">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--dustrose)"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── Chapter 2: Pastries ── -->
-  <div class="menu-chapter reveal" data-cat="sweet">
-    <div class="chapter-header">
-      <span class="chapter-num">II</span>
-      <h3 class="chapter-name">Pastries &amp; Sweet Whispers</h3>
-      <span class="chapter-sub">"Little Joys"</span>
-    </div>
-    <div class="menu-grid-4">
-      <div class="menu-card" onclick="openModal('Honey Butter Croissant','Flaky layers kissed with warm honey glaze — golden, buttery, made fresh every morning before you even wake up.','₹140','https://images.unsplash.com/photo-1530610476181-d83430b64dcd?w=600&q=80')">
-        <div class="card-badge badge-fresh">Today's Fresh</div>
-        <div class="menu-card-img">
-          <img src="https://images.unsplash.com/photo-1530610476181-d83430b64dcd?w=600&q=80" alt="Honey Butter Croissant" loading="lazy">
-          <div class="menu-card-img-overlay"></div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-card-top">
-            <div class="menu-card-name">Honey Butter Croissant</div>
-            <div class="menu-card-price">₹140</div>
-          </div>
-          <div class="menu-card-desc">Flaky layers kissed with warm honey glaze</div>
-          <div class="menu-card-footer">
-            <span></span>
-            <button class="heart-btn" onclick="toggleHeart(event,this)" aria-label="Favourite">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--dustrose)"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="menu-card" onclick="openModal('Strawberry Blush Tart','Buttery crust with soft cream and fresh berries — bright, delicate, as dreamy as a spring morning in full bloom.','₹170','https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600&q=80')">
-        <div class="menu-card-img">
-          <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600&q=80" alt="Strawberry Blush Tart" loading="lazy">
-          <div class="menu-card-img-overlay"></div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-card-top">
-            <div class="menu-card-name">Strawberry Blush Tart</div>
-            <div class="menu-card-price">₹170</div>
-          </div>
-          <div class="menu-card-desc">Buttery crust with soft cream and fresh berries</div>
-          <div class="menu-card-footer">
-            <span></span>
-            <button class="heart-btn" onclick="toggleHeart(event,this)" aria-label="Favourite">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--dustrose)"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="menu-card" onclick="openModal('Vanilla Dream Éclair','Silky vanilla cream in delicate choux pastry — light as air, gentle as a whisper, gone before you know it.','₹160','https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80')">
-        <div class="menu-card-img">
-          <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80" alt="Vanilla Dream Éclair" loading="lazy">
-          <div class="menu-card-img-overlay"></div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-card-top">
-            <div class="menu-card-name">Vanilla Dream Éclair</div>
-            <div class="menu-card-price">₹160</div>
-          </div>
-          <div class="menu-card-desc">Silky vanilla cream in delicate choux pastry</div>
-          <div class="menu-card-footer">
-            <span></span>
-            <button class="heart-btn" onclick="toggleHeart(event,this)" aria-label="Favourite">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--dustrose)"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="menu-card" onclick="openModal('Caramel Kiss Danish','Golden pastry folded around a soft caramel center — warm, comforting, and impossible to share.','₹150','https://images.unsplash.com/photo-1509365465985-25d11c17e812?w=600&q=80')">
-        <div class="menu-card-img">
-          <img src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?w=600&q=80" alt="Caramel Kiss Danish" loading="lazy">
-          <div class="menu-card-img-overlay"></div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-card-top">
-            <div class="menu-card-name">Caramel Kiss Danish</div>
-            <div class="menu-card-price">₹150</div>
-          </div>
-          <div class="menu-card-desc">Golden pastry with soft caramel center</div>
-          <div class="menu-card-footer">
-            <span></span>
-            <button class="heart-btn" onclick="toggleHeart(event,this)" aria-label="Favourite">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--dustrose)"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── Chapter 3: Cakes ── -->
-  <div class="menu-chapter reveal" data-cat="sweet">
-    <div class="chapter-header">
-      <span class="chapter-num">III</span>
-      <h3 class="chapter-name">Cakes &amp; Slices</h3>
-      <span class="chapter-sub">"Soft Celebrations"</span>
-    </div>
-    <div class="menu-grid-4">
-      <div class="menu-card" onclick="openModal('Blush Velvet Slice','Soft pink velvet cake with cream cheese frosting — tender, romantic, made for gentle moments and quiet celebrations.','₹220','https://images.unsplash.com/photo-1559620192-032c4bc4674e?w=600&q=80')">
-        <div class="menu-card-img">
-          <img src="https://images.unsplash.com/photo-1559620192-032c4bc4674e?w=600&q=80" alt="Blush Velvet Slice" loading="lazy">
-          <div class="menu-card-img-overlay"></div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-card-top">
-            <div class="menu-card-name">Blush Velvet Slice</div>
-            <div class="menu-card-price">₹220</div>
-          </div>
-          <div class="menu-card-desc">Soft pink velvet with cream cheese frosting</div>
-          <div class="menu-card-footer">
-            <span></span>
-            <button class="heart-btn" onclick="toggleHeart(event,this)" aria-label="Favourite">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--dustrose)"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="menu-card" onclick="openModal('Chocolate Comfort Cake','Rich, moist, deeply satisfying — the kind of cake that feels like a warm hug in every single bite.','₹240','https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=600&q=80')">
-        <div class="card-badge badge-fresh">Today's Fresh</div>
-        <div class="menu-card-img">
-          <img src="https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=600&q=80" alt="Chocolate Comfort Cake" loading="lazy">
-          <div class="menu-card-img-overlay"></div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-card-top">
-            <div class="menu-card-name">Chocolate Comfort Cake</div>
-            <div class="menu-card-price">₹240</div>
-          </div>
-          <div class="menu-card-desc">Rich, moist, deeply satisfying</div>
-          <div class="menu-card-footer">
-            <span></span>
-            <button class="heart-btn" onclick="toggleHeart(event,this)" aria-label="Favourite">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--dustrose)"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="menu-card" onclick="openModal('Lemon Sunshine Slice','Zesty, light, refreshing — like bottled sunshine with a perfectly buttery crust and a gentle citrus warmth.','₹200','https://images.unsplash.com/photo-1562777717-dc6984f65a63?w=600&q=80')">
-        <div class="menu-card-img">
-          <img src="https://images.unsplash.com/photo-1562777717-dc6984f65a63?w=600&q=80" alt="Lemon Sunshine Slice" loading="lazy">
-          <div class="menu-card-img-overlay"></div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-card-top">
-            <div class="menu-card-name">Lemon Sunshine Slice</div>
-            <div class="menu-card-price">₹200</div>
-          </div>
-          <div class="menu-card-desc">Zesty, light, and refreshingly bright</div>
-          <div class="menu-card-footer">
-            <span></span>
-            <button class="heart-btn" onclick="toggleHeart(event,this)" aria-label="Favourite">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--dustrose)"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="menu-card" onclick="openModal('Coffee Crumb Cake','Buttery crumble with warm coffee notes — the perfect companion for a quiet afternoon that asks nothing of you.','₹210','https://images.unsplash.com/photo-1504113888839-1c8eb50233d3?w=600&q=80')">
-        <div class="menu-card-img">
-          <img src="https://images.unsplash.com/photo-1504113888839-1c8eb50233d3?w=600&q=80" alt="Coffee Crumb Cake" loading="lazy">
-          <div class="menu-card-img-overlay"></div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-card-top">
-            <div class="menu-card-name">Coffee Crumb Cake</div>
-            <div class="menu-card-price">₹210</div>
-          </div>
-          <div class="menu-card-desc">Buttery crumble with warm coffee notes</div>
-          <div class="menu-card-footer">
-            <span></span>
-            <button class="heart-btn" onclick="toggleHeart(event,this)" aria-label="Favourite">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--dustrose)"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── Chapter 4: Drinks ── -->
-  <div class="menu-chapter reveal" data-cat="drinks">
-    <div class="chapter-header">
-      <span class="chapter-num">IV</span>
-      <h3 class="chapter-name">Cozy Sips</h3>
-      <span class="chapter-sub">"Sip &amp; Stay Awhile"</span>
-    </div>
-    <div class="menu-grid-4">
-      <div class="menu-card drink-card" onclick="openModal('Velvet Hot Chocolate','Thick, creamy, topped with soft foam — warm as a blanket, comforting as a quiet evening with nowhere to be.','₹180','https://images.unsplash.com/photo-1611270629569-8b357cb88da9?w=600&q=80')">
-        <div class="menu-card-img" style="background:#3D2010;">
-          <div class="drink-visual">
-            <svg class="steam-svg" viewBox="0 0 60 50" fill="none">
-              <path class="steam-path" d="M15,45 Q10,35 15,25 Q20,15 15,5" stroke="rgba(237,216,212,0.6)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-              <path class="steam-path" d="M30,45 Q25,35 30,22 Q35,12 30,2" stroke="rgba(237,216,212,0.5)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-              <path class="steam-path" d="M45,45 Q40,35 45,25 Q50,15 45,5" stroke="rgba(237,216,212,0.6)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-            </svg>
-            <img src="https://images.unsplash.com/photo-1611270629569-8b357cb88da9?w=600&q=80" alt="Velvet Hot Chocolate" style="position:absolute;inset:0;opacity:0.9;" loading="lazy">
-          </div>
-          <div class="menu-card-img-overlay"></div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-card-top">
-            <div class="menu-card-name">Velvet Hot Chocolate</div>
-            <div class="menu-card-price">₹180</div>
-          </div>
-          <div class="menu-card-desc">Thick, creamy, topped with soft foam</div>
-          <div class="menu-card-footer">
-            <span></span>
-            <button class="heart-btn" onclick="toggleHeart(event,this)" aria-label="Favourite">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--dustrose)"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="menu-card drink-card" onclick="openModal('Honey Cinnamon Latte','Warm spice and gentle sweetness — every sip is a soft, golden hug that asks you to slow down and breathe.','₹170','https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600&q=80')">
-        <div class="menu-card-img" style="background:#5A3010;">
-          <div class="drink-visual">
-            <svg class="steam-svg" viewBox="0 0 60 50" fill="none">
-              <path class="steam-path" d="M15,45 Q10,35 15,25 Q20,15 15,5" stroke="rgba(237,216,212,0.5)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-              <path class="steam-path" d="M30,45 Q25,35 30,22 Q35,12 30,2" stroke="rgba(237,216,212,0.5)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-              <path class="steam-path" d="M45,45 Q40,35 45,25 Q50,15 45,5" stroke="rgba(237,216,212,0.5)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-            </svg>
-            <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600&q=80" alt="Honey Cinnamon Latte" style="position:absolute;inset:0;opacity:0.9;" loading="lazy">
-          </div>
-          <div class="menu-card-img-overlay"></div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-card-top">
-            <div class="menu-card-name">Honey Cinnamon Latte</div>
-            <div class="menu-card-price">₹170</div>
-          </div>
-          <div class="menu-card-desc">Warm spice and gentle sweetness</div>
-          <div class="menu-card-footer">
-            <span></span>
-            <button class="heart-btn" onclick="toggleHeart(event,this)" aria-label="Favourite">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--dustrose)"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="menu-card" onclick="openModal('Iced Vanilla Cloud Coffee','Light, airy, and slightly sweet — a dreamy iced coffee that floats as softly as morning clouds above the town.','₹190','https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&q=80')">
-        <div class="menu-card-img">
-          <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&q=80" alt="Iced Vanilla Cloud Coffee" loading="lazy">
-          <div class="menu-card-img-overlay"></div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-card-top">
-            <div class="menu-card-name">Iced Vanilla Cloud Coffee</div>
-            <div class="menu-card-price">₹190</div>
-          </div>
-          <div class="menu-card-desc">Light, airy, and slightly sweet</div>
-          <div class="menu-card-footer">
-            <span></span>
-            <button class="heart-btn" onclick="toggleHeart(event,this)" aria-label="Favourite">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--dustrose)"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="menu-card drink-card" onclick="openModal('Chamomile Calm Tea','Soft floral, soothing and warm — the quiet cup you deserve at the end of a long day, steeped with care.','₹120','https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600&q=80')">
-        <div class="menu-card-img" style="background:#7A6040;">
-          <div class="drink-visual">
-            <svg class="steam-svg" viewBox="0 0 60 50" fill="none">
-              <path class="steam-path" d="M15,45 Q10,35 15,25 Q20,15 15,5" stroke="rgba(237,216,212,0.5)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-              <path class="steam-path" d="M30,45 Q25,35 30,22 Q35,12 30,2" stroke="rgba(237,216,212,0.5)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-              <path class="steam-path" d="M45,45 Q40,35 45,25 Q50,15 45,5" stroke="rgba(237,216,212,0.5)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
-            </svg>
-            <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600&q=80" alt="Chamomile Calm Tea" style="position:absolute;inset:0;opacity:0.9;" loading="lazy">
-          </div>
-          <div class="menu-card-img-overlay"></div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-card-top">
-            <div class="menu-card-name">Chamomile Calm Tea</div>
-            <div class="menu-card-price">₹120</div>
-          </div>
-          <div class="menu-card-desc">Soft floral, soothing and warm</div>
-          <div class="menu-card-footer">
-            <span></span>
-            <button class="heart-btn" onclick="toggleHeart(event,this)" aria-label="Favourite">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--dustrose)"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── Chapter 5: House Specials ── -->
-  <div class="menu-chapter reveal" data-cat="savory">
-    <div class="chapter-header">
-      <span class="chapter-num">V</span>
-      <h3 class="chapter-name">House Specials</h3>
-      <span class="chapter-sub">"Made with Extra Love"</span>
-    </div>
-    <div class="menu-grid-2">
-      <div class="menu-card featured" onclick="openModal('B\'s Favourite','A butter chicken margherita pizza — creamy, spiced butter chicken sauce spread over a soft hand-baked crust, topped with melted mozzarella, fresh basil, and just enough heat to make you go back for another slice. Where Indian comfort meets Italian soul.','₹320','https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=800&q=80')">
-        <div class="card-badge badge-special">Chef's Favourite</div>
-        <div class="menu-card-img" style="height:260px;">
-          <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=800&q=80" alt="B's Favourite Butter Chicken Pizza" loading="lazy">
-          <div class="menu-card-img-overlay"></div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-card-top">
-            <div class="menu-card-name">B's Favourite</div>
-            <div class="menu-card-price">₹320</div>
-          </div>
-          <div class="menu-card-desc">A butter chicken margherita — creamy spiced sauce, melted mozzarella, on a soft baked crust. Where Indian comfort meets Italian soul.</div>
-          <div class="menu-card-footer">
-            <span style="font-family:var(--f-serif);font-style:italic;font-size:12px;color:var(--caramel);">Our most talked-about item</span>
-            <button class="heart-btn" onclick="toggleHeart(event,this)" aria-label="Favourite">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--dustrose)"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="menu-card featured" onclick="openModal('Crumbelle Signature Breakfast Board','Mini croissant, house jam, golden butter, seasonal fruit, and your choice of warm drink — the ultimate slow morning, arranged with care and served with love.','₹280','https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=800&q=80')">
-        <div class="card-badge badge-fav">Best Seller</div>
-        <div class="menu-card-img" style="height:260px;">
-          <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=800&q=80" alt="Breakfast Board" loading="lazy">
-          <div class="menu-card-img-overlay"></div>
-        </div>
-        <div class="menu-card-body">
-          <div class="menu-card-top">
-            <div class="menu-card-name">Signature Breakfast Board</div>
-            <div class="menu-card-price">₹280</div>
-          </div>
-          <div class="menu-card-desc">Mini croissant, jam, butter, fruit, and a warm drink — the full slow morning</div>
-          <div class="menu-card-footer">
-            <span style="font-family:var(--f-serif);font-style:italic;font-size:12px;color:var(--caramel);">The complete experience</span>
-            <button class="heart-btn" onclick="toggleHeart(event,this)" aria-label="Favourite">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--dustrose)"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════
-     PHILOSOPHY / WHY US
-══════════════════════════════════ -->
+<!-- ═══════════ PHILOSOPHY ═══════════ -->
 <section id="philosophy">
-  <div class="philosophy-left">
-    <span class="section-eyebrow reveal">What Makes Us Different</span>
-    <h2 class="section-title reveal reveal-delay-1">Baking as an<br>act of care</h2>
-    <div class="philosophy-list">
-      <div class="phil-item reveal reveal-delay-1">
-        <div class="phil-num">01</div>
-        <div class="phil-text-wrap">
-          <div class="phil-name">Fresh Every Morning</div>
-          <p class="phil-desc">We bake before the town wakes. Nothing sits overnight. If it isn't warm from today's oven, it doesn't reach your hands.</p>
-        </div>
-      </div>
-      <div class="phil-item reveal reveal-delay-2">
-        <div class="phil-num">02</div>
-        <div class="phil-text-wrap">
-          <div class="phil-name">Locally Sourced</div>
-          <p class="phil-desc">Flour, dairy, eggs, honey — from farms we know by name, within miles of our kitchen. Seasonal, honest, real.</p>
-        </div>
-      </div>
-      <div class="phil-item reveal reveal-delay-3">
-        <div class="phil-num">03</div>
-        <div class="phil-text-wrap">
-          <div class="phil-name">Shaped by Hand</div>
-          <p class="phil-desc">No shortcuts, no mass production. Every loaf scored, every pastry folded, every cake frosted by a person who means it.</p>
-        </div>
-      </div>
-      <div class="phil-item reveal reveal-delay-4">
-        <div class="phil-num">04</div>
-        <div class="phil-text-wrap">
-          <div class="phil-name">A Place to Belong</div>
-          <p class="phil-desc">More than a bakery. A gathering spot, a quiet corner, a reason to slow down and share something warm with someone you love.</p>
-        </div>
-      </div>
+  <div class="phil-bg-text">Baked</div>
+  <div class="phil-inner">
+    <div class="phil-header">
+      <span class="eyebrow reveal">What Makes Us Different</span>
+      <h2 class="reveal reveal-delay-1">Baking as an <em>act of care</em></h2>
     </div>
-  </div>
-  <div class="philosophy-right reveal">
-    <div class="philosophy-quote">
-      "Bread is the kindest thing you can bake for someone."
-    </div>
-    <div class="philosophy-img-main">
-      <img src="https://images.unsplash.com/photo-1470756544705-1848092be0d4?w=600&q=80" alt="Crumbelle interior" style="height:100%;">
-    </div>
-    <div class="philosophy-img-float">
-      <img src="https://images.unsplash.com/photo-1556711905-b2c7e849b979?w=400&q=80" alt="Fresh pastries" style="height:100%;">
+    <div class="phil-grid">
+      <div class="phil-card reveal">
+        <div class="phil-card-num">01</div>
+        <svg class="phil-card-icon" viewBox="0 0 48 48" fill="none">
+          <circle cx="24" cy="24" r="18" stroke="var(--wheat)" stroke-width="1.5"/>
+          <path d="M24,8 L24,16" stroke="var(--wheat)" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M24,24 L24,12" stroke="var(--rose)" stroke-width="2" stroke-linecap="round"/>
+          <path d="M24,24 L32,30" stroke="var(--umber)" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="24" cy="24" r="2" fill="var(--wheat)"/>
+        </svg>
+        <div class="phil-card-name">Fresh Every Morning</div>
+        <p class="phil-card-desc">We bake before the town wakes. Nothing sits overnight. If it isn't warm from today's oven, it doesn't reach your hands.</p>
+      </div>
+      <div class="phil-card dark reveal reveal-delay-1">
+        <div class="phil-card-num">02</div>
+        <svg class="phil-card-icon" viewBox="0 0 48 48" fill="none">
+          <path d="M24,40 C24,40 8,30 8,18 C8,12 13,7 19,8 C21,8 23,9 24,11 C25,9 27,8 29,8 C35,7 40,12 40,18 C40,30 24,40 24,40Z" stroke="var(--wheat)" stroke-width="1.5" fill="none"/>
+        </svg>
+        <div class="phil-card-name">Locally Sourced</div>
+        <p class="phil-card-desc">Flour, dairy, eggs, honey — from farms we know by name, within miles of our kitchen. Seasonal, honest, real.</p>
+      </div>
+      <div class="phil-card dark reveal reveal-delay-2">
+        <div class="phil-card-num">03</div>
+        <svg class="phil-card-icon" viewBox="0 0 48 48" fill="none">
+          <path d="M14,34 C14,34 12,20 20,14 C24,11 28,12 30,16" stroke="var(--wheat)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <ellipse cx="32" cy="20" rx="8" ry="14" stroke="var(--wheat)" stroke-width="1.5" transform="rotate(-20,32,20)"/>
+          <path d="M18,38 L30,38" stroke="var(--wheat)" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <div class="phil-card-name">Shaped by Hand</div>
+        <p class="phil-card-desc">No shortcuts, no mass production. Every loaf scored, every pastry folded, every cake frosted by a person who means it.</p>
+      </div>
+      <div class="phil-card reveal reveal-delay-3">
+        <div class="phil-card-num">04</div>
+        <svg class="phil-card-icon" viewBox="0 0 48 48" fill="none">
+          <path d="M10,36 L10,18 Q10,12 20,12 L28,12 Q38,12 38,18 L38,36" stroke="var(--umber)" stroke-width="1.5" fill="none"/>
+          <rect x="14" y="24" width="8" height="12" rx="1" stroke="var(--umber)" stroke-width="1" fill="none"/>
+          <rect x="26" y="20" width="8" height="6" rx="1" stroke="var(--umber)" stroke-width="1" fill="none"/>
+          <line x1="8" y1="36" x2="40" y2="36" stroke="var(--umber)" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <div class="phil-card-name">A Place to Belong</div>
+        <p class="phil-card-desc">More than a bakery. A gathering spot, a quiet corner, a reason to slow down and share something warm with someone you love.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════
-     HOURS
-══════════════════════════════════ -->
+<!-- ═══════════ TORN PAPER 2 ═══════════ -->
+<div class="torn" style="background:var(--ink);transform:scaleY(-1) scaleX(-1)">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 L0,20 Q10,35 22,18 Q34,4 48,28 Q62,48 78,22 Q94,0 108,30 Q122,55 140,24 Q158,0 172,32 Q186,58 200,26 Q214,0 228,34 Q242,60 258,28 Q274,0 290,38 Q306,60 322,30 Q338,4 354,36 Q370,60 386,26 Q402,0 416,38 Q430,60 448,28 Q466,0 482,36 Q498,60 514,26 Q530,0 548,38 Q566,60 582,28 Q598,0 614,36 Q630,60 648,26 Q666,0 682,38 Q698,60 716,28 Q734,0 750,36 Q766,60 784,28 Q802,0 818,36 Q834,60 852,26 Q870,0 886,38 Q902,60 920,28 Q938,0 954,36 Q970,60 988,26 Q1006,0 1022,38 Q1038,60 1056,28 Q1074,0 1090,36 Q1106,60 1124,26 Q1142,0 1158,38 Q1174,60 1192,28 Q1210,0 1226,36 Q1242,60 1260,26 Q1278,0 1294,38 Q1310,60 1328,28 Q1346,0 1362,36 Q1378,60 1396,26 Q1412,0 1428,38 L1440,60 L0,60 Z" fill="var(--parchment)"/>
+  </svg>
+</div>
+
+<!-- ═══════════ GALLERY ═══════════ -->
+<section id="gallery">
+  <div class="gallery-header">
+    <div>
+      <span style="font-family:'Caveat',cursive;font-size:17px;color:rgba(200,184,154,0.4);letter-spacing:0.1em;display:block;margin-bottom:8px">A Peek Inside</span>
+      <h2 class="reveal">Sweet <em>Moments</em></h2>
+    </div>
+    <p class="reveal">follow us @crumbellebakehouse</p>
+  </div>
+  <div class="film-strip">
+    <div class="film-holes">
+      <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+      <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    </div>
+    <div class="film-cell reveal">
+      <img src="https://images.unsplash.com/photo-1464306076886-f251ddd87c68?w=600&q=80" alt="Bakehouse warmth" loading="lazy">
+      <div class="film-caption">morning light in the bakery</div>
+    </div>
+    <div class="film-cell reveal reveal-delay-1">
+      <img src="https://images.unsplash.com/photo-1530610476181-d83430b64dcd?w=600&q=80" alt="Croissants" loading="lazy">
+      <div class="film-caption">golden croissants, just out</div>
+    </div>
+    <div class="film-cell reveal reveal-delay-2">
+      <img src="https://images.unsplash.com/photo-1556711905-b2c7e849b979?w=600&q=80" alt="Pastry" loading="lazy">
+      <div class="film-caption">layers of care</div>
+    </div>
+    <div class="film-cell reveal reveal-delay-3">
+      <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600&q=80" alt="Coffee" loading="lazy">
+      <div class="film-caption">sip and stay awhile</div>
+    </div>
+    <div class="film-cell reveal reveal-delay-4">
+      <img src="https://images.unsplash.com/photo-1559620192-032c4bc4674e?w=600&q=80" alt="Cakes" loading="lazy">
+      <div class="film-caption">soft celebrations</div>
+    </div>
+    <div class="film-holes">
+      <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+      <div class="hole"></div><div class="hole"></div><div class="hole"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ HOURS ═══════════ -->
 <section id="hours">
   <div class="hours-left">
-    <span class="section-eyebrow reveal">Come Find Us</span>
-    <h2 class="section-title reveal reveal-delay-1">Opening<br>Hours</h2>
-    <p class="hours-tagline reveal reveal-delay-2">We open with the sunrise and close with the last crumb.</p>
-    <!-- Hours doodle -->
-    <svg style="margin-top:32px;width:80px;opacity:0.5;" viewBox="0 0 80 80" fill="none" class="reveal reveal-delay-3">
-      <circle cx="40" cy="40" r="35" stroke="rgba(250,242,238,0.4)" stroke-width="1.5"/>
-      <line x1="40" y1="40" x2="40" y2="14" stroke="rgba(250,242,238,0.7)" stroke-width="2" stroke-linecap="round"/>
-      <line x1="40" y1="40" x2="58" y2="50" stroke="rgba(250,242,238,0.5)" stroke-width="1.5" stroke-linecap="round"/>
-      <circle cx="40" cy="40" r="3" fill="rgba(250,242,238,0.6)"/>
-    </svg>
+    <span style="font-family:'Caveat',cursive;font-size:18px;color:var(--umber);display:block;margin-bottom:16px" class="reveal">Come Find Us</span>
+    <h2 class="reveal reveal-delay-1">Opening <em>Hours</em></h2>
+    <p class="reveal reveal-delay-2">We open with the sunrise and close with the last crumb. Come early — the best things go first.</p>
+    <div class="hours-note-tag reveal reveal-delay-3">Fresh batch out by 8 AM ✦</div>
   </div>
-  <div class="hours-right">
-    <div class="hours-row reveal">
-      <div class="hours-day">Monday – Friday</div>
-      <div class="hours-row-inner">
-        <div class="hours-time">7:00 — 19:00</div>
-        <div class="hours-note">Fresh batch out by 8 AM</div>
-      </div>
+  <div class="hours-grid">
+    <div class="hours-entry reveal">
+      <div class="h-day">Monday – Friday</div>
+      <div class="h-right"><div class="h-time">7:00 — 19:00</div><div class="h-note">Fresh batch out by 8 AM</div></div>
     </div>
-    <div class="hours-row reveal reveal-delay-1">
-      <div class="hours-day">Saturday</div>
-      <div class="hours-row-inner">
-        <div class="hours-time">6:30 — 20:00</div>
-        <div class="hours-note">Weekend brunch specials</div>
-      </div>
+    <div class="hours-entry reveal reveal-delay-1">
+      <div class="h-day">Saturday</div>
+      <div class="h-right"><div class="h-time">6:30 — 20:00</div><div class="h-note">Weekend brunch specials</div></div>
     </div>
-    <div class="hours-row reveal reveal-delay-2">
-      <div class="hours-day">Sunday</div>
-      <div class="hours-row-inner">
-        <div class="hours-time">7:30 — 18:00</div>
-        <div class="hours-note">Slow mornings, always</div>
-      </div>
+    <div class="hours-entry reveal reveal-delay-2">
+      <div class="h-day">Sunday</div>
+      <div class="h-right"><div class="h-time">7:30 — 18:00</div><div class="h-note">Slow mornings, always</div></div>
     </div>
-    <div class="hours-row reveal reveal-delay-3" style="border-bottom:none;">
-      <div class="hours-day">Public Holidays</div>
-      <div class="hours-row-inner">
-        <div class="hours-time">9:00 — 15:00</div>
-        <div class="hours-note">Limited menu, full heart</div>
-      </div>
+    <div class="hours-entry reveal reveal-delay-3" style="border-bottom:none">
+      <div class="h-day">Public Holidays</div>
+      <div class="h-right"><div class="h-time">9:00 — 15:00</div><div class="h-note">Limited menu, full heart</div></div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════
-     GALLERY
-══════════════════════════════════ -->
-<section id="gallery">
-  <div class="gallery-head reveal">
-    <span class="section-eyebrow">A Peek Inside</span>
-    <h2 class="section-title">Sweet Moments</h2>
-  </div>
-  <div class="gallery-mosaic">
-    <div class="gallery-cell reveal">
-      <img src="https://images.unsplash.com/photo-1464306076886-f251ddd87c68?w=800&q=80" alt="Bakehouse warmth">
-      <div class="gallery-cell-label">morning light in the bakery</div>
-    </div>
-    <div class="gallery-cell reveal reveal-delay-1">
-      <img src="https://images.unsplash.com/photo-1530610476181-d83430b64dcd?w=600&q=80" alt="Fresh croissants">
-      <div class="gallery-cell-label">golden croissants, just out</div>
-    </div>
-    <div class="gallery-cell reveal reveal-delay-2">
-      <img src="https://images.unsplash.com/photo-1556711905-b2c7e849b979?w=600&q=80" alt="Pastry close-up">
-      <div class="gallery-cell-label">layers of care</div>
-    </div>
-    <div class="gallery-cell reveal reveal-delay-3">
-      <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600&q=80" alt="Cozy coffee">
-      <div class="gallery-cell-label">sip and stay awhile</div>
-    </div>
-    <div class="gallery-cell reveal reveal-delay-4">
-      <img src="https://images.unsplash.com/photo-1559620192-032c4bc4674e?w=600&q=80" alt="Cakes display">
-      <div class="gallery-cell-label">soft celebrations</div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════
-     VISIT
-══════════════════════════════════ -->
+<!-- ═══════════ VISIT ═══════════ -->
 <section id="visit">
-  <div class="visit-intro">
-    <span class="section-eyebrow reveal">Find Us</span>
-    <h2 class="section-title reveal reveal-delay-1">Tucked in a quiet corner,<br>waiting to welcome you</h2>
-    <p class="section-body reveal reveal-delay-2" style="margin-top:20px;">We're not hard to find — follow the smell of warm bread and you'll be here before you know it.</p>
-    <div class="visit-info">
-      <div class="info-item reveal reveal-delay-1">
-        <div class="info-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--caramel)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+  <div class="visit-left">
+    <div class="visit-eyebrow reveal">Find Us</div>
+    <h2 class="visit-h2 reveal reveal-delay-1">Tucked in a quiet corner, <em>waiting</em> to welcome you</h2>
+    <div class="visit-details">
+      <div class="visit-detail reveal reveal-delay-1">
+        <div class="visit-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--wheat)" stroke-width="1.5" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
         </div>
         <div>
-          <div class="info-label">Address</div>
-          <div class="info-value">12 Hearthstone Lane, Millbrook Village<br>Near the old clock tower</div>
+          <div class="v-label">Address</div>
+          <div class="v-value">12 Hearthstone Lane, Millbrook Village<br>Near the old clock tower</div>
         </div>
       </div>
-      <div class="info-item reveal reveal-delay-2">
-        <div class="info-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--caramel)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.34 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.26 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.54a16 16 0 0 0 5.55 5.55l.61-1.54a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 14.91v3z"></path></svg>
+      <div class="visit-detail reveal reveal-delay-2">
+        <div class="visit-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--wheat)" stroke-width="1.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.34 12a19.79 19.79 0 01-3.07-8.67A2 2 0 013.26 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.91 8.54a16 16 0 005.55 5.55l.61-1.54a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0121 14.91v3z"/></svg>
         </div>
         <div>
-          <div class="info-label">Phone</div>
-          <div class="info-value">+91 98765 43210</div>
+          <div class="v-label">Phone</div>
+          <div class="v-value">+91 98765 43210</div>
         </div>
       </div>
-      <div class="info-item reveal reveal-delay-3">
-        <div class="info-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--caramel)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+      <div class="visit-detail reveal reveal-delay-3">
+        <div class="visit-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--wheat)" stroke-width="1.5" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         </div>
         <div>
-          <div class="info-label">Email</div>
-          <div class="info-value">hello@crumbellebakehouse.com</div>
+          <div class="v-label">Email</div>
+          <div class="v-value">hello@crumbellebakehouse.com</div>
         </div>
       </div>
     </div>
   </div>
   <div class="visit-map reveal reveal-delay-2">
-    <div class="map-placeholder-inner" style="background:linear-gradient(135deg,#EDD8D4,#DEC4C0);">
-      <svg class="map-pin-anim" width="40" height="52" viewBox="0 0 40 52" fill="none">
-        <path d="M20 0C9 0 0 9 0 20C0 34 20 52 20 52C20 52 40 34 40 20C40 9 31 0 20 0Z" fill="#C4697A"/>
-        <circle cx="20" cy="20" r="8" fill="#FAF2EE"/>
-        <circle cx="20" cy="20" r="4" fill="#C4697A"/>
-      </svg>
-      <div class="map-address">12 Hearthstone Lane<br>Millbrook Village</div>
-      <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn-dark" style="margin-top:16px;font-size:10px;">Open in Maps</a>
+    <svg class="map-grid-lines" viewBox="0 0 400 300" preserveAspectRatio="none">
+      <defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40,0 L0,0 L0,40" fill="none" stroke="rgba(200,184,154,0.15)" stroke-width="0.5"/></pattern></defs>
+      <rect width="100%" height="100%" fill="url(#grid)"/>
+    </svg>
+    <div style="position:relative;text-align:center">
+      <div class="map-pin">
+        <svg width="40" height="52" viewBox="0 0 40 52" fill="none">
+          <path d="M20 0C9 0 0 9 0 20C0 34 20 52 20 52C20 52 40 34 40 20C40 9 31 0 20 0Z" fill="var(--rose)"/>
+          <circle cx="20" cy="20" r="8" fill="var(--cream)"/>
+          <circle cx="20" cy="20" r="4" fill="var(--rose)"/>
+        </svg>
+      </div>
+      <div class="map-addr">12 Hearthstone Lane<br>Millbrook Village</div>
+      <a href="https://maps.google.com" target="_blank" rel="noopener" class="map-open-btn">Open in Maps</a>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════
-     CONTACT
-══════════════════════════════════ -->
+<!-- ═══════════ CONTACT ═══════════ -->
 <section id="contact">
-  <div>
-    <span class="section-eyebrow reveal">Pre-order & Enquiries</span>
-    <h2 class="section-title reveal reveal-delay-1">We'd love to hear<br>from you</h2>
-    <p class="section-body reveal reveal-delay-2" style="margin-top:20px;">Whether it's a custom order, a catering enquiry, or just a note to say hello — our inbox is always warm and open.</p>
-    <div class="contact-pull-quote reveal reveal-delay-3">
-      "We reply like we bake — thoughtfully, and without rushing."
-    </div>
+  <div class="contact-left">
+    <span class="contact-eyebrow reveal">Pre-order & Enquiries</span>
+    <h2 class="contact-h2 reveal reveal-delay-1">We'd love to hear <em>from you</em></h2>
+    <p class="contact-body reveal reveal-delay-2">Whether it's a custom order, a catering enquiry, or just a note to say hello — our inbox is always warm and open.</p>
+    <div class="contact-pull reveal reveal-delay-3">"We reply like we bake — thoughtfully, and without rushing."</div>
   </div>
   <div class="reveal reveal-delay-2">
-    <div class="form-group">
-      <label class="form-label" for="cname">Your Name</label>
-      <input id="cname" type="text" class="form-input" placeholder="What should we call you?">
+    <div class="form-field">
+      <label class="form-lbl">Your Name</label>
+      <input type="text" class="form-inp" placeholder="What should we call you?">
     </div>
-    <div class="form-group">
-      <label class="form-label" for="cemail">Email Address</label>
-      <input id="cemail" type="email" class="form-input" placeholder="Where can we write back?">
+    <div class="form-field">
+      <label class="form-lbl">Email Address</label>
+      <input type="email" class="form-inp" placeholder="Where can we write back?">
     </div>
-    <div class="form-group">
-      <label class="form-label" for="csubject">Subject</label>
-      <input id="csubject" type="text" class="form-input" placeholder="Pre-order, custom cake, just saying hi...">
+    <div class="form-field">
+      <label class="form-lbl">Subject</label>
+      <input type="text" class="form-inp" placeholder="Pre-order, custom cake, just saying hi...">
     </div>
-    <div class="form-group">
-      <label class="form-label" for="cmessage">Your Message</label>
-      <textarea id="cmessage" class="form-textarea" placeholder="Tell us what you're craving, planning, or dreaming about..."></textarea>
+    <div class="form-field">
+      <label class="form-lbl">Your Message</label>
+      <textarea class="form-ta" placeholder="Tell us what you're craving, planning, or dreaming about..."></textarea>
     </div>
-    <button class="form-submit" id="formSubmit" onclick="handleSubmit()">Send Message</button>
+    <button class="form-submit" id="formSubmit" onclick="handleSubmit()">Send a Note ✦</button>
   </div>
 </section>
 
-<!-- ══════════════════════════════════
-     FOOTER
-══════════════════════════════════ -->
+<!-- ═══════════ FOOTER ═══════════ -->
 <footer>
   <div class="footer-top">
     <div>
-      <div class="footer-brand-name">Crumbelle Bakehouse</div>
-      <div class="footer-brand-sub">Est. 2012 &mdash; Millbrook Village</div>
-      <p class="footer-tagline">Baked with love, shared with warmth. A small-town bakery making honest, beautiful things every morning.</p>
+      <div class="footer-brand">Crumbelle Bakehouse</div>
+      <div class="footer-brand-sub">Est. 2012 · Millbrook Village</div>
+      <p class="footer-desc">Baked with love, shared with warmth. A small-town bakery making honest, beautiful things every morning before the town wakes.</p>
     </div>
     <div class="footer-col">
       <div class="footer-col-title">Explore</div>
@@ -1828,163 +1552,144 @@ body.spring-mode {
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-copy">&copy; 2024 Crumbelle Bakehouse. All rights reserved.</div>
-    <div class="footer-socials">
-      <a class="social-link" href="#" aria-label="Instagram">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+    <div class="footer-copy">© 2024 Crumbelle Bakehouse. All rights reserved.</div>
+    <div class="footer-social">
+      <a class="s-link" href="#" aria-label="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
       </a>
-      <a class="social-link" href="#" aria-label="Pinterest">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 8c-1.66 0-3 1.34-3 3 0 1.29.82 2.4 2 2.82V17l1.5-1.5L14 17v-3.18c1.18-.42 2-1.53 2-2.82 0-1.66-1.34-3-3-3z"/></svg>
-      </a>
-      <a class="social-link" href="#" aria-label="Facebook">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+      <a class="s-link" href="#" aria-label="Pinterest">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8c-2.2 0-4 1.8-4 4s1.8 4 4 4v-3l2 2"/></svg>
       </a>
     </div>
   </div>
 </footer>
 
-<!-- ══════════════════════════════════
-     MODAL
-══════════════════════════════════ -->
-<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+<!-- ═══════════ MODAL ═══════════ -->
+<div class="modal" id="modal" onclick="if(event.target===this)closeModal()">
   <div class="modal-box">
-    <button class="modal-close" onclick="closeModal()">&times;</button>
-    <div class="modal-img" id="modal-img">
-      <img id="modal-photo" src="" alt="">
-    </div>
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div class="modal-img"><img id="modal-photo" src="" alt=""></div>
     <div class="modal-body">
       <div class="modal-name" id="modal-name"></div>
       <div class="modal-desc" id="modal-desc"></div>
-      <div class="modal-footer">
+      <div class="modal-foot">
         <div class="modal-price" id="modal-price"></div>
-        <button class="btn-dark modal-add" onclick="closeModal()">Add to Order</button>
+        <button class="modal-add" onclick="closeModal()">Add to Order</button>
       </div>
     </div>
   </div>
 </div>
 
 <!-- Season toggle -->
-<button class="season-btn" id="seasonBtn" onclick="toggleSeason()">
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-  <span id="seasonLabel">Spring</span>
+<button class="season-fab" onclick="toggleSeason()">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+  <span id="seasonLabel">Spring mode</span>
 </button>
 
 <script>
-// ─── NAV SCROLL ───
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 40);
+/* ── CUSTOM CURSOR ── */
+const cur = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+(function animRing(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)})();
+document.querySelectorAll('a,button,[onclick]').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.transform='translate(-50%,-50%) scale(2)';ring.style.transform='translate(-50%,-50%) scale(1.4)';ring.style.opacity='0.3'});
+  el.addEventListener('mouseleave',()=>{cur.style.transform='translate(-50%,-50%) scale(1)';ring.style.transform='translate(-50%,-50%) scale(1)';ring.style.opacity='0.6'});
 });
 
-// ─── REVEAL ON SCROLL ───
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('up');
-    }
+/* ── FLOUR PARTICLES ── */
+const canvas=document.getElementById('flour-canvas');
+const ctx=canvas.getContext('2d');
+canvas.width=window.innerWidth;canvas.height=window.innerHeight;
+window.addEventListener('resize',()=>{canvas.width=window.innerWidth;canvas.height=window.innerHeight});
+const particles=[];
+for(let i=0;i<60;i++){
+  particles.push({
+    x:Math.random()*canvas.width,
+    y:Math.random()*canvas.height,
+    r:Math.random()*2.5+0.5,
+    vx:(Math.random()-0.5)*0.3,
+    vy:Math.random()*0.15+0.05,
+    o:Math.random()*0.5+0.1
   });
-}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-// ─── HEART TOGGLE ───
-function toggleHeart(e, btn) {
-  e.stopPropagation();
-  btn.classList.toggle('liked');
-  const svg = btn.querySelector('svg path');
-  if (btn.classList.contains('liked')) {
-    svg.setAttribute('fill', '#C4697A');
-    svg.setAttribute('stroke', '#C4697A');
-  } else {
-    svg.setAttribute('fill', 'none');
-    svg.setAttribute('stroke', 'currentColor');
-  }
 }
+function drawParticles(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particles.forEach(p=>{
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle=`rgba(245,233,213,${p.o})`;
+    ctx.fill();
+    p.x+=p.vx;p.y+=p.vy;
+    if(p.y>canvas.height){p.y=0;p.x=Math.random()*canvas.width}
+    if(p.x<0)p.x=canvas.width;if(p.x>canvas.width)p.x=0;
+  });
+  requestAnimationFrame(drawParticles);
+}
+drawParticles();
 
-// ─── MODAL ───
-function openModal(name, desc, price, img) {
-  document.getElementById('modal-name').textContent = name;
-  document.getElementById('modal-desc').textContent = desc;
-  document.getElementById('modal-price').textContent = price;
-  document.getElementById('modal-photo').src = img;
-  document.getElementById('modal-photo').alt = name;
+/* ── NAV SCROLL ── */
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('stuck',scrollY>50)});
+
+/* ── REVEAL ── */
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('up')});
+},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>obs.observe(el));
+
+/* ── PARALLAX ── */
+window.addEventListener('scroll',()=>{
+  const sy=scrollY;
+  document.querySelectorAll('[data-parallax]').forEach(el=>{
+    const speed=parseFloat(el.dataset.parallax);
+    el.style.transform=`translateY(${sy*speed}px)`;
+  });
+  // Hero left text subtle parallax
+  const heroLeft=document.querySelector('.hero-left');
+  if(heroLeft&&sy<window.innerHeight){
+    heroLeft.style.transform=`translateY(${sy*0.07}px)`;
+  }
+});
+
+/* ── MODAL ── */
+function openModal(name,desc,price,img){
+  document.getElementById('modal-name').textContent=name;
+  document.getElementById('modal-desc').textContent=desc;
+  document.getElementById('modal-price').textContent=price;
+  const ph=document.getElementById('modal-photo');
+  ph.src=img;ph.alt=name;
   document.getElementById('modal').classList.add('open');
-  document.body.style.overflow = 'hidden';
+  document.body.style.overflow='hidden';
 }
-function closeModal() {
+function closeModal(){
   document.getElementById('modal').classList.remove('open');
-  document.body.style.overflow = '';
+  document.body.style.overflow='';
 }
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
 
-// ─── MENU FILTER ───
-function filterMenu(cat, btn) {
-  document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  document.querySelectorAll('.menu-chapter').forEach(ch => {
-    if (cat === 'all' || ch.dataset.cat === cat) {
-      ch.style.display = 'block';
-    } else {
-      ch.style.display = 'none';
-    }
-  });
+/* ── SEASON ── */
+let spring=false;
+function toggleSeason(){
+  spring=!spring;
+  document.body.classList.toggle('spring',spring);
+  document.getElementById('seasonLabel').textContent=spring?'Autumn mode':'Spring mode';
 }
 
-// ─── SEASON TOGGLE ───
-let spring = false;
-function toggleSeason() {
-  spring = !spring;
-  document.body.classList.toggle('spring-mode', spring);
-  document.getElementById('seasonLabel').textContent = spring ? 'Autumn' : 'Spring';
+/* ── FORM ── */
+function handleSubmit(){
+  const btn=document.getElementById('formSubmit');
+  btn.textContent='Sending...';btn.disabled=true;
+  setTimeout(()=>{
+    btn.textContent='Message received — thank you ✦';
+    btn.style.background='var(--moss)';
+  },1200);
 }
 
-// ─── FORM SUBMIT ───
-function handleSubmit() {
-  const btn = document.getElementById('formSubmit');
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
-  setTimeout(() => {
-    btn.textContent = 'Message received — thank you';
-    btn.style.background = 'var(--sage)';
-    btn.style.color = '#fff';
-  }, 1200);
-}
-
-// ─── LOGO EASTER EGG ───
-document.getElementById('logoLink').addEventListener('click', (e) => {
-  for (let i = 0; i < 14; i++) {
-    const el = document.createElement('div');
-    const doodles = ['✦', '✧', '✶', '·', '∘'];
-    el.style.cssText = `
-      position:fixed; top:60px; left:${10+Math.random()*80}%;
-      font-size:${12+Math.random()*14}px;
-      pointer-events:none; z-index:9998;
-      color:var(--honey); opacity:1;
-      animation: easterFall ${1+Math.random()*0.8}s ease forwards;
-      animation-delay:${Math.random()*0.3}s;
-    `;
-    el.textContent = doodles[Math.floor(Math.random()*doodles.length)];
-    document.body.appendChild(el);
-    setTimeout(() => el.remove(), 2000);
-  }
-});
-
-// ─── EASTER FALL KEYFRAME ───
-const s = document.createElement('style');
-s.textContent = `
-  @keyframes easterFall {
-    0%   { transform: translateY(0) rotate(0deg); opacity:1; }
-    100% { transform: translateY(180px) rotate(${Math.random()>0.5?'':'- '}180deg); opacity:0; }
-  }
-`;
-document.head.appendChild(s);
-
-// ─── PARALLAX HERO ───
-window.addEventListener('scroll', () => {
-  const hero = document.getElementById('hero');
-  if (!hero) return;
-  const scroll = window.scrollY;
-  const illus = hero.querySelector('.hero-illustration');
-  if (illus) illus.style.transform = `translateX(-50%) translateY(${scroll * 0.08}px)`;
+/* ── CHALKBOARD items hover sound-like effect ── */
+document.querySelectorAll('.chalk-item').forEach(item=>{
+  item.style.cursor='none';
 });
 </script>
 </body>
